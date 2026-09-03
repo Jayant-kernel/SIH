@@ -1,0 +1,7 @@
+services:
+  gateway-a:
+    volumes:
+      - ../config/t15-only/gateway-a:/etc/swanctl/conf.d:ro
+  gateway-b:
+    volumes:
+      - ../config/t15-only/gateway-b:/etc/swanctl/conf.d:ro

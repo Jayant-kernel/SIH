@@ -1,0 +1,30 @@
+{
+  "scenario_id": "S06-rekey-ikev2-esp-tunnel-manual",
+  "description": "Manual rekey of baseline CHILD_SA via swanctl --rekey, proves new SPIs and continued traffic",
+  "family": "ESP-tunnel-rekey",
+  "ike_version": 2,
+  "ike_transport_ip_version": "IPv4",
+  "ike_proposal": "aes256-sha256-modp3072 (same as baseline)",
+  "esp_proposal": "aes256-sha256-modp2048",
+  "ipsec_protocol": "ESP",
+  "mode": "tunnel",
+  "encryption_algorithm": "AES-CBC",
+  "encryption_key_length": 256,
+  "integrity_algorithm": "HMAC-SHA256",
+  "dh_group": 15,
+  "pfs": true,
+  "protected_ip_version": "IPv4",
+  "local_ts": "10.77.1.0/24",
+  "remote_ts": "10.77.2.0/24",
+  "ike_endpoints": "10.77.0.10 <-> 10.77.0.20",
+  "rekey_enabled": true,
+  "rekey_trigger": "swanctl --rekey --child net-v4v6 (manual)",
+  "rekey_time": "manual (baseline 3600s, forced via CLI)",
+  "traffic_type": "ICMP 10.77.1.10 -> 10.77.2.10 before and after",
+  "evidence": {
+    "directly_observed": ["old SPI c687df29 / new SPI cab9ebd4 via ip xfrm state", "swanctl old CHILD #1 DELETED / new #10 INSTALLED", "tcpdump CREATE_CHILD_SA exchange", "ping 3/3 before and after"],
+    "deterministically_derived": ["rekey occurred from SPI change + logs", "not just two directional SAs but new CHILD_SA id"],
+    "ml_inferred": [],
+    "unknown": []
+  }
+}

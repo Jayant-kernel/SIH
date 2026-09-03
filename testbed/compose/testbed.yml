@@ -1,0 +1,175 @@
+name: sih-ipsec-testbed
+
+# Four-container site-to-site IPsec testbed
+# Topology:
+#   client-a (10.77.1.10) -- protected-a -- gateway-a (10.77.1.1 / 10.77.0.10)
+#                                   transit (10.77.0.0/24) :: 10.77.0.20
+#                                   gateway-b (10.77.0.20 / 10.77.2.1) -- protected-b -- client-b (10.77.2.10)
+#
+# Addressing scheme: 10.77.x.x IPv4 + fd77:77:x::/64 IPv6 ULA (isolated, not routed outside Docker)
+# Networks are internal; gateways are privileged for XFRM/IPsec and ip_forward.
+
+networks:
+  transit:
+    name: sih-transit
+    driver: bridge
+    enable_ipv6: true
+    ipam:
+      config:
+        - subnet: 10.77.0.0/24
+          gateway: 10.77.0.1
+        - subnet: fd77:77:0::/64
+          gateway: fd77:77:0::1
+  protected-a:
+    name: sih-protected-a
+    driver: bridge
+    enable_ipv6: true
+    ipam:
+      config:
+        - subnet: 10.77.1.0/24
+          gateway: 10.77.1.254
+        - subnet: fd77:77:1::/64
+          gateway: fd77:77:1::ffff
+  protected-b:
+    name: sih-protected-b
+    driver: bridge
+    enable_ipv6: true
+    ipam:
+      config:
+        - subnet: 10.77.2.0/24
+          gateway: 10.77.2.254
+        - subnet: fd77:77:2::/64
+          gateway: fd77:77:2::ffff
+
+services:
+  gateway-a:
+    build:
+      context: ../images/gateway
+      dockerfile: Dockerfile
+    image: sih/gateway:latest
+    container_name: sih-gateway-a
+    hostname: gateway-a
+    privileged: true
+    sysctls:
+      net.ipv4.ip_forward: "1"
+      net.ipv6.conf.all.forwarding: "1"
+      net.ipv4.conf.all.rp_filter: "0"
+      net.ipv4.conf.default.rp_filter: "0"
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    networks:
+      transit:
+        ipv4_address: 10.77.0.10
+        ipv6_address: fd77:77:0::10
+      protected-a:
+        ipv4_address: 10.77.1.1
+        ipv6_address: fd77:77:1::1
+    volumes:
+      - ../config/gateway-a:/etc/swanctl/conf.d:ro
+      - ../../captures:/captures
+      - ../../testbed/traffic:/traffic:ro
+      - ../../analyzer:/analyzer:ro
+      - ../../dataset:/dataset
+      - ../../dataset_v3_5_final:/dataset-final
+      - ../../dataset_v3_5_v2:/dataset-v2
+      - ../../dataset_v3_5_v2_final:/dataset-v2-final
+      - ../../demo_live:/dataset-live
+    # Keep alive; entrypoint starts charon
+
+  gateway-b:
+    build:
+      context: ../images/gateway
+      dockerfile: Dockerfile
+    image: sih/gateway:latest
+    container_name: sih-gateway-b
+    hostname: gateway-b
+    privileged: true
+    sysctls:
+      net.ipv4.ip_forward: "1"
+      net.ipv6.conf.all.forwarding: "1"
+      net.ipv4.conf.all.rp_filter: "0"
+      net.ipv4.conf.default.rp_filter: "0"
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    networks:
+      transit:
+        ipv4_address: 10.77.0.20
+        ipv6_address: fd77:77:0::20
+      protected-b:
+        ipv4_address: 10.77.2.1
+        ipv6_address: fd77:77:2::1
+    volumes:
+      - ../config/gateway-b:/etc/swanctl/conf.d:ro
+      - ../../captures:/captures
+      - ../../testbed/traffic:/traffic:ro
+      - ../../analyzer:/analyzer:ro
+      - ../../dataset:/dataset
+      - ../../dataset_v3_5_final:/dataset-final
+      - ../../dataset_v3_5_v2:/dataset-v2
+      - ../../dataset_v3_5_v2_final:/dataset-v2-final
+      - ../../demo_live:/dataset-live
+
+  client-a:
+    build:
+      context: ../images/client
+      dockerfile: Dockerfile
+    image: sih/client:latest
+    container_name: sih-client-a
+    hostname: client-a
+    # clients need NET_ADMIN only to adjust routes if needed; not privileged
+    cap_add:
+      - NET_ADMIN
+    sysctls:
+      net.ipv4.conf.all.rp_filter: "0"
+    networks:
+      protected-a:
+        ipv4_address: 10.77.1.10
+        ipv6_address: fd77:77:1::10
+    volumes:
+      - ../../captures:/captures
+      - ../../testbed/traffic:/traffic:ro
+      - ../../analyzer:/analyzer:ro
+      - ../../dataset:/dataset
+      - ../../dataset_v3_5_final:/dataset-final
+    # Route protected-b via gateway-a; gateway handles IPsec. Add after start via entrypoint helper.
+    # We set static routes via compose not supported; use command to add routes on boot.
+    entrypoint: ["/bin/bash","-c"]
+    command:
+      - |
+        ip route del default 2>/dev/null || true
+        ip route add 10.77.2.0/24 via 10.77.1.1 2>&1 || true
+        ip -6 route add fd77:77:2::/64 via fd77:77:1::1 2>&1 || true
+        echo "[client-a] routes: " && ip route show && ip -6 route show 2>&1 | head -20
+        exec sleep infinity
+
+  client-b:
+    build:
+      context: ../images/client
+      dockerfile: Dockerfile
+    image: sih/client:latest
+    container_name: sih-client-b
+    hostname: client-b
+    cap_add:
+      - NET_ADMIN
+    sysctls:
+      net.ipv4.conf.all.rp_filter: "0"
+    networks:
+      protected-b:
+        ipv4_address: 10.77.2.10
+        ipv6_address: fd77:77:2::10
+    volumes:
+      - ../../captures:/captures
+      - ../../testbed/traffic:/traffic:ro
+      - ../../analyzer:/analyzer:ro
+      - ../../dataset:/dataset
+      - ../../dataset_v3_5_final:/dataset-final
+    entrypoint: ["/bin/bash","-c"]
+    command:
+      - |
+        ip route del default 2>/dev/null || true
+        ip route add 10.77.1.0/24 via 10.77.2.1 2>&1 || true
+        ip -6 route add fd77:77:1::/64 via fd77:77:2::1 2>&1 || true
+        echo "[client-b] routes: " && ip route show && ip -6 route show 2>&1 | head -20
+        exec sleep infinity

@@ -1,0 +1,30 @@
+{
+  "scenario_id": "S04-transport-ikev2-esp-transport-aes128",
+  "description": "IKEv2 ESP transport mode host-to-host 10.77.0.10/32 === 10.77.0.20/32",
+  "family": "ESP-transport",
+  "ike_version": 2,
+  "ike_transport_ip_version": "IPv4",
+  "ike_proposal": "aes128-sha256-modp2048",
+  "esp_proposal": "aes128-sha256-modp2048",
+  "ipsec_protocol": "ESP",
+  "mode": "transport",
+  "encryption_algorithm": "AES-CBC",
+  "encryption_key_length": 128,
+  "integrity_algorithm": "HMAC-SHA256",
+  "dh_group": 14,
+  "dh_group_name": "modp2048",
+  "pfs": true,
+  "protected_ip_version": "IPv4",
+  "local_ts": "10.77.0.10/32",
+  "remote_ts": "10.77.0.20/32",
+  "ike_endpoints": "10.77.0.10 <-> 10.77.0.20",
+  "rekey_enabled": true,
+  "traffic_type": "ICMP 10.77.0.10 -> 10.77.0.20 (gateway-to-gateway)",
+  "strongswan_version": "5.9.8",
+  "evidence": {
+    "directly_observed": ["mode=transport in swanctl", "XFRM state mode transport", "swanctl CHILD_SA INSTALLED TRANSPORT"],
+    "deterministically_derived": ["transport vs tunnel from XFRM mode", "host-to-host from /32 TS"],
+    "ml_inferred": [],
+    "unknown": []
+  }
+}

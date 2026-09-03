@@ -1,0 +1,32 @@
+{
+  "scenario_id": "S03-ipv6-ike-ikev2-esp-tunnel-aes256-sha384",
+  "description": "IKEv2 over IPv6 transit fd77:77:0::10 <-> fd77:77:0::20, ESP tunnel, same protected subnets",
+  "family": "ESP-tunnel-IPv6-IKE",
+  "ike_version": 2,
+  "ike_transport_ip_version": "IPv6",
+  "ike_proposal": "aes256-sha384-modp2048",
+  "esp_proposal": "aes256-sha384-modp2048",
+  "ipsec_protocol": "ESP",
+  "mode": "tunnel",
+  "encryption_algorithm": "AES-CBC",
+  "encryption_key_length": 256,
+  "integrity_algorithm": "HMAC-SHA384",
+  "prf_algorithm": "PRF-HMAC-SHA384",
+  "dh_group": 14,
+  "dh_group_name": "modp2048",
+  "pfs": false,
+  "protected_ip_version": "IPv4+IPv6 dual-stack TS",
+  "local_ts": "10.77.1.0/24,fd77:77:1::/64",
+  "remote_ts": "10.77.2.0/24,fd77:77:2::/64",
+  "ike_endpoints": "fd77:77:0::10 <-> fd77:77:0::20",
+  "rekey_enabled": true,
+  "rekey_time": "3600s",
+  "traffic_type": "ICMP 10.77.1.10 -> 10.77.2.10 and fd77:77:1::10 -> fd77:77:2::10",
+  "strongswan_version": "5.9.8",
+  "evidence": {
+    "directly_observed": ["IKE local_addrs fd77:77:0::10 in ipv6-ike.conf", "tcpdump IP6 fd77:77::10 > fd77:77::20 ISAKMP", "XFRM src fd77:77::10 dst fd77:77::20 proto esp"],
+    "deterministically_derived": ["mode=tunnel from TS", "IKE transport IPv6 from XFRM tmpl"],
+    "ml_inferred": [],
+    "unknown": []
+  }
+}

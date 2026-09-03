@@ -1,0 +1,11 @@
+{
+  "allowed_encryption": ["AES-GCM", "AES-CBC"],
+  "allowed_key_sizes": [128, 192, 256],
+  "min_dh_bits": 2048,
+  "require_pfs": true,
+  "require_rekey": true,
+  "require_replay": false,
+  "flag_metadata_exposure": false,
+  "pass_score": 70,
+  "protocol_penalty": 20
+}

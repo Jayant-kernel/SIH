@@ -1,0 +1,21 @@
+{
+  "source": "testbed/scenarios/*.json; validation-only ground truth",
+  "note": "Never used by production inference.",
+  "scenarios": {
+    "T01": {"protocol": "ESP", "mode": "tunnel", "encryption": "AES-CBC"},
+    "T02": {"protocol": "ESP", "mode": "tunnel", "encryption": "AES-CBC"},
+    "T03": {"protocol": "ESP", "mode": "tunnel", "encryption": "AES-CBC"},
+    "T04": {"protocol": "ESP", "mode": "tunnel", "encryption": "AES-GCM"},
+    "T05": {"protocol": "ESP", "mode": "tunnel", "encryption": "AES-GCM"},
+    "T06": {"protocol": "ESP", "mode": "transport", "encryption": "AES-CBC"},
+    "T07": {"protocol": "ESP", "mode": "transport", "encryption": "AES-GCM"},
+    "T08": {"protocol": "AH", "mode": "tunnel", "encryption": "none"},
+    "T09": {"protocol": "AH", "mode": "transport", "encryption": "none"},
+    "T10": {"protocol": "ESP", "mode": "tunnel", "encryption": "AES-CBC"},
+    "T11": {"protocol": "ESP", "mode": "tunnel", "encryption": "AES-GCM"},
+    "T12": {"protocol": "ESP", "mode": "tunnel", "encryption": "AES-CBC"},
+    "T13": {"protocol": "ESP", "mode": "tunnel", "encryption": "AES-CBC"},
+    "T14": {"protocol": "ESP", "mode": "tunnel", "encryption": "AES-CBC"},
+    "T15": {"protocol": "ESP", "mode": "tunnel", "encryption": "AES-CBC"}
+  }
+}

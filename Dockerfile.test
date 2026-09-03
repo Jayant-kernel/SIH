@@ -1,0 +1,4 @@
+FROM python:3.11
+WORKDIR /work
+COPY requirements.txt /tmp/requirements.txt
+RUN pip install --disable-pip-version-check -q -r /tmp/requirements.txt pytest

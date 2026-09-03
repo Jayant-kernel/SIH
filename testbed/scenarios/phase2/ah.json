@@ -1,0 +1,30 @@
+{
+  "scenario_id": "S05-ah-ikev2-ah-tunnel-sha256",
+  "description": "IKEv2 AH tunnel sha256, proves AH proto 51 via XFRM and tcpdump AH spi",
+  "family": "AH-tunnel",
+  "ike_version": 2,
+  "ike_transport_ip_version": "IPv4",
+  "ike_proposal": "aes192-sha256-modp2048",
+  "ah_proposal": "sha256",
+  "ipsec_protocol": "AH",
+  "mode": "tunnel",
+  "encryption_algorithm": "none (AH provides integrity only)",
+  "integrity_algorithm": "HMAC-SHA256",
+  "dh_group": 14,
+  "dh_group_name": "modp2048",
+  "pfs": false,
+  "protected_ip_version": "IPv4",
+  "local_ts": "10.77.8.0/24",
+  "remote_ts": "10.77.9.0/24",
+  "ike_endpoints": "10.77.0.10 <-> 10.77.0.20",
+  "rekey_enabled": true,
+  "traffic_type": "ICMP 10.77.8.10 -> 10.77.9.10 (gateway lo dummy IPs)",
+  "strongswan_version": "5.9.8",
+  "kernel_ah_support": "verified via ip xfrm state add proto ah success",
+  "evidence": {
+    "directly_observed": ["ah_proposals=sha256 in ah.conf", "XFRM proto ah mode tunnel", "tcpdump AH(spi=...)"],
+    "deterministically_derived": ["AH vs ESP from XFRM proto", "tunnel from TS"],
+    "ml_inferred": [],
+    "unknown": []
+  }
+}

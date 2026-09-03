@@ -1,0 +1,35 @@
+Dashboard Runtime Validation Record
+====================================
+Date: 2026-09-03
+
+Launch command (validated):
+  docker run -d --name sih-final-dashboard -p 127.0.0.1:8501:8501 -v "<repo>:/work" -w /work python:3.11 \
+    sh -c "pip install --disable-pip-version-check -q numpy scipy scikit-learn joblib scapy; python -u app/app.py --host 0.0.0.0 --port 8501"
+
+Equivalent host command (when Python 3.11 available):
+  python app/app.py
+
+Startup output (docker logs):
+  Dashboard: http://0.0.0.0:8501
+
+Bound host/port:
+  container 0.0.0.0:8501 -> host 127.0.0.1:8501
+
+HTTP checks (Invoke-WebRequest, host side):
+  GET http://127.0.0.1:8501/                     -> 200, title "AI-Driven IPsec VPN Security Analyzer" present
+
+Data checks (all HTTP 200, no tracebacks):
+  T04 full-evidence run   : AES-GCM / AEAD-GCM / MODP3072 / tunnel values rendered; Observed+Derived+ML Inferred+Unknown badges; risk card; ML disclaimer present
+  T15 corrected run       : ESP rendered; IPv6 traffic selector fd77:77:23::/64 rendered; ML prediction rendered
+  Passive-only PCAP       : passive-only warning rendered; 41 Unknown labels; NO AES-GCM/AES-CBC/tunnel/PFS values (no fabrication)
+
+Error handling (all HTTP 200, page rendered, no traceback):
+  nonexistent run path    -> Unknown values + limitations note
+  empty PCAP (0 bytes)    -> Unknown values + limitations note
+  malformed PCAP          -> Unknown values + limitations note
+  incomplete run dir      -> Unknown values + limitations note
+
+Server health after 9 requests:
+  container status: Up; exceptions/tracebacks in logs: 0
+
+Result: PASS

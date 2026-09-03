@@ -1,0 +1,10 @@
+{
+  "policy_name": "project_default_policy",
+  "minimum_dh_bits": 2048,
+  "allow_aes_cbc": true,
+  "allowed_key_sizes": [128, 192, 256],
+  "require_pfs": false,
+  "require_replay_protection": false,
+  "severity_points": {"low": 3, "medium": 10, "high": 20, "critical": 35},
+  "completeness_fields": ["protocol", "encryption_algorithm", "encryption_key_length", "integrity_algorithm", "dh_group", "mode", "pfs", "replay", "rekey_status"]
+}
