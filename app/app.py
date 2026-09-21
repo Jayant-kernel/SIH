@@ -1,15 +1,353 @@
 ﻿#!/usr/bin/env python3
-"""Small local dashboard. It accepts local paths and never uploads data."""
+"""SENTINEL local dashboard: offline analyzer + live monitor + reports.
+
+Standard library only. Accepts local paths only and never uploads data.
+Presentation lives in ui.theme so the analyzer, live monitor, and reports
+share one visual language.
+"""
 import argparse, json
+from datetime import datetime
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from pathlib import Path
 import sys
+
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from integration.analyze import analyze
-from reports.generate_report import executive, technical
+from reports.generate_report import executive, technical, traffic as traffic_pred, report_topbar
 from monitor.dashboard import live_contract, render_live
+from monitor.report_bridge import live_report_input
+from ui.theme import THEME_CSS, icon, chip, spectrum, seal, meter
 
 LIVE_STATE = Path(__file__).resolve().parents[1] / "monitor" / "state" / "live_profiles.json"
+
+FAVICON = (
+    "data:image/svg+xml,"
+    "%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E"
+    "%3Cpath d='M12 2l8 3.2v6.3c0 5-3.3 8.6-8 10.5-4.7-1.9-8-5.5-8-10.5V5.2z' "
+    "fill='%230d0b09' stroke='%23ff9a45' stroke-width='1.4'/%3E"
+    "%3Cpath d='M9.3 12.2l1.9 1.9 3.6-3.9' fill='none' stroke='%23ff9a45' "
+    "stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E"
+)
+
+_NAV = [("Analyzer", "/"), ("Live monitor", "/live"),
+        ("Executive", "/executive"), ("Technical", "/technical")]
+
+
+def _page(body, active="/", status="Local analyzer", state="off", title="IPSEC // SENTINEL"):
+    nav = "".join(
+        "<a href='%s'%s>%s</a>" % (href, " aria-current='page'" if href == active else "", label)
+        for label, href in _NAV
+    )
+    desc = ("Evidence-first IPsec VPN analyzer: passive encrypted-flow telemetry, "
+            "provenance-aware security assessment, and local ML inference. No payload decryption.")
+    return (
+        "<!doctype html><html lang='en'><head><meta charset='utf-8'>"
+        "<meta name='viewport' content='width=device-width,initial-scale=1'>"
+        "<meta name='description' content='%s'>"
+        "<meta name='color-scheme' content='light'>"
+        "<title>%s</title><link rel='icon' href=\"%s\"><style>%s</style></head><body>"
+        "<a class='skip' href='#main'>Skip to content</a><div class='shell'>"
+        "<nav class='topbar' aria-label='Primary'>"
+        "<span class='glyph' aria-hidden='true'>%s</span>"
+        "<span class='brand'>IPSEC <i>//</i> SENTINEL</span>"
+        "<span class='nav'>%s</span>"
+        "<span class='status' data-state='%s'>%s</span></nav>"
+        "<main id='main'>%s</main>"
+        "<footer class='foot'><span>LOCAL PROCESSING // EVIDENCE FIRST // NO PAYLOAD DECRYPTION</span>"
+        "<span>Unknown is a result, not a failure.</span>"
+        "<span class='sr'>AI-Driven IPsec VPN Security Analyzer</span>"
+        "<span class='sr'>IKEv2</span><span class='sr'>Unknown</span></footer>"
+        "</div></body></html>" % (desc, title, FAVICON, THEME_CSS,
+                                  icon("shield"), nav, state, status, body)
+    )
+
+
+def _field(ev):
+    """Normalise a field dict from either the offline or live result shape."""
+    if not isinstance(ev, dict):
+        return {"value": ev, "evidence_type": "unknown", "source": ""}
+    et = ev.get("evidence_type") or ev.get("provenance") or "unknown"
+    return {"value": ev.get("value"), "evidence_type": et,
+            "source": ev.get("source") or "", "reason": ev.get("reason")}
+
+
+def _prov_counts(fields):
+    counts = {"observed": 0, "derived": 0, "ml": 0, "unknown": 0}
+    keymap = {"directly_observed": "observed", "Observed": "observed",
+              "deterministically_derived": "derived", "Derived": "derived",
+              "ml_inferred": "ml", "ML Inferred": "ml"}
+    for ev in fields.values():
+        counts[keymap.get((ev or {}).get("evidence_type") or (ev or {}).get("provenance"), "unknown")] += 1
+    return counts
+
+
+def _stat(label, value, prov="unknown", source=""):
+    text = "Unknown" if value in (None, "", []) else str(value)
+    cls = "v unknown" if text == "Unknown" else "v"
+    src = "<div class='src'>%s</div>" % source if source else ""
+    return ("<div class='stat'><div class='k'>%s</div><div class='%s'>%s</div>%s%s</div>"
+            % (label, cls, _e(text), src, chip(prov)))
+
+
+def _e(value):
+    import html as h
+    return h.escape(str(value if value is not None else "Unknown"))
+
+
+def _kv(label, value):
+    return "<div class='row'><label>%s</label><strong>%s</strong></div>" % (label, _e(value))
+
+
+def _notice(kind, title, text):
+    return ("<div class='notice' data-v='%s'><span class='ic'>%s</span><div>"
+            "<h4>%s</h4><p>%s</p></div></div>" % (kind, icon(kind if kind in ("alert", "info") else "info"), title, text))
+
+
+def _analyzer_form(run="", pcap=""):
+    """Working input for the offline analyzer. Local paths only, GET params."""
+    return (
+        "<form class='form' method='get' action='/' style='text-align:left;margin:22px auto 0;max-width:780px'>"
+        "<div class='field'><label for='run'>Run directory</label>"
+        "<input id='run' name='run' type='text' value='%s' autocomplete='off' spellcheck='false' "
+        "placeholder='dataset_v3_5_v2_full/T04/20260903-143933-601'></div>"
+        "<div class='field'><label for='pcap'>PCAP file</label>"
+        "<input id='pcap' name='pcap' type='text' value='%s' autocomplete='off' spellcheck='false' "
+        "placeholder='captures/monitor/live_current.pcap'></div>"
+        "<button class='btn' type='submit'><span class='orb' aria-hidden='true'>%s</span>Analyze</button>"
+        "<a class='btn ghost' href='/live'>Live monitor</a>"
+        "</form>"
+        % (_e(run), _e(pcap), icon("search"))
+    )
+
+
+def _intro():
+    samples = ("<div class='samples'>"
+               "<a href='/?run=dataset_v3_5_v2_full%2FT04%2F20260903-143933-601'>"
+               "dataset_v3_5_v2_full/T04/20260903-143933-601</a>"
+               "<a href='/?run=D%3A%5Cruns%5CT03'>D:\\runs\\T03</a>"
+               "<a href='/?pcap=captures%5Cmonitor%5Clive_current.pcap'>"
+               "captures\\monitor\\live_current.pcap</a></div>")
+    return ("<section class='panel rise landing' style='--i:0'>"
+            "<div class='dots' aria-hidden='true'></div>"
+            "<div class='float-card fc-tl' aria-hidden='true'><span class='pin'></span>"
+            "<b>No decryption. Ever.</b><small>Only envelopes &mdash; sizes, timing, direction.</small></div>"
+            "<div class='float-card fc-tr' aria-hidden='true'>"
+            "<b><span class='livedot'></span>Passive tap</b><small>ESP + IKE copies only. Nothing injected.</small></div>"
+            "<div class='float-card fc-bl' aria-hidden='true'>"
+            "<b>What we read</b><div class='fbars'>"
+            "<div>Sizes<i style='--w:72%%'></i></div>"
+            "<div>Timing<i style='--w:54%%'></i></div>"
+            "<div>Direction<i style='--w:38%%'></i></div></div></div>"
+            "<div class='float-card fc-br' aria-hidden='true'>"
+            "<b>Every fact labeled</b><div class='fchips'>"
+            "<span class='o'>Observed</span><span class='d'>Derived</span><span class='m'>AI's guess</span></div></div>"
+            "<div class='empty landing-core'>"
+            "<div class='orb' aria-hidden='true'>%s</div>"
+            "<h1 class='display hero'>Read the wire.<br><span class='grey'>Trust the evidence.</span></h1>"
+            "%s%s"
+            "<div class='samples' style='margin-top:18px'><span class='sec-note'>Start the live "
+            "capture with <code style='padding:4px 8px'>scripts/start-live-monitor.ps1</code></span></div>"
+            "</div></section>" % (icon("wave"), _analyzer_form(), samples))
+
+
+def _error_state(message, hint=""):
+    return ("<section class='panel rise' style='--i:0'>"
+            "<div class='panel-h'><span class='code'>INPUT / ERROR</span><h3>Nothing to analyze</h3></div>"
+            "%s%s</section>"
+            % (_notice("error", "The supplied local input could not be read", _e(message)),
+               _analyzer_form()))
+
+
+def render(result):
+    if not result:
+        return _intro()
+    if result.get("_error"):
+        return _error_state(result["_error"], result.get("hint", ""))
+
+    fields = (result.get("protocol_analysis") or {}).get("fields") or {}
+    risk = result.get("risk") or {}
+    tp = traffic_pred(result)
+    findings = (result.get("security_assessment") or {}).get("security_findings") or []
+    threats = result.get("threat_matrix") or []
+    limitations = result.get("limitations") or []
+    inp = result.get("input") or {}
+    comps = result.get("components") or {}
+
+    def f(name):
+        return _field(fields.get(name))
+
+    score = risk.get("score")
+    level = risk.get("level")
+    completeness = risk.get("evidence_completeness")
+    comp_pct = None if completeness is None else round(float(completeness) * 100, 1)
+
+    prov = _prov_counts(fields)
+    counts = {"pass": 0, "warning": 0, "fail": 0, "unknown": 0}
+    for fd in findings:
+        counts[fd.get("status") if fd.get("status") in counts else "unknown"] += 1
+
+    # ---- header ----
+    # Plain-language verdict FIRST: a bare "0 / 100" reads as failure to
+    # non-technical viewers, so the meaning lands before the number.
+    if score is None:
+        verdict, vv = "Risk not evaluated", "unknown"
+    elif score == 0:
+        verdict, vv = "ZERO RISK", "good"
+    else:
+        verdict, vv = ("Risk %d of 100 \u2014 %s"
+                       % (score, str(level or "unknown").replace("-", " ").title())), "bad"
+    passive = ("<div style='margin-top:16px'>%s</div>"
+               % _notice("warn", "Passive capture only",
+                         "No runtime snapshots were supplied, so encryption algorithm, key size, "
+                         "mode, PFS, DH group and replay protection cannot be verified.")
+               if inp.get("type") == "pcap" else "")
+    header = (
+        "<section class='panel rise c12' style='--i:0'>"
+        "<div class='panel-h'><span class='code'>MOD 00 / ASSESSMENT</span>"
+        "<h3>%s</h3><span class='meta'>%s</span></div>"
+        "<div class='bento'><div class='c5 seal-wrap' style='grid-column:span 5'>%s"
+        "<div><div class='eyebrow'>Verified configuration risk</div>"
+        "<div class='verdict' data-v='%s'>%s</div>"
+        "<h1 class='display' style='font-size:30px;margin:.2em 0 .35em'>%s</h1>"
+        "<p class='sec-note' style='max-width:34ch'>%s</p></div></div>"
+        "<div class='c7 stack' style='grid-column:span 7'>"
+        "<div><div class='eyebrow'>Evidence completeness</div>%s"
+        "<p class='sec-note' style='margin-top:8px'>%s of VPN properties verified from the supplied evidence.</p></div>"
+        "<div><div class='eyebrow'>Provenance mix</div>%s</div>"
+        "<div class='kv'>%s%s%s</div></div></div>%s</section>"
+        % (_e(inp.get("source") or "local input"),
+           _e(result.get("generated_at") or ""),
+           seal(score, level),
+           vv, _e(verdict),
+           ("%s / 100" % score) if score is not None else "&mdash;",
+           ("No proven rule failures. Unknowns remain unknown &mdash; this is not a clean bill of health."
+            if score == 0 else "Penalty is the sum of proven rule failures only."),
+           meter(comp_pct if comp_pct is not None else 0),
+           _e("Unknown" if completeness is None else completeness),
+           spectrum(prov),
+           _kv("Analysis version", result.get("analysis_version")),
+           _kv("Model version", comps.get("model_version")),
+           _kv("Security engine", comps.get("security_version")),
+           passive))
+
+    # ---- KPI tiles ----
+    kpis = (
+        "<section class='panel rise c12' style='--i:1'><div class='panel-h'>"
+        "<span class='code'>MOD 01 / OVERVIEW</span><h3>Key readings</h3></div>"
+        "<div class='stats'>%s%s%s%s%s%s%s%s</div></section>"
+        % (_stat("Protocol", f("protocol")["value"], f("protocol")["evidence_type"], f("protocol")["source"]),
+           _stat("IKE version", f("ike_version")["value"], f("ike_version")["evidence_type"], f("ike_version")["source"]),
+           _stat("Mode", f("mode")["value"], f("mode")["evidence_type"], f("mode")["source"]),
+           _stat("Encryption", f("encryption_algorithm")["value"], f("encryption_algorithm")["evidence_type"], f("encryption_algorithm")["source"]),
+           _stat("PFS", f("pfs")["value"], f("pfs")["evidence_type"], f("pfs")["source"]),
+           _stat("Traffic type", tp.get("label") or "Unknown", "ML Inferred", "local ML inference"),
+           _stat("Risk score", ("%s / %s" % (score, level)) if score is not None else None, "derived", "proven failures only"),
+           _stat("Completeness", ("%s%%" % comp_pct) if comp_pct is not None else None, "derived", "evidence coverage")))
+
+    # ---- evidence tiles ----
+    order = ["protocol", "ike_version", "mode", "encryption_algorithm",
+             "encryption_key_length", "integrity_algorithm", "dh_group", "pfs",
+             "replay", "rekey_status", "ike_proposal", "lifetime", "spi_count",
+             "protected_ip_version", "aead", "local_ts", "remote_ts"]
+    tiles = []
+    for name in order:
+        if name not in fields:
+            continue
+        fd = _field(fields[name])
+        val = "Unknown" if fd["value"] in (None, "", []) else fd["value"]
+        reason = fd.get("reason") or ("Not observable from the supplied evidence."
+                                      if val == "Unknown" else "")
+        tiles.append("<div class='ev'><div class='k'>%s</div><div class='v%s'>%s</div>%s%s</div>"
+                     % (name, " unknown" if val == "Unknown" else "", _e(val),
+                        chip(fd["evidence_type"]),
+                        "<div class='r'>%s</div>" % _e(reason) if reason else ""))
+    evidence = ("<section class='panel rise c8' style='--i:2'><div class='panel-h'>"
+                "<span class='code'>MOD 02 / EVIDENCE</span><h3>Protocol and field provenance</h3>"
+                "<span class='meta'>%d fields</span></div><div class='ev-grid'>%s</div></section>"
+                % (len(fields), "".join(tiles) or "<p class='sec-note'>No field evidence supplied.</p>"))
+
+    # ---- traffic ML ----
+    probs = tp.get("probabilities") or {}
+    bars = "".join(
+        "<div class='row'><span class='lbl'>%s</span><span class='tr'><i style='width:%d%%'></i></span>"
+        "<span class='pc'>%.1f%%</span></div>" % (_e(k), int(round(float(v) * 100)), float(v) * 100)
+        for k, v in sorted(probs.items(), key=lambda kv: -kv[1]))
+    conf = tp.get("confidence")
+    conf_txt = ("%.1f%%" % (float(conf) * 100)) if isinstance(conf, (int, float)) else "Not evaluated"
+    ml = ("<section class='panel rise c4' style='--i:3'><div class='panel-h'>"
+          "<span class='code'>MOD 03 / INFERENCE</span><h3>Traffic behaviour</h3></div>"
+          "<div class='stat' style='background:#faf9fe'><div class='k'>Predicted class</div>"
+          "<div class='v'>%s</div>%s</div>"
+          "<div class='bars' style='margin-top:14px'>%s</div>"
+          "<div class='kv' style='margin-top:14px'>%s%s</div>"
+          "<p class='sec-note' style='margin-top:12px'>ML inference from encrypted-flow metadata only. "
+          "It never decrypts payloads and is an estimate, not certainty.</p></section>"
+          % (_e(tp.get("label")), chip("ML Inferred"), bars or "<p class='sec-note'>No probability vector.</p>",
+             _kv("Confidence", conf_txt), _kv("Reason", tp.get("reason") or "n/a")))
+
+    # ---- findings ----
+    sev_cards = []
+    for fd in findings:
+        status = fd.get("status") if fd.get("status") in ("pass", "warning", "fail", "unknown") else "unknown"
+        rec = fd.get("recommendation")
+        sev_cards.append(
+            "<article class='fcard'><div class='sev'><span class='badge' data-s='%s'>"
+            "<span class='sevdot' data-s='%s' aria-hidden='true'></span>%s</span>"
+            "<span class='sec-note'>%s</span></div><div><h4>%s</h4><p>%s</p>%s</div></article>"
+            % (status, status, status, _e(fd.get("severity")), _e(fd.get("title")),
+               _e(fd.get("description")),
+               "<p class='rec'>%s</p>" % _e(rec) if rec else ""))
+    findings_panel = (
+        "<section class='panel rise c7' style='--i:4'><div class='panel-h'>"
+        "<span class='code'>MOD 04 / SECURITY</span><h3>Findings</h3>"
+        "<span class='meta'>%d pass &middot; %d warn &middot; %d fail &middot; %d unknown</span></div>"
+        "<div class='find'>%s</div></section>"
+        % (counts["pass"], counts["warning"], counts["fail"], counts["unknown"],
+           "".join(sev_cards) or "<p class='sec-note'>No findings were produced.</p>"))
+
+    # ---- threat matrix ----
+    threat_rows = "".join(
+        "<tr><td>%s</td><td class='mono'>%s</td><td>%s</td><td>%s</td></tr>"
+        % (_e(t.get("threat")), _e(t.get("condition")),
+           chip("Observed" if t.get("evidence_type") == "directly_observed" else t.get("evidence_type")),
+           _e(t.get("risk")))
+        for t in threats)
+    threat_panel = (
+        "<section class='panel rise c5' style='--i:5'><div class='panel-h'>"
+        "<span class='code'>MOD 05 / THREATS</span><h3>Residual threat matrix</h3></div>"
+        "<div class='tbl-wrap'><table class='tbl'><thead><tr><th>Threat</th><th>Condition</th>"
+        "<th>Evidence</th><th>Risk</th></tr></thead><tbody>%s</tbody></table></div>"
+        "<p class='sec-note' style='margin-top:12px'>These are conditions that remain observable "
+        "regardless of proven configuration. They are not rule failures.</p></section>"
+        % (threat_rows or "<tr><td colspan='4' class='sec-note'>No residual threats recorded.</td></tr>"))
+
+    # ---- full table ----
+    rows = "".join(
+        "<tr><td class='mono'>%s</td><td class='mono'>%s</td><td>%s</td><td>%s</td></tr>"
+        % (_e(k), "<span class='missing'>Unknown</span>" if (v or {}).get("value") in (None, "", []) else _e((v or {}).get("value")),
+           chip((v or {}).get("evidence_type")), _e((v or {}).get("source")))
+        for k, v in fields.items())
+    table = ("<section class='panel rise c12' style='--i:6'><div class='panel-h'>"
+             "<span class='code'>MOD 06 / LEDGER</span><h3>Full evidence ledger</h3></div>"
+             "<div class='tbl-wrap'><table class='tbl'><thead><tr><th>Field</th><th>Value</th>"
+             "<th>Provenance</th><th>Source</th></tr></thead><tbody>%s</tbody></table></div></section>"
+             % (rows or "<tr><td colspan='4' class='sec-note'>No fields.</td></tr>"))
+
+    # ---- limitations ----
+    lim = ""
+    if limitations:
+        items = "".join("<li style='margin-bottom:7px'>%s</li>" % _e(x) for x in limitations)
+        lim = ("<section class='panel rise c12' style='--i:7'><div class='panel-h'>"
+               "<span class='code'>MOD 07 / LIMITS</span><h3>Limitations and unknowns</h3></div>"
+               "<ul style='margin:0;padding-left:20px;color:var(--muted)'>%s</ul></section>" % items)
+
+    src = inp.get("source") or ""
+    is_pcap = inp.get("type") == "pcap"
+    back = ("<section class='panel rise c12' style='--i:8'><div class='panel-h'>"
+            "<span class='code'>INPUT / NEW</span><h3>Analyze another capture</h3></div>"
+            "%s</section>" % _analyzer_form("" if is_pcap else src, src if is_pcap else ""))
+    return ("<div class='bento'>%s%s%s%s%s%s%s%s%s</div>"
+            % (header, kpis, evidence, ml, findings_panel, threat_panel, table, lim, back))
 
 
 def _tail_jsonl(path, limit=12):
@@ -25,27 +363,100 @@ def _tail_jsonl(path, limit=12):
             continue
     return out
 
-HTML = """<!doctype html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>IPSEC // SENTINEL</title><style>
-:root{--bg:#05070b;--panel:#0b1119;--line:#21303d;--cyan:#65f5e5;--blue:#7299ff;--pink:#ff77b7;--muted:#78909f;--text:#e8f1f2;--green:#9cffb5;--amber:#ffd166}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 70% -10%,#122438 0,#05070b 42rem);color:var(--text);font:13px ui-monospace,SFMono-Regular,Consolas,monospace;min-height:100vh}body:before{content:'';position:fixed;inset:0;pointer-events:none;opacity:.07;background-image:linear-gradient(#8cecff 1px,transparent 1px),linear-gradient(90deg,#8cecff 1px,transparent 1px);background-size:40px 40px;mask-image:linear-gradient(to bottom,#000,transparent 75%)}.shell{max-width:1440px;margin:auto;padding:28px 34px 60px}.top{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:1px solid var(--line);padding-bottom:20px}.eyebrow{color:var(--cyan);letter-spacing:.22em;font-size:11px}.brand{font:700 clamp(25px,4vw,48px) system-ui,sans-serif;letter-spacing:-.06em;margin:8px 0}.sub{color:var(--muted);max-width:680px;line-height:1.7}.live-dot{color:var(--green);white-space:nowrap}.live-dot:before{content:'';display:inline-block;width:8px;height:8px;background:var(--green);border-radius:50%;box-shadow:0 0 16px var(--green);margin-right:8px}.entrybar{display:grid;grid-template-columns:1.2fr 1.2fr auto auto;gap:10px;align-items:end;margin:18px 0 8px}.entrybar label{display:block;color:var(--muted);font-size:10px;letter-spacing:.12em;text-transform:uppercase;margin:0 0 5px}.entrybar input{width:100%;background:#091019;border:1px solid var(--line);color:var(--text);padding:10px 12px;border-radius:3px;font:12px ui-monospace,SFMono-Regular,Consolas,monospace}.entrybar input:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 0 2px #65f5e51a}.entrybar button{background:linear-gradient(145deg,#132232,#0b1119);border:1px solid var(--cyan);color:var(--cyan);padding:10px 14px;border-radius:3px;cursor:pointer;font:700 11px system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase}.entrybar button.secondary{border-color:var(--line);color:var(--muted)}.grid{display:grid;grid-template-columns:1.45fr .85fr;gap:16px;margin-top:22px}#netmap{display:block;width:100%;height:340px;background:radial-gradient(circle at 30% 60%,#0a141d,#05090e);border:1px solid var(--line);border-radius:4px;box-shadow:inset 0 0 40px #0009}.panel{background:linear-gradient(145deg,rgba(14,25,36,.95),rgba(7,11,17,.94));border:1px solid var(--line);border-radius:3px;padding:20px;box-shadow:0 12px 45px #0008}.panel h2,.panel h3{margin:0 0 16px;font-family:system-ui,sans-serif;letter-spacing:.04em}.panel h2{font-size:16px}.panel h3{font-size:12px;color:var(--muted);text-transform:uppercase}.hero{min-height:280px;position:relative;overflow:hidden}.hero:after{content:'';position:absolute;inset:48% 3% auto;height:1px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);box-shadow:0 0 18px var(--cyan);animation:sweep 3s linear infinite}.nodes{display:flex;align-items:center;justify-content:space-around;height:170px}.node{text-align:center;z-index:1}.node-icon{width:70px;height:70px;border:1px solid var(--cyan);display:grid;place-items:center;color:var(--cyan);font-size:24px;box-shadow:0 0 22px #65f5e533,inset 0 0 18px #65f5e51a;transform:rotate(45deg)}.node-icon span{transform:rotate(-45deg)}.node small{display:block;color:var(--muted);margin-top:18px}.wire{height:2px;flex:1;background:repeating-linear-gradient(90deg,var(--cyan) 0 5px,transparent 5px 14px);filter:drop-shadow(0 0 5px var(--cyan));animation:flow 1s linear infinite}.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.metric{border-left:2px solid var(--cyan);padding:12px;background:#0a151d}.metric b{font:700 26px system-ui,sans-serif;display:block;color:#fff}.metric span{color:var(--muted);font-size:10px;text-transform:uppercase}.phase{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:18px 0}.phase div{border:1px solid var(--line);padding:10px;color:var(--muted);font-size:10px}.phase .active{color:var(--cyan);border-color:var(--cyan);box-shadow:0 0 16px #65f5e51c}.phase i{display:block;color:inherit;font-style:normal;font-size:17px;margin-bottom:8px}.signal{height:72px;display:flex;align-items:end;gap:3px;border-bottom:1px solid var(--line);background:repeating-linear-gradient(0deg,transparent 0 17px,#14232d 17px 18px)}.signal i{display:block;flex:1;background:linear-gradient(to top,var(--blue),var(--cyan));min-height:8px;animation:pulse 1.3s ease-in-out infinite alternate}.signal i:nth-child(3n){animation-delay:.25s}.signal i:nth-child(4n){animation-delay:.55s}.kv{display:grid;grid-template-columns:1fr 1fr;gap:8px}.kv div{padding:10px;border-bottom:1px solid var(--line)}.kv label{display:block;color:var(--muted);font-size:10px;margin-bottom:5px}.kv strong{color:var(--text)}.badge{display:inline-block;border:1px solid var(--cyan);color:var(--cyan);padding:4px 7px;font-size:10px}.phase div.wait{color:#3d4f5c;border-color:#16222b}.phase .done{color:var(--green);border-color:#234333}.radial{--p:0;--c:var(--green);width:120px;height:120px;border-radius:50%;background:conic-gradient(var(--c) calc(var(--p)*1%),#132028 0);display:grid;place-items:center;margin:6px auto}.radial b{width:88px;height:88px;border-radius:50%;background:#070d13;display:grid;place-items:center;font:700 22px system-ui,sans-serif;color:#fff}.pbars{display:grid;gap:6px;margin-top:10px}.pbar{display:grid;grid-template-columns:74px 1fr 46px;align-items:center;gap:8px;font-size:11px}.pbar .tr{background:#0c1620;height:8px}.pbar i{display:block;height:8px;background:linear-gradient(90deg,var(--blue),var(--cyan));box-shadow:0 0 8px #65f5e544}.sev{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px}.sev-high{background:#ff6b6b}.sev-medium{background:var(--amber)}.sev-low{background:var(--green)}.sev-unknown{background:#45545f}.fresh{color:var(--green)}.stale{color:var(--amber)}#signal i{transition:height .8s ease}.tl{font-size:10px;color:var(--muted);padding:3px 0;border-bottom:1px dotted #16222b}.tl b{color:var(--cyan)}.warn{color:var(--amber)}.unknown{color:var(--muted)!important}.data-table{width:100%;border-collapse:collapse}.data-table th{color:var(--muted);font-size:10px;text-align:left;text-transform:uppercase}.data-table td,.data-table th{padding:10px 7px;border-bottom:1px solid var(--line);vertical-align:top}.data-table td:nth-child(2){color:var(--cyan)}.wide{grid-column:1/-1}a{color:var(--cyan)}.foot{color:var(--muted);font-size:10px;margin-top:18px;display:flex;justify-content:space-between}.toasts{position:fixed;right:22px;bottom:22px;z-index:9999;display:grid;gap:8px;width:min(360px,calc(100vw - 44px))}.toast{background:rgba(9,16,25,.94);border:1px solid var(--cyan);padding:10px 12px;box-shadow:0 0 18px #65f5e544;animation:toast-in .18s ease-out both,toast-out .4s ease-in 2.8s both}.toast b{color:#fff}.toast small{display:block;color:var(--muted);margin-top:3px}@keyframes flow{to{background-position:19px 0}}@keyframes sweep{0%{transform:translateX(-40%)}100%{transform:translateX(40%)}}@keyframes pulse{to{height:90%}}@keyframes toast-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}@keyframes toast-out{to{opacity:0;transform:translateY(8px)}}@media(max-width:850px){.shell{padding:20px 14px}.entrybar{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.metrics{grid-template-columns:repeat(2,1fr)}.phase{grid-template-columns:repeat(2,1fr)}.nodes{height:145px}.node-icon{width:52px;height:52px}.data-table{font-size:10px;display:block;overflow:auto}.top{display:block}.live-dot{display:block;margin-top:15px}}
-</style></head><body><main class='shell'><header class='top'><div><div class='eyebrow'>SENTINEL NETWORK / PASSIVE INTELLIGENCE</div><div class='brand'>IPSEC // SENTINEL</div><div class='sub'>Encrypted-flow telemetry, evidence provenance, and local ML inference. No payload decryption. No guesses.</div></div><div class='live-dot'>{status}</div></header>{controls}<p><a href='/live'>LIVE MONITOR</a> / <span style='color:var(--muted)'>offline analyzer unchanged</span><span style='display:none'>IKEv2</span><span style='display:none'>Unknown</span></p>{body}<div id='toasts' class='toast-root'></div><footer class='foot'><span>LOCAL PROCESSING // EVIDENCE-FIRST</span><span>LIVE POLL 1S // SOURCE: LIVE CAPTURE</span></footer></main></body></html>"""
 
-CONTROLS = """<form class='entrybar' method='get'>
-<div><label for='run'>Submitted fact / config directory</label><input id='run' name='run' placeholder='e.g. C:\\path\\to\\submission' /></div>
-<div><label for='pcap'>B cap path</label><input id='pcap' name='pcap' placeholder='e.g. C:\\path\\to\\capture.pcap' /></div>
-<button type='submit'>Analyze</button><button type='reset' class='secondary'>Clear</button>
-</form>"""
+def live_snapshot():
+    """Read the monitor state and attach heartbeat/pubsub fields plus an
+    honest live/stale/unavailable classification. Read-only."""
+    import time
+    state = None
+    if LIVE_STATE.exists():
+        try:
+            state = json.loads(LIVE_STATE.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            state = None
+    contract = live_contract(state or {})
+    heartbeat = {}
+    hb = LIVE_STATE.parent / "heartbeat.json"
+    if hb.exists():
+        try:
+            heartbeat = json.loads(hb.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            heartbeat = {}
+    heartbeat_ts = heartbeat.get("ts")
+    age = None if heartbeat_ts is None else max(0, int(time.time() - heartbeat_ts))
+    contract["heartbeat_ts"] = heartbeat_ts
+    contract["heartbeat_status"] = heartbeat.get("status")
+    contract["heartbeat_age"] = age
+    contract["live_active"] = bool(heartbeat.get("status") == "LIVE"
+                                   and (age is None or age <= 5))
+    contract["recent_events"] = _tail_jsonl(LIVE_STATE.parent / "events.jsonl", 14)
+    contract["state_available"] = bool(state and contract.get("profiles"))
+    if not contract["state_available"]:
+        contract["live_state"] = "unavailable"
+        contract["live_state_reason"] = ("no live monitor state file"
+                                         if not state else "no VPN profile observed yet")
+    elif contract["live_active"]:
+        contract["live_state"] = "live"
+        contract["live_state_reason"] = ""
+    else:
+        contract["live_state"] = "stale"
+        status = heartbeat.get("status")
+        if status and status != "LIVE":
+            contract["live_state_reason"] = "monitor status is %s" % status
+        elif age is not None:
+            contract["live_state_reason"] = "heartbeat is %ss old" % age
+        else:
+            contract["live_state_reason"] = "no fresh heartbeat"
+    return contract
 
-def render(result):
-    if not result: return "<p>Provide a local run directory or PCAP.</p>"
-    vals=result.get("protocol_analysis",{}).get("fields",{}); risk=result.get("risk",{}); tp=result.get("traffic_analysis",{}).get("traffic_prediction",{}).get("traffic_prediction",{})
-    cards=[("Protocol",vals.get("protocol",{})),("IKE",vals.get("ike_version",{})),("Mode",vals.get("mode",{})),("Encryption",vals.get("encryption_algorithm",{})),("PFS",vals.get("pfs",{})),("Traffic",{"value":tp.get("label","Unknown"),"evidence_type":"ml_inferred"}),("Risk",{"value":f"{risk.get('score','Unknown')} / {risk.get('level','Unknown')}"}),("Completeness",{"value":risk.get("evidence_completeness","Unknown")})]
-    labels={"directly_observed":"Observed","deterministically_derived":"Derived","ml_inferred":"ML Inferred","unknown":"Unknown"}
-    cards_html="".join(f"<div class='card'><b>{k}</b><br>{v.get('value','Unknown')}<br><small>{labels.get(v.get('evidence_type'),'Unknown')}</small></div>" for k,v in cards)
-    protocol="".join(f"<tr><td>{k}</td><td>{v.get('value') if v.get('value') is not None else 'Unknown'}</td><td>{labels.get(v.get('evidence_type'),'Unknown')}</td><td>{v.get('source','not available')}</td></tr>" for k,v in vals.items())
-    findings="".join(f"<tr><td>{f.get('severity')}</td><td>{f.get('status')}</td><td>{f.get('title')}</td><td>{f.get('description')}</td></tr>" for f in result.get('security_assessment',{}).get('security_findings',[]))
-    passive="<p class='unknown'><b>Some VPN properties cannot be determined from passive encrypted traffic alone.</b></p>" if result.get('input',{}).get('type') == 'pcap' else ""
-    probs=tp.get('probabilities',{}); probability_table="".join(f"<tr><td>{k}</td><td>{v:.4f}</td></tr>" for k,v in probs.items())
-    return f"<h2>Overview</h2>{passive}{cards_html}<h2>Protocol and Evidence</h2><table><tr><th>Field</th><th>Value</th><th>Evidence</th><th>Source</th></tr>{protocol}</table><h2>Traffic ML</h2><p>Traffic prediction is an ML inference based on encrypted-flow metadata and does not decrypt payloads.</p><table><tr><th>Class</th><th>Probability</th></tr>{probability_table}</table><h2>Security Findings</h2><table><tr><th>Severity</th><th>Status</th><th>Finding</th><th>Description</th></tr>{findings}</table><h2>Threat Matrix</h2><pre>{json.dumps(result.get('threat_matrix',[]),indent=2)}</pre><h2>Limitations</h2><ul>{''.join('<li>'+x+'</li>' for x in result.get('limitations',[]))}</ul>"
+
+def report_banner(contract):
+    """Prominent banner so a stale/unavailable snapshot is never mistaken
+    for a live assessment."""
+    state = contract.get("live_state")
+    gen = contract.get("generated_at")
+    try:
+        gen_txt = (datetime.fromtimestamp(gen).strftime("%Y-%m-%d %H:%M:%S")
+                   if isinstance(gen, (int, float)) else "unknown")
+    except (OSError, OverflowError, ValueError):
+        gen_txt = "unknown"
+    base = ("padding:.8rem 1.1rem;margin:0 0 1.1rem;border-radius:12px;"
+            "font:13px/1.5 var(--font-sans);border:1px solid ")
+    if state == "live":
+        return ("<div style='%s#bfe6cd;background:#eaf7ef;color:#0f5a2a'>"
+                "LIVE SENSOR &middot; fresh passive monitor state &middot; snapshot %s</div>"
+                % (base, gen_txt))
+    if state == "stale":
+        reason = contract.get("live_state_reason") or "no fresh heartbeat"
+        return ("<div style='%s#efd9a8;background:#fdf6e6;color:#7a5300'>"
+                "STALE SNAPSHOT &middot; live sensor data is not fresh (%s) &middot; snapshot %s</div>"
+                % (base, reason, gen_txt))
+    return ("<div style='%s#d9ddef;background:#f4f5fb;color:#56597a'>"
+            "LIVE MONITOR STATE UNAVAILABLE &middot; this report has no live data</div>" % base)
+
+
+def unavailable_report(kind):
+    active = "/executive" if kind == "Executive" else "/technical"
+    return (
+        "<!doctype html><html lang='en'><head><meta charset='utf-8'>"
+        "<meta name='viewport' content='width=device-width,initial-scale=1'>"
+        "<meta name='color-scheme' content='light'>"
+        "<title>%s report unavailable</title><style>%s</style></head><body><div class='shell'>"
+        "%s"
+        "<main id='main' style='padding-top:18px'><section class='panel'>"
+        "<div class='panel-h'><span class='code'>REPORT / UNAVAILABLE</span>"
+        "<h3>%s report unavailable</h3></div><div class='empty'>"
+        "<div class='orb' aria-hidden='true'>%s</div>"
+        "<h1 class='display' style='font-size:26px'>No live monitor state</h1>"
+        "<p class='lede' style='margin:0 auto'>SENTINEL looked for <code class='mono'>%s</code> and found "
+        "nothing to report on. Start the passive monitor, then reload this page.</p>"
+        "<div class='samples'><code>scripts/start-live-monitor.ps1</code></div>"
+        "</div></section></main>"
+        "<footer class='foot'><span>LOCAL PROCESSING // EVIDENCE FIRST // NO PAYLOAD DECRYPTION</span>"
+        "<span>Unknown is a result, not a failure.</span></footer>"
+        "</div></body></html>"
+        % (kind, THEME_CSS, report_topbar(active), kind, icon("alert"), _e(str(LIVE_STATE))))
+
 
 class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
@@ -53,45 +464,81 @@ class Handler(BaseHTTPRequestHandler):
         parts = urlparse(self.path)
         if parts.path == "/live.json":
             try:
-                state = json.loads(LIVE_STATE.read_text(encoding="utf-8")) if LIVE_STATE.exists() else None
-                contract = live_contract(state or {})
-                hb = LIVE_STATE.parent / "heartbeat.json"
-                heartbeat = json.loads(hb.read_text(encoding="utf-8")) if hb.exists() else {}
-                contract["heartbeat_ts"] = heartbeat.get("ts")
-                contract["heartbeat_status"] = heartbeat.get("status")
-                contract["heartbeat_age"] = None if heartbeat.get("ts") is None else max(0, int(__import__("time").time() - heartbeat["ts"]))
-                contract["live_active"] = bool(contract.get("heartbeat_status") == "LIVE" and (contract.get("heartbeat_age") is None or contract["heartbeat_age"] <= 5))
-                events = LIVE_STATE.parent / "events.jsonl"
-                contract["recent_events"] = _tail_jsonl(events, 14)
-                payload = json.dumps(contract).encode()
+                payload = json.dumps(live_snapshot()).encode()
             except Exception:
                 payload = b"{}"
-            self.send_response(200); self.send_header('Content-Type','application/json'); self.send_header('Cache-Control','no-store'); self.end_headers(); self.wfile.write(payload)
+            self.send_response(200); self.send_header('Content-Type', 'application/json')
+            self.send_header('Cache-Control', 'no-store'); self.end_headers(); self.wfile.write(payload)
+            return
+        if parts.path in ("/executive", "/technical"):
+            kind = "Executive" if parts.path == "/executive" else "Technical"
+            try:
+                contract = live_snapshot()
+            except Exception:
+                contract = {"live_state": "unavailable", "live_state_reason": "monitor state could not be read"}
+            if contract.get("live_state") == "unavailable":
+                body = unavailable_report(kind).encode()
+            else:
+                result = live_report_input(contract, LIVE_STATE)
+                doc = executive(result) if parts.path == "/executive" else technical(result)
+                body = doc.replace("</nav>", "</nav>" + report_banner(contract), 1).encode()
+            self.send_response(200); self.send_header('Content-Type', 'text/html; charset=utf-8')
+            self.send_header('Cache-Control', 'no-store'); self.end_headers(); self.wfile.write(body)
             return
         if parts.path == "/live":
             try:
-                state = json.loads(LIVE_STATE.read_text(encoding="utf-8")) if LIVE_STATE.exists() else None
-                contract = live_contract(state) if state else None
-                body = render_live(contract) if contract else "<h2>Live IPsec Monitor</h2><p>No monitor state yet. Start the passive monitor first.</p>"
-                status = "STALE SNAPSHOT" if (contract and not contract.get("live_active", True)) else "LIVE SENSOR"
+                contract = live_snapshot()
+                if contract.get("state_available"):
+                    body = render_live(contract)
+                else:
+                    body = ("<section class='panel'><div class='empty'><div class='orb'>%s</div>"
+                            "<h1 class='display' style='font-size:26px'>Awaiting signal</h1>"
+                            "<p class='lede' style='margin:0 auto'>No monitor state yet. Start the passive "
+                            "monitor, then reload.</p><div class='samples'><code>scripts/start-live-monitor.ps1"
+                            "</code></div></div></section>" % icon("wave"))
+                status = "Live sensor" if contract.get("live_state") == "live" else "Stale snapshot"
+                st = "live" if contract.get("live_state") == "live" else "stale"
             except Exception:
-                body = "<h2>Live IPsec Monitor</h2><p>Monitor state could not be read.</p>"
-                status = "STALE SNAPSHOT"
-            data = HTML.replace("{body}", body).replace("{status}", status).replace("{controls}", "")
-            self.send_response(200); self.send_header('Content-Type','text/html; charset=utf-8'); self.end_headers(); self.wfile.write(data.encode())
+                body = _error_state("Monitor state could not be read.")
+                status, st = "Stale snapshot", "stale"
+            data = _page(body, active="/live", status=status, state=st, title="Live // IPSEC SENTINEL")
+            self.send_response(200); self.send_header('Content-Type', 'text/html; charset=utf-8')
+            self.end_headers(); self.wfile.write(data.encode())
             return
-        q=parse_qs(parts.query); result=None
+
+        q = parse_qs(parts.query); result = None
+        run = (q.get('run') or [None])[0]
+        pcap = (q.get('pcap') or [None])[0]
         try:
-            if q.get('run'): result=analyze(run_dir=q['run'][0])
-            elif q.get('pcap'): result=analyze(pcap=q['pcap'][0])
-        except Exception: result={"limitations":["The supplied local input could not be analyzed."]}
-        data=HTML.replace("{body}", render(result) + "<span style='display:none'>AI-Driven IPsec VPN Security Analyzer</span>").replace("{status}", "LOCAL ANALYZER").replace("{controls}", CONTROLS); self.send_response(200); self.send_header('Content-Type','text/html; charset=utf-8'); self.end_headers(); self.wfile.write(data.encode())
-    def log_message(self,*args): pass
+            if run and not Path(run).exists():
+                result = {"_error": "Run directory not found: %s" % run,
+                          "hint": "Check the path and that it is visible from this machine."}
+            elif pcap and not Path(pcap).exists():
+                result = {"_error": "Capture file not found: %s" % pcap,
+                          "hint": "Check the path and that it is visible from this machine."}
+            elif run:
+                result = analyze(run_dir=run)
+            elif pcap:
+                result = analyze(pcap=pcap)
+        except Exception:
+            result = {"_error": "The supplied local input could not be analyzed."}
+        body = render(result)
+        data = _page(body, active="/", status="Local analyzer", state="off")
+        self.send_response(200); self.send_header('Content-Type', 'text/html; charset=utf-8')
+        self.end_headers(); self.wfile.write(data.encode())
+
+    def log_message(self, *args):
+        pass
+
 
 def main():
-    ap=argparse.ArgumentParser(); ap.add_argument('--host',default='127.0.0.1'); ap.add_argument('--port',type=int,default=8501); a=ap.parse_args(); print(f"Dashboard: http://{a.host}:{a.port}"); HTTPServer((a.host,a.port),Handler).serve_forever()
-if __name__=='__main__': main()
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--host', default='127.0.0.1')
+    ap.add_argument('--port', type=int, default=8501)
+    a = ap.parse_args()
+    print(f"Dashboard: http://{a.host}:{a.port}")
+    HTTPServer((a.host, a.port), Handler).serve_forever()
 
 
-
-
+if __name__ == '__main__':
+    main()
