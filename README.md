@@ -1,109 +1,140 @@
-# AI-Driven IPsec VPN Security Analyzer
+# IPsec Sentinel — AI-Driven IPsec VPN Security Analyzer
 
-An end-to-end research prototype that generates controlled IPsec VPN traffic in a Docker testbed, extracts passive encrypted-flow features, classifies traffic behavior with machine learning, performs an evidence-first security assessment, and presents results through a local dashboard and executive/technical reports.
+See what a VPN hides — and what it cannot hide — **without decrypting anything**.
 
-## Purpose
+Point Sentinel at a packet capture (or watch it live) and it tells you, with evidence for every claim: which traffic behavior the local ML model sees, which security properties are proven, and which stay **Unknown** instead of being guessed.
 
-Demonstrate, with scientific discipline, how much VPN security posture can be determined **without decrypting traffic**:
+## The app in 30 seconds
 
-- Deterministic protocol/runtime evidence (strongSwan, XFRM) establishes crypto configuration.
-- Passive packet observation establishes what remains visible to an eavesdropper.
-- ML classifies synthetic traffic behavior from encrypted-flow metadata only.
-- Unknown is reported as unknown — never guessed.
+Four pages, one story:
 
-## Key capabilities
+| Page | What you see |
+|---|---|
+| **Live monitor** (`/live`) | Gateway A ↔ Gateway B topology with live packet pulses, telemetry counters, packet feed, and per-tunnel threat evidence. |
+| **Analyzer** (`/`) | Paste a run directory or PCAP path (or click a sample) to get a full offline assessment. |
+| **Executive** (`/executive`) | Verified-configuration risk gauge, traffic behavior, priority findings, and limitations — the one-page summary. |
+| **Technical** (`/technical`) | Full evidence ledger, ML probabilities, and security findings for deep review. |
 
-1. **Working testbed** — four-container site-to-site IPsec VPN (strongSwan 5.9.8, swanctl/vici, XFRM) covering ESP/AH, tunnel/transport, CBC/GCM, IPv4/IPv6, DH groups, PFS, and a real rekey scenario (T01-T15).
-2. **Training/testing dataset** — `dataset_v3_5_v2_full` (version `3.5-v2`): 180 valid balanced runs (15 scenarios x 4 traffic classes x 3), corrected T15 with clean ESP-only captures.
-3. **AI classifier (Phase 4)** — Random Forest on 36 passive features; grouped scenario CV macro F1 `0.9483 ± 0.0480`; unseen-scenario holdout macro F1 `0.9143`; thresholded confidence with `unknown` handling.
-4. **Security assessment engine (Phase 5)** — deterministic, evidence-provenance-aware rules for protocol, confidentiality, integrity, DH strength, PFS, rekey, replay, and metadata exposure; transparent 0-100 risk score; configurable policy.
-5. **Dashboard (Phase 6)** — local web UI with provenance badges (Observed / Derived / ML Inferred / Unknown), findings, threat matrix, risk, and passive-only warnings.
-6. **Reports** — JSON + executive HTML + technical HTML generated from the unified pipeline.
+![Live monitor](docs/images/live-monitor.png)
+*Live monitor: Client A → Gateway A → untrusted transit → Gateway B → Client B, with live packet pulses, telemetry counters, and per-tunnel threat evidence.*
 
-## Architecture
+![Analyzer assessment](docs/images/analyzer-assessment.png)
+*Analyzer: verified-configuration risk, evidence completeness, provenance mix, and key readings for a saved run.*
 
-```text
-IPsec Testbed -> Traffic Generator -> Packet Capture -> Feature Extraction
-      -> Phase 4 Traffic ML  (ml inference)
-      -> Phase 5 Security Assessment (deterministic rules)
-      -> Phase 6 Unified Pipeline -> Dashboard + Reports
+![Evidence and traffic inference](docs/images/analyzer-evidence-ml.png)
+*Protocol and field provenance tiles plus ML traffic behavior with confidence and reason.*
+
+![Findings and evidence ledger](docs/images/analyzer-evidence-ledger.png)
+*Security findings, residual threat matrix, and the full evidence ledger with provenance per field.*
+
+![Executive assessment](docs/images/executive.png)
+*Executive report: traffic behavior, outsider-visible metadata, priority findings, and limitations on one page.*
+
+## Get started
+
+### Prerequisites
+
+- **Docker Desktop** (for the live testbed + packet transfer).
+- **Python 3.11+** (for running the dashboard directly; the containers use `python:3.11`).
+
+### Option A — Watch a live packet transfer (recommended first run)
+
+```powershell
+# 1. Start the 4-container IPsec testbed (Client A -> Gateway A -> transit -> Gateway B -> Client B)
+docker compose -f testbed/compose/testbed.yml up -d
+
+# 2. Start capture -> monitor -> dashboard
+powershell -File scripts/start-live-monitor.ps1
+
+# 3. Send traffic (new terminal, ~30 seconds of video-like flow)
+docker exec sih-client-a python3 /traffic/generator.py --profile video-like --duration 30 --seed 20260904 --peer 10.77.2.10
+
+# 4. Open the dashboard
+# http://127.0.0.1:8501/live
 ```
 
-Containers:
+> Capture must run on the gateways' **transit** interface (`eth0`), not the protected side — otherwise ESP on the wire is never recorded.
 
-```text
-Client A -> Gateway A -> Untrusted Transit -> Gateway B -> Client B
+Or run the fully scripted demo (teardown → capture-before-negotiation → IKE → traffic → ML → assessment):
+
+```powershell
+powershell -File scripts/live-demo.ps1 -Duration 20
 ```
 
-See `docs/ARCHITECTURE.md`.
+### Option B — Analyze a saved capture (no Docker needed)
+
+```powershell
+# Start the dashboard
+python app/app.py   # http://127.0.0.1:8501
+
+# Open the Analyzer page and enter a run directory or PCAP, e.g.
+# dataset_v3_5_v2_full/T04/20260903-143933-601
+```
+
+Or from the command line:
+
+```powershell
+# Offline analysis of one run (verbose summary)
+python integration/analyze.py --run dataset_v3_5_v2_full/T04/20260903-143933-601 --summary
+
+# PCAP-only analysis
+python integration/analyze.py --pcap captures/monitor/live_current.pcap
+```
+
+### Option C — Generate reports
+
+```powershell
+python reports/generate_report.py --input integration/results/t15_result.json --out reports/results
+# -> executive_<stem>.html + technical_<stem>.html + assessment_<stem>.json
+```
+
+## How to read the results
+
+- **Risk `0 / 100` means “no proven failures” — not “secure.”** The score only adds penalties for proven rule violations.
+- **Unknown is a result, not a failure.** Passive ESP ciphertext cannot prove inner crypto details (algorithm, key size, PFS, replay protection), so those stay Unknown with a reason.
+- **Provenance chips** on every value: `Observed` (seen on the wire), `Derived` (computed), `ML Inferred` (model estimate), `Unknown`.
+- **ML abstains below 60% confidence** instead of guessing (`below_threshold` → Unknown).
 
 ## Repository layout
 
 ```text
-testbed/                 four-container testbed (compose, strongSwan configs, scenarios, runner scripts)
-analyzer/                passive PCAP feature extraction + ML dataset builder
-ml_v2/                   Phase 4 model, schema, prediction CLI, results
-security/                Phase 5 assessment engine, policy, tests, results
-integration/             Phase 6 unified pipeline, validation artifacts, tests
-app/                     local dashboard (standard library only)
-reports/                 report generator + generated samples
-dataset_v3_5_v2_full/    final dataset (3.5-v2) — frozen
-dataset_exports_v2/      ML CSV exports — frozen inputs of record
-docs/                    full documentation set
-scripts/                 demo.ps1, final-validation.ps1
+testbed/                 4-container IPsec testbed (compose, strongSwan configs, scenarios, traffic generator)
+analyzer/                passive PCAP feature extraction
+ml_v2/                   traffic classifier: model, schema, prediction CLI  (see ml_v2/model_card.md)
+ml/                      legacy training/evaluation scripts
+security/                deterministic assessment engine + policy
+monitor/                 live tail monitor, session correlator, ML/security bridges, live dashboard contract
+integration/             unified offline pipeline (analyze.py)
+app/                     dashboard server (standard library only)
+ui/                      shared theme: Noto Sans, government-light tokens, components
+reports/                 executive/technical report generator
+scripts/                 start-live-monitor.ps1, live-demo.ps1, final-validation.ps1
+dataset_v3_5_v2_full/    frozen reference dataset (v3.5-v2)
+docs/                    full documentation set (start with docs/README.md)
 ```
 
-## Prerequisites
+## Verify your setup
 
-- Docker Desktop (WSL2 backend on Windows).
-- Python 3.11 (used inside the `python:3.11` container; `requirements.txt`: numpy, scipy, scikit-learn, joblib, scapy).
-
-## Quick start
-
-```bash
-# 1. Testbed
-docker compose -f testbed/compose/testbed.yml up -d --build
+```powershell
+# Testbed health (gateways, SAs, capture path)
 powershell -File testbed/scripts/check-testbed.ps1
 
-# 2. Analyze an existing dataset run end-to-end (Phase 6 pipeline)
-docker run --rm -v "${PWD}:/work" -w /work python:3.11 sh -c \
-  "pip install -q -r requirements.txt && python integration/analyze.py --run dataset_v3_5_v2_full/T04/20260903-143933-601 --summary"
+# Unit + regression tests
+python -m pytest -q
 
-# 3. Reports
-docker run --rm -v "${PWD}:/work" -w /work python:3.11 \
-  python reports/generate_report.py --input integration/results/t15_result.json --out reports/results
-
-# 4. Dashboard
-python app/app.py          # http://127.0.0.1:8501
+# End-to-end validation record
+powershell -ExecutionPolicy Bypass -File scripts/final-validation.ps1
 ```
-
-## Common tasks
-
-| Task | Command |
-|---|---|
-| Start testbed | `docker compose -f testbed/compose/testbed.yml up -d --build` (add `-f testbed/compose/t15.yml` for T15) |
-| Verify testbed | `powershell -File testbed/scripts/check-testbed.ps1` |
-| Run a scenario | `powershell -File testbed/scripts/run-scenario.ps1 -Scenario T04 -Traffic "icmp,web,voip-like,video-like" -Runs 3 -DatasetRoot dataset_v3_5_v2_final` |
-| Analyze a run (unified) | `python integration/analyze.py --run <run-dir>` |
-| Analyze PCAP-only | `python integration/analyze.py --pcap <capture.pcap>` |
-| ML prediction | `python ml_v2/predict_traffic.py --features <features.json>` or `--pcap <capture.pcap>` |
-| Security assessment | `python security/assess_ipsec.py --run <run-dir> --summary` |
-| Dashboard | `python app/app.py` |
-| Generate reports | `python reports/generate_report.py --input <phase6.json> --out reports/results` |
-| Final validation | `powershell -ExecutionPolicy Bypass -File scripts/final-validation.ps1` |
-
-(On hosts without Python, prefix commands with `docker run --rm -v "${PWD}:/work" -w /work python:3.11`.)
 
 ## Documentation
 
-Start with `docs/README.md`: installation, user guide, architecture, testbed, dataset, ML model, security engine, dashboard, results, limitations, demo guide, and the final validation record.
+Start with `docs/README.md`, then as needed: `docs/USER_GUIDE.md` (using the UI), `docs/TESTBED.md`, `docs/ARCHITECTURE.md`, `docs/LIMITATIONS.md`, `ml_v2/model_card.md`.
 
-## Known limitations
+## Known limitations (short version)
 
-- No payload decryption; AES key size, GCM vs CBC, mode, PFS, and replay are reported only from runtime/config evidence — `unknown` otherwise.
-- Traffic classes are synthetic behavior categories; the model does not identify real applications.
-- Small, controlled, synthetic dataset; real-world generalization is not proven.
-- `project_default_policy` is a project policy, not a regulatory compliance certification.
-- Metadata side channels (sizes, timing, directionality, endpoints) remain observable.
+- No payload decryption — inner crypto properties are Unknown unless runtime/config evidence exists.
+- Traffic classes (`icmp`, `web`, `voip-like`, `video-like`) are synthetic behaviors, not real apps.
+- Small controlled synthetic dataset; real-world generalization is not proven.
+- Metadata side channels (sizes, timing, direction, endpoints) stay observable.
 
 Details: `docs/LIMITATIONS.md`.
