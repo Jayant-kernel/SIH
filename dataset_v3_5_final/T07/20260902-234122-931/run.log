@@ -1,0 +1,6 @@
+﻿Run 20260902-234122-931 Scenario T07 Traffic video-like Duration 8 Seed 9197
+initiate failed: establishing CHILD_SA 't07-child' failed
+[IKE] not establishing CHILD_SA t07-child{142} due to existing duplicate {127} with SPIs cde131a2_i ca8f9e97_o and TS 10.77.0.10/32 === 10.77.0.20/32
+[generator] UDP small: 100 pps, size 1043, jitter 0.010, dur 8s to 10.77.0.20:5002
+[generator] UDP small sent 756 packets
+{"profile": "video-like", "duration": 8, "seed": 9197, "peer": "10.77.0.20", "result": {"packets": 756, "bytes": 788508, "protocol": "udp", "packet_size": 1043, "pps": 100, "jitter": 0.01, "actual_duration": 8, "seed": 9197, "profile_version": "3.5-v1"}, "profile_version": "3.5-v1"}

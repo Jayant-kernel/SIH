@@ -1,0 +1,21 @@
+﻿Run 20260903-140727-344 Scenario T10 Traffic icmp Duration 14 Seed 667
+[CFG] selected proposal: IKE:AES_CBC_256/HMAC_SHA2_384_192/PRF_HMAC_SHA2_384/MODP_2048
+[IKE] authentication of 'gateway-a' (myself) with pre-shared key
+[IKE] establishing CHILD_SA ipv6-child{131}
+[ENC] generating IKE_AUTH request 1 [ IDi N(INIT_CONTACT) IDr AUTH SA TSi TSr N(MOBIKE_SUP) N(ADD_4_ADDR) N(ADD_4_ADDR) N(ADD_6_ADDR) N(MULT_AUTH) N(EAP_ONLY) N(MSG_ID_SYN_SUP) ]
+[NET] sending packet: from fd77:77::10[4500] to fd77:77::20[4500] (424 bytes)
+[NET] received packet: from fd77:77::20[4500] to fd77:77::10[4500] (376 bytes)
+[ENC] parsed IKE_AUTH response 1 [ IDr AUTH SA TSi TSr N(MOBIKE_SUP) N(ADD_4_ADDR) N(ADD_4_ADDR) N(ADD_6_ADDR) ]
+[IKE] authentication of 'gateway-b' with pre-shared key successful
+[IKE] peer supports MOBIKE
+[IKE] IKE_SA ipv6-ike[103] established between fd77:77::10[gateway-a]...fd77:77::20[gateway-b]
+[IKE] scheduling rekeying in 14342s
+[IKE] maximum IKE_SA lifetime 15782s
+[CFG] selected proposal: ESP:AES_CBC_256/HMAC_SHA2_384_192/NO_EXT_SEQ
+[IKE] CHILD_SA ipv6-child{131} established with SPIs ccc87812_i c7e78402_o and TS 10.77.1.0/24 fd77:77:1::/64 === 10.77.2.0/24 fd77:77:2::/64
+initiate completed successfully
+--- 10.77.2.10 ping statistics ---
+26 packets transmitted, 26 received, 0% packet loss, time 13603ms
+rtt min/avg/max/mdev = 0.124/0.228/0.445/0.072 ms
+
+{"profile": "icmp", "duration": 14, "seed": 667, "peer": "10.77.2.10", "result": {"packets": 26, "bytes": 1482, "protocol": "icmp", "packet_size": 57, "interval": 0.5333689246262135, "count": 26, "actual_duration": 14, "seed": 667, "profile_version": "3.5-v1"}, "profile_version": "3.5-v1"}

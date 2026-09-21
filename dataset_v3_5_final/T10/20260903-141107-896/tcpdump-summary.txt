@@ -1,0 +1,30 @@
+﻿reading from file /dataset-final/T10/20260903-141107-896/capture.pcap, link-type LINUX_SLL2 (Linux cooked v2), snapshot length 262144
+Warning: interface names might be incorrect
+08:41:08.665393 eth1  Out IP6 fd77:77::10 > fd77:77::20: ESP(spi=0xc7e78402,seq=0xced), length 112
+08:41:08.665447 eth1  In  IP6 fd77:77::20 > fd77:77::10: ESP(spi=0xccc87812,seq=0xc5), length 96
+08:41:09.296022 eth1  Out IP6 fd77:77::10 > fd77:77::20: ESP(spi=0xc7e78402,seq=0xcee), length 112
+08:41:09.296090 eth1  In  IP6 fd77:77::20 > fd77:77::10: ESP(spi=0xccc87812,seq=0xc6), length 96
+08:41:09.767104 eth1  Out IP6 fd77:77::10 > fd77:77::20: ESP(spi=0xc7e78402,seq=0xcef), length 112
+08:41:09.767155 eth1  In  IP6 fd77:77::20 > fd77:77::10: ESP(spi=0xccc87812,seq=0xc7), length 96
+08:41:10.360057 eth1  Out IP6 fd77:77::10 > fd77:77::20: ESP(spi=0xc7e78402,seq=0xcf0), length 112
+08:41:10.360150 eth1  In  IP6 fd77:77::20 > fd77:77::10: ESP(spi=0xccc87812,seq=0xc8), length 96
+08:41:11.023509 eth1  Out IP6 fd77:77::10 > fd77:77::20: ESP(spi=0xc7e78402,seq=0xcf1), length 112
+08:41:11.023579 eth1  In  IP6 fd77:77::20 > fd77:77::10: ESP(spi=0xccc87812,seq=0xc9), length 96
+08:41:11.676803 eth1  Out IP6 fd77:77::10 > fd77:77::20: ESP(spi=0xc7e78402,seq=0xcf2), length 112
+08:41:11.676878 eth1  In  IP6 fd77:77::20 > fd77:77::10: ESP(spi=0xccc87812,seq=0xca), length 96
+08:41:12.274018 eth1  Out IP6 fd77:77::10 > fd77:77::20: ESP(spi=0xc7e78402,seq=0xcf3), length 112
+08:41:12.274113 eth1  In  IP6 fd77:77::20 > fd77:77::10: ESP(spi=0xccc87812,seq=0xcb), length 96
+08:41:12.792767 eth1  Out IP6 fd77:77::10 > fd77:77::20: ESP(spi=0xc7e78402,seq=0xcf4), length 112
+08:41:12.792834 eth1  In  IP6 fd77:77::20 > fd77:77::10: ESP(spi=0xccc87812,seq=0xcc), length 96
+08:41:13.357628 eth1  Out IP6 fd77:77::10 > fd77:77::20: ESP(spi=0xc7e78402,seq=0xcf5), length 112
+08:41:13.357679 eth1  In  IP6 fd77:77::20 > fd77:77::10: ESP(spi=0xccc87812,seq=0xcd), length 96
+08:41:13.895310 eth1  Out IP6 fd77:77::10 > fd77:77::20: ESP(spi=0xc7e78402,seq=0xcf6), length 112
+08:41:13.895390 eth1  In  IP6 fd77:77::20 > fd77:77::10: ESP(spi=0xccc87812,seq=0xce), length 96
+08:41:14.407674 eth1  Out IP6 fd77:77::10 > fd77:77::20: ESP(spi=0xc7e78402,seq=0xcf7), length 112
+08:41:14.407728 eth1  In  IP6 fd77:77::20 > fd77:77::10: ESP(spi=0xccc87812,seq=0xcf), length 96
+08:41:15.089048 eth1  Out IP6 fd77:77::10 > fd77:77::20: ESP(spi=0xc7e78402,seq=0xcf8), length 112
+08:41:15.089109 eth1  In  IP6 fd77:77::20 > fd77:77::10: ESP(spi=0xccc87812,seq=0xd0), length 96
+08:41:15.736735 eth1  Out IP6 fd77:77::10 > fd77:77::20: ESP(spi=0xc7e78402,seq=0xcf9), length 112
+08:41:15.736795 eth1  In  IP6 fd77:77::20 > fd77:77::10: ESP(spi=0xccc87812,seq=0xd1), length 96
+08:41:16.404096 eth1  Out IP6 fd77:77::10 > fd77:77::20: ESP(spi=0xc7e78402,seq=0xcfa), length 112
+08:41:16.404165 eth1  In  IP6 fd77:77::20 > fd77:77::10: ESP(spi=0xccc87812,seq=0xd2), length 96

@@ -1,0 +1,6 @@
+﻿Run 20260902-233304-169 Scenario T03 Traffic video-like Duration 8 Seed 9392
+initiate failed: establishing CHILD_SA 't03-child' failed
+[IKE] not establishing CHILD_SA t03-child{97} due to existing duplicate {76} with SPIs c902230e_i c1805b49_o and TS 10.77.23.0/24 === 10.77.24.0/24
+[generator] UDP small: 93 pps, size 1143, jitter 0.010, dur 8s to 10.77.24.10:5002
+[generator] UDP small sent 741 packets
+{"profile": "video-like", "duration": 8, "seed": 9392, "peer": "10.77.24.10", "result": {"packets": 741, "bytes": 846963, "protocol": "udp", "packet_size": 1143, "pps": 93, "jitter": 0.01, "actual_duration": 8, "seed": 9392, "profile_version": "3.5-v1"}, "profile_version": "3.5-v1"}

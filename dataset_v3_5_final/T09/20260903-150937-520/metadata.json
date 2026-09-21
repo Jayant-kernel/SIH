@@ -1,0 +1,100 @@
+﻿{
+    "run":  {
+                "timestamp":  "2026-09-03T15:09:53.0492575+05:30",
+                "run_id":  "20260903-150937-520",
+                "pcap":  "capture.pcap",
+                "status":  "PASS",
+                "scenario_id":  "T09"
+            },
+    "observations":  {
+                         "swanctl_after":  "T09: #154, ESTABLISHED, IKEv2, 0dd11340f4c483bd_i* 611ee01022c6252e_r |   local  \u0027gateway-a\u0027 @ 10.77.0.10[4500] |   remote \u0027gateway-b\u0027 @ 10.77.0.20[4500] |   AES_CBC-256/HMAC_SHA2_384_192/PRF_HMAC_SHA2_384/MODP_2048 |   established 123s ago, rekeying in 13179s |   t09-child: #184, reqid 2, INSTALLED, TRANSPORT, AH:HMAC_SHA2_256_128",
+                         "xfrm_state_lines":  "\tproto ah spi 0xc62f4387 reqid 2 mode transport | \tproto ah spi 0xc950c0b0 reqid 2 mode transport",
+                         "tcpdump_head":  "reading from file /dataset-final/T09/20260903-150937-520/capture.pcap, link-type LINUX_SLL2 (Linux cooked v2), snapshot length 262144 | Warning: interface names might be incorrect | 09:39:38.676214 eth1  Out IP 10.77.0.10 \u003e 10.77.0.20: AH(spi=0xc62f4387,seq=0x6d0,icv=0x73907a29e863000cb9d2ef36974db6b7): 43346 \u003e 8000: Flags [S], seq 973239698, win 64240, options [mss 1460,sackOK,TS val 269397311 ecr 0,nop,wscale 10], length 0 | 09:39:38.676265 eth1  In  IP 10.77.0.20 \u003e 10.77.0.10: AH(spi=0xc950c0b0,seq=0x61,icv=0x835af5ff6b52f8dbe86d051d9110a4e0): 8000 \u003e 43346: Flags [R.], seq 0, ack 973239699, win 0, length 0",
+                         "swanctl_before":  "T09: #154, ESTABLISHED, IKEv2, 0dd11340f4c483bd_i* 611ee01022c6252e_r |   local  \u0027gateway-a\u0027 @ 10.77.0.10[4500] |   remote \u0027gateway-b\u0027 @ 10.77.0.20[4500] |   AES_CBC-256/HMAC_SHA2_384_192/PRF_HMAC_SHA2_384/MODP_2048 |   established 108s ago, rekeying in 13194s |   t09-child: #184, reqid 2, INSTALLED, TRANSPORT, AH:HMAC_SHA2_256_128"
+                     },
+    "evidence_classification":  {
+                                    "ml_inferred":  [
+
+                                                    ],
+                                    "deterministically_derived":  [
+                                                                      "mode from XFRM",
+                                                                      "PFS from scenario",
+                                                                      "rekey from SPI change"
+                                                                  ],
+                                    "directly_observed":  [
+                                                              "ESP packet present if tcpdump shows ESP",
+                                                              "AH packet present if AH",
+                                                              "IPv4/IPv6 outer",
+                                                              "SPI",
+                                                              "packet lengths"
+                                                          ],
+                                    "unknown":  [
+                                                    "AES key length from ciphertext",
+                                                    "exact DH group from ciphertext"
+                                                ]
+                                },
+    "vpn_ground_truth":  {
+                             "ike_transport_ip_version":  "IPv4",
+                             "protected_ip_version":  "IPv4",
+                             "remote_ts":  "10.77.0.20/32",
+                             "ike_version":  2,
+                             "encryption_key_length":  0,
+                             "dh_group":  14,
+                             "integrity_algorithm":  "HMAC-SHA256",
+                             "ipsec_protocol":  "AH",
+                             "encryption_algorithm":  "none",
+                             "pfs":  false,
+                             "rekey_enabled":  true,
+                             "mode":  "transport",
+                             "local_ts":  "10.77.0.10/32",
+                             "rekey_time":  "3600s",
+                             "dh_group_name":  "modp2048"
+                         },
+    "scenario":  {
+                     "scenario_id":  "T09",
+                     "family":  "AH",
+                     "description":  "AH transport SHA256 MODP2048 host-to-host",
+                     "ike_version":  2,
+                     "ike_transport_ip_version":  "IPv4",
+                     "ipsec_protocol":  "AH",
+                     "mode":  "transport",
+                     "encryption_algorithm":  "none",
+                     "encryption_key_length":  0,
+                     "integrity_algorithm":  "HMAC-SHA256",
+                     "dh_group":  14,
+                     "dh_group_name":  "modp2048",
+                     "pfs":  false,
+                     "protected_ip_version":  "IPv4",
+                     "local_ts":  "10.77.0.10/32",
+                     "remote_ts":  "10.77.0.20/32",
+                     "ike_endpoints":  "10.77.0.10 \u003c-\u003e 10.77.0.20",
+                     "rekey_enabled":  true,
+                     "rekey_time":  "3600s",
+                     "traffic_profiles":  [
+                                              "icmp",
+                                              "messaging-like"
+                                          ],
+                     "expected_protocols":  [
+                                                "AH"
+                                            ],
+                     "expected_observations":  [
+                                                   "XFRM ah mode transport"
+                                               ]
+                 },
+    "traffic_ground_truth":  {
+                                 "traffic_class":  "web",
+                                 "generator_output":  "[generator] HTTP: 12 requests to http://10.77.0.20:8000/ interval 0.632 req 410 resp 2357\n[generator] HTTP done 12 requests\n{\"profile\": \"web\", \"duration\": 8, \"seed\": 2408, \"peer\": \"10.77.0.20\", \"result\": {\"packets\": 48, \"bytes\": 33204, \"requests\": 12, \"interval\": 0.6323147487394498, \"request_size\": 410, \"response_size\": 2357, \"actual_duration\": 8, \"seed\": 2408, \"profile_version\": \"3.5-v1\"}, \"profile_version\": \"3.5-v1\"}",
+                                 "peer":  "10.77.0.20",
+                                 "profile_version":  "3.5-v1",
+                                 "duration":  8,
+                                 "generator":  "generator.py",
+                                 "src":  "10.77.0.10",
+                                 "seed":  2408
+                             },
+    "validation":  {
+                       "expected_protocols":  [
+                                                  "AH"
+                                              ],
+                       "mode_verified":  true
+                   }
+}

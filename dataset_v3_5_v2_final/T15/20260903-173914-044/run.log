@@ -1,0 +1,28 @@
+﻿Run 20260903-173914-044 Scenario T15 Traffic icmp Duration 11 Seed 3779
+[CFG] selected proposal: IKE:AES_CBC_192/HMAC_SHA2_256_128/PRF_HMAC_SHA2_256/MODP_3072
+[IKE] authentication of 'gateway-a' (myself) with pre-shared key
+[IKE] establishing CHILD_SA t15-child{5}
+[ENC] generating IKE_AUTH request 1 [ IDi N(INIT_CONTACT) IDr AUTH SA TSi TSr N(MOBIKE_SUP) N(ADD_4_ADDR) N(ADD_6_ADDR) N(ADD_6_ADDR) N(MULT_AUTH) N(EAP_ONLY) N(MSG_ID_SYN_SUP) ]
+[NET] sending packet: from 10.77.0.10[4500] to 10.77.0.20[4500] (384 bytes)
+[NET] received packet: from 10.77.0.20[4500] to 10.77.0.10[4500] (336 bytes)
+[ENC] parsed IKE_AUTH response 1 [ IDr AUTH SA TSi TSr N(MOBIKE_SUP) N(ADD_4_ADDR) N(ADD_6_ADDR) N(ADD_6_ADDR) ]
+[IKE] authentication of 'gateway-b' with pre-shared key successful
+[IKE] peer supports MOBIKE
+[IKE] IKE_SA T15[5] established between 10.77.0.10[gateway-a]...10.77.0.20[gateway-b]
+[IKE] scheduling rekeying in 13266s
+[IKE] maximum IKE_SA lifetime 14706s
+[CFG] selected proposal: ESP:AES_CBC_192/HMAC_SHA2_256_128/NO_EXT_SEQ
+[IKE] CHILD_SA t15-child{5} established with SPIs c87c0d37_i c13239ed_o and TS fd77:77:23::/64 === fd77:77:24::/64
+initiate completed successfully
+PING fd77:77:24::10(fd77:77:24::10) from fd77:77:23::10 : 56 data bytes
+64 bytes from fd77:77:24::10: icmp_seq=1 ttl=64 time=0.190 ms
+64 bytes from fd77:77:24::10: icmp_seq=2 ttl=64 time=0.142 ms
+
+--- fd77:77:24::10 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1008ms
+rtt min/avg/max/mdev = 0.142/0.166/0.190/0.024 ms
+--- fd77:77:24::10 ping statistics ---
+19 packets transmitted, 19 received, 0% packet loss, time 10350ms
+rtt min/avg/max/mdev = 0.068/0.115/0.169/0.028 ms
+
+{"profile": "icmp", "duration": 11, "seed": 3779, "peer": "fd77:77:24::10", "result": {"packets": 19, "bytes": 1159, "protocol": "icmp", "packet_size": 61, "interval": 0.5550070819035235, "count": 19, "actual_duration": 11, "seed": 3779, "profile_version": "3.5-v1"}, "profile_version": "3.5-v1"}

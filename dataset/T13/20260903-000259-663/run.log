@@ -1,0 +1,6 @@
+﻿Run 20260903-000259-663 Scenario T13 Traffic web Duration 8 Seed 1013
+initiate failed: establishing CHILD_SA 't13-child' failed
+[IKE] not establishing CHILD_SA t13-child{261} due to existing duplicate {255} with SPIs c7f15bdb_i cc0c06ba_o and TS 10.77.19.0/24 === 10.77.20.0/24
+[generator] HTTP: 14 requests to http://10.77.20.10:8000/ interval 0.461 req 420 resp 2662
+[generator] HTTP done 14 requests
+{"profile": "web", "duration": 8, "seed": 1013, "peer": "10.77.20.10", "result": {"packets": 56, "bytes": 43148, "requests": 14, "interval": 0.4609008114778622, "request_size": 420, "response_size": 2662, "actual_duration": 8, "seed": 1013, "profile_version": "3.5-v1"}, "profile_version": "3.5-v1"}

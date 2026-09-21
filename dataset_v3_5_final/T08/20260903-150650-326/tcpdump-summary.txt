@@ -1,0 +1,30 @@
+﻿reading from file /dataset-final/T08/20260903-150650-326/capture.pcap, link-type LINUX_SLL2 (Linux cooked v2), snapshot length 262144
+Warning: interface names might be incorrect
+09:36:52.548308 eth1  Out IP 10.77.0.10 > 10.77.0.20: AH(spi=0xc9377d8d,seq=0x693,icv=0x928e7d4886edd9943ec1b395d219dc6e): IP 10.77.8.10.49418 > 10.77.9.10.5001: UDP, length 85
+09:36:52.548356 eth1  In  IP 10.77.0.20 > 10.77.0.10: AH(spi=0xc0e9cd6d,seq=0x81,icv=0xc87e3658a8244ec46e2c00b49d83e1ac): IP 10.77.9.10 > 10.77.8.10: ICMP 10.77.9.10 udp port 5001 unreachable, length 121
+09:36:52.553561 eth1  Out IP 10.77.0.10 > 10.77.0.20: AH(spi=0xc9377d8d,seq=0x694,icv=0xec53f8ed7df65cc613176bfadb0de4f0): IP 10.77.8.10.49418 > 10.77.9.10.5001: UDP, length 85
+09:36:52.553604 eth1  In  IP 10.77.0.20 > 10.77.0.10: AH(spi=0xc0e9cd6d,seq=0x82,icv=0x4a0eb2e10db7b654efcb7b61cb61ea11): IP 10.77.9.10 > 10.77.8.10: ICMP 10.77.9.10 udp port 5001 unreachable, length 121
+09:36:52.566096 eth1  Out IP 10.77.0.10 > 10.77.0.20: AH(spi=0xc9377d8d,seq=0x695,icv=0x7eb23ddd13e0c89185ed3932c68782d5): IP 10.77.8.10.49418 > 10.77.9.10.5001: UDP, length 85
+09:36:52.566144 eth1  In  IP 10.77.0.20 > 10.77.0.10: AH(spi=0xc0e9cd6d,seq=0x83,icv=0xd17430ab42b62f433e4d096f11f934f5): IP 10.77.9.10 > 10.77.8.10: ICMP 10.77.9.10 udp port 5001 unreachable, length 121
+09:36:52.575098 eth1  Out IP 10.77.0.10 > 10.77.0.20: AH(spi=0xc9377d8d,seq=0x696,icv=0x63fae27d1c4b34978d2822520633934b): IP 10.77.8.10.49418 > 10.77.9.10.5001: UDP, length 85
+09:36:52.575146 eth1  In  IP 10.77.0.20 > 10.77.0.10: AH(spi=0xc0e9cd6d,seq=0x84,icv=0xf491963f5c65253849f34fb41211a8c2): IP 10.77.9.10 > 10.77.8.10: ICMP 10.77.9.10 udp port 5001 unreachable, length 121
+09:36:52.580557 eth1  Out IP 10.77.0.10 > 10.77.0.20: AH(spi=0xc9377d8d,seq=0x697,icv=0x0e53e22e1f55d8bcd1849ec525a96af0): IP 10.77.8.10.49418 > 10.77.9.10.5001: UDP, length 85
+09:36:52.580597 eth1  In  IP 10.77.0.20 > 10.77.0.10: AH(spi=0xc0e9cd6d,seq=0x85,icv=0x05a945a478ba50ca7610ed67fe5cc3f2): IP 10.77.9.10 > 10.77.8.10: ICMP 10.77.9.10 udp port 5001 unreachable, length 121
+09:36:52.590599 eth1  Out IP 10.77.0.10 > 10.77.0.20: AH(spi=0xc9377d8d,seq=0x698,icv=0x4e3abd5456637ac5ba3e384e01ccf9b5): IP 10.77.8.10.49418 > 10.77.9.10.5001: UDP, length 85
+09:36:52.590611 eth1  In  IP 10.77.0.20 > 10.77.0.10: AH(spi=0xc0e9cd6d,seq=0x86,icv=0xb386512c056b87469ceabd57a865ad96): IP 10.77.9.10 > 10.77.8.10: ICMP 10.77.9.10 udp port 5001 unreachable, length 121
+09:36:52.613155 eth1  Out IP 10.77.0.10 > 10.77.0.20: AH(spi=0xc9377d8d,seq=0x699,icv=0xa9b184a55f519be48166988039e3ed7a): IP 10.77.8.10.49418 > 10.77.9.10.5001: UDP, length 85
+09:36:52.629271 eth1  Out IP 10.77.0.10 > 10.77.0.20: AH(spi=0xc9377d8d,seq=0x69a,icv=0x79ab08b3cdd07b2e979091c2db0b864a): IP 10.77.8.10.49418 > 10.77.9.10.5001: UDP, length 85
+09:36:52.658558 eth1  Out IP 10.77.0.10 > 10.77.0.20: AH(spi=0xc9377d8d,seq=0x69b,icv=0xb7fe9355b1d5a4365cb29bb3cd129b67): IP 10.77.8.10.49418 > 10.77.9.10.5001: UDP, length 85
+09:36:52.672256 eth1  Out IP 10.77.0.10 > 10.77.0.20: AH(spi=0xc9377d8d,seq=0x69c,icv=0xd66939d88ec5c08edcbd0b5297f48f42): IP 10.77.8.10.49418 > 10.77.9.10.5001: UDP, length 85
+09:36:52.690468 eth1  Out IP 10.77.0.10 > 10.77.0.20: AH(spi=0xc9377d8d,seq=0x69d,icv=0x80a401941ff1810d4f1104a19e5a0514): IP 10.77.8.10.49418 > 10.77.9.10.5001: UDP, length 85
+09:36:52.697506 eth1  Out IP 10.77.0.10 > 10.77.0.20: AH(spi=0xc9377d8d,seq=0x69e,icv=0x0178afb63425e94b2add37e04995f0e4): IP 10.77.8.10.49418 > 10.77.9.10.5001: UDP, length 85
+09:36:52.714979 eth1  Out IP 10.77.0.10 > 10.77.0.20: AH(spi=0xc9377d8d,seq=0x69f,icv=0x0f0f86fab7bca8fe18bf49404f064d9f): IP 10.77.8.10.49418 > 10.77.9.10.5001: UDP, length 85
+09:36:52.727398 eth1  Out IP 10.77.0.10 > 10.77.0.20: AH(spi=0xc9377d8d,seq=0x6a0,icv=0x4b828cce341548fd2bbb0efa94f51a6c): IP 10.77.8.10.49418 > 10.77.9.10.5001: UDP, length 85
+09:36:52.743343 eth1  Out IP 10.77.0.10 > 10.77.0.20: AH(spi=0xc9377d8d,seq=0x6a1,icv=0x04d77d721c6e841450f740178f2c43cf): IP 10.77.8.10.49418 > 10.77.9.10.5001: UDP, length 85
+09:36:52.751684 eth1  Out IP 10.77.0.10 > 10.77.0.20: AH(spi=0xc9377d8d,seq=0x6a2,icv=0xa7ddefca34d82b8baac9943e2c6a1149): IP 10.77.8.10.49418 > 10.77.9.10.5001: UDP, length 85
+09:36:52.771318 eth1  Out IP 10.77.0.10 > 10.77.0.20: AH(spi=0xc9377d8d,seq=0x6a3,icv=0x14d4e3689852b320edc801fc312bd63c): IP 10.77.8.10.49418 > 10.77.9.10.5001: UDP, length 85
+09:36:52.783306 eth1  Out IP 10.77.0.10 > 10.77.0.20: AH(spi=0xc9377d8d,seq=0x6a4,icv=0x98f54e1cf33a6895ab4ad6f4a4885ad7): IP 10.77.8.10.49418 > 10.77.9.10.5001: UDP, length 85
+09:36:52.809719 eth1  Out IP 10.77.0.10 > 10.77.0.20: AH(spi=0xc9377d8d,seq=0x6a5,icv=0x73c6b62791b0d78f1f3b029adbe276da): IP 10.77.8.10.49418 > 10.77.9.10.5001: UDP, length 85
+09:36:52.832344 eth1  Out IP 10.77.0.10 > 10.77.0.20: AH(spi=0xc9377d8d,seq=0x6a6,icv=0xfc2065ff2b7dfb2b093a5c1170b7a47c): IP 10.77.8.10.49418 > 10.77.9.10.5001: UDP, length 85
+09:36:52.838634 eth1  Out IP 10.77.0.10 > 10.77.0.20: AH(spi=0xc9377d8d,seq=0x6a7,icv=0x830287e369799ad5343cd94545e1d354): IP 10.77.8.10.49418 > 10.77.9.10.5001: UDP, length 85
+09:36:52.850642 eth1  Out IP 10.77.0.10 > 10.77.0.20: AH(spi=0xc9377d8d,seq=0x6a8,icv=0xcc08783b6aa3d572e558e81f0fd869f9): IP 10.77.8.10.49418 > 10.77.9.10.5001: UDP, length 85

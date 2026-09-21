@@ -1,0 +1,4 @@
+﻿reading from file /dataset-final/T15/20260903-154154-068/capture.pcap, link-type LINUX_SLL2 (Linux cooked v2), snapshot length 262144
+Warning: interface names might be incorrect
+10:11:54.876178 eth1  In  IP 10.77.0.20.4500 > 10.77.0.10.4500: NONESP-encap: isakmp: child_sa  inf2
+10:11:54.876452 eth1  Out IP 10.77.0.10.4500 > 10.77.0.20.4500: NONESP-encap: isakmp: child_sa  inf2[IR]

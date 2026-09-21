@@ -1,0 +1,24 @@
+﻿reading from file /dataset/T09/20260902-234823-422/capture.pcap, link-type LINUX_SLL2 (Linux cooked v2), snapshot length 262144
+Warning: interface names might be incorrect
+18:18:36.471626 eth1  Out IP 10.77.0.10 > 10.77.0.20: AH(spi=0xcd5d5cea,seq=0x26,icv=0xbeda3138e92799813850d964509d56a3): 51488 > 8000: Flags [S], seq 1936550354, win 64240, options [mss 1460,sackOK,TS val 2701074559 ecr 0,nop,wscale 10], length 0
+18:18:36.471693 eth1  In  IP 10.77.0.20 > 10.77.0.10: AH(spi=0xc0f9ecba,seq=0x26,icv=0xfc3960199db02f1375b574d1bd19d9f3): 8000 > 51488: Flags [R.], seq 0, ack 1936550355, win 0, length 0
+18:18:37.282570 eth1  Out IP 10.77.0.10 > 10.77.0.20: AH(spi=0xcd5d5cea,seq=0x27,icv=0x86e1d3ff488580f0643dcbfcde944d10): 51492 > 8000: Flags [S], seq 340604724, win 64240, options [mss 1460,sackOK,TS val 295073950 ecr 0,nop,wscale 10], length 0
+18:18:37.282651 eth1  In  IP 10.77.0.20 > 10.77.0.10: AH(spi=0xc0f9ecba,seq=0x27,icv=0x739ee34f149d1dd54b5117bb068b32c3): 8000 > 51492: Flags [R.], seq 0, ack 340604725, win 0, length 0
+18:18:37.769073 eth1  Out IP 10.77.0.10 > 10.77.0.20: AH(spi=0xcd5d5cea,seq=0x28,icv=0x5665d39492661072b931265ab4266448): 51506 > 8000: Flags [S], seq 459693018, win 64240, options [mss 1460,sackOK,TS val 1160861673 ecr 0,nop,wscale 10], length 0
+18:18:37.769146 eth1  In  IP 10.77.0.20 > 10.77.0.10: AH(spi=0xc0f9ecba,seq=0x28,icv=0xf43384d30d6abd1a9b5c3108b9e8826e): 8000 > 51506: Flags [R.], seq 0, ack 459693019, win 0, length 0
+18:18:38.295510 eth1  Out IP 10.77.0.10 > 10.77.0.20: AH(spi=0xcd5d5cea,seq=0x29,icv=0x7f5df626f54d303a88a097860c95234e): 51516 > 8000: Flags [S], seq 1312020165, win 64240, options [mss 1460,sackOK,TS val 2832336433 ecr 0,nop,wscale 10], length 0
+18:18:38.295621 eth1  In  IP 10.77.0.20 > 10.77.0.10: AH(spi=0xc0f9ecba,seq=0x29,icv=0x943c3c9daca9bd6fc9249e2847289f01): 8000 > 51516: Flags [R.], seq 0, ack 1312020166, win 0, length 0
+18:18:38.819758 eth1  Out IP 10.77.0.10 > 10.77.0.20: AH(spi=0xcd5d5cea,seq=0x2a,icv=0x06cf7929550fad6c14b81e0b807089e8): 51530 > 8000: Flags [S], seq 1075211728, win 64240, options [mss 1460,sackOK,TS val 2339382554 ecr 0,nop,wscale 10], length 0
+18:18:38.819820 eth1  In  IP 10.77.0.20 > 10.77.0.10: AH(spi=0xc0f9ecba,seq=0x2a,icv=0xab8b926f88ad6ffaef13f3a178b861e7): 8000 > 51530: Flags [R.], seq 0, ack 1075211729, win 0, length 0
+18:18:39.518896 eth1  Out IP 10.77.0.10 > 10.77.0.20: AH(spi=0xcd5d5cea,seq=0x2b,icv=0xafb074f3a44e81d3adcc659c8b81e791): 51542 > 8000: Flags [S], seq 4204989585, win 64240, options [mss 1460,sackOK,TS val 3736408797 ecr 0,nop,wscale 10], length 0
+18:18:39.518956 eth1  In  IP 10.77.0.20 > 10.77.0.10: AH(spi=0xc0f9ecba,seq=0x2b,icv=0xc73b251ae082b0dc1c9b79c5ab7c7d8f): 8000 > 51542: Flags [R.], seq 0, ack 4204989586, win 0, length 0
+18:18:39.968123 eth1  Out IP 10.77.0.10 > 10.77.0.20: AH(spi=0xcd5d5cea,seq=0x2c,icv=0xd45f3dabe73b91ce5e61fefae396b5c7): 51548 > 8000: Flags [S], seq 2748669565, win 64240, options [mss 1460,sackOK,TS val 71503368 ecr 0,nop,wscale 10], length 0
+18:18:39.968187 eth1  In  IP 10.77.0.20 > 10.77.0.10: AH(spi=0xc0f9ecba,seq=0x2c,icv=0x87871b6606f319ab28cfdc27c3a102d0): 8000 > 51548: Flags [R.], seq 0, ack 2748669566, win 0, length 0
+18:18:40.553255 eth1  Out IP 10.77.0.10 > 10.77.0.20: AH(spi=0xcd5d5cea,seq=0x2d,icv=0x5cd86719ff0c8b152511449892b66f57): 51554 > 8000: Flags [S], seq 148908683, win 64240, options [mss 1460,sackOK,TS val 924558809 ecr 0,nop,wscale 10], length 0
+18:18:40.553296 eth1  In  IP 10.77.0.20 > 10.77.0.10: AH(spi=0xc0f9ecba,seq=0x2d,icv=0xa612ab7717e0a4e75ad309127214a842): 8000 > 51554: Flags [R.], seq 0, ack 148908684, win 0, length 0
+18:18:41.082973 eth1  Out IP 10.77.0.10 > 10.77.0.20: AH(spi=0xcd5d5cea,seq=0x2e,icv=0x31e60b67e006987ef4a4e906d23aa29e): 51556 > 8000: Flags [S], seq 1959725362, win 64240, options [mss 1460,sackOK,TS val 3539882326 ecr 0,nop,wscale 10], length 0
+18:18:41.083067 eth1  In  IP 10.77.0.20 > 10.77.0.10: AH(spi=0xc0f9ecba,seq=0x2e,icv=0xa39a5f7d34b9b4c588364bf31a1bd0f5): 8000 > 51556: Flags [R.], seq 0, ack 1959725363, win 0, length 0
+18:18:41.539349 eth1  Out IP 10.77.0.10 > 10.77.0.20: AH(spi=0xcd5d5cea,seq=0x2f,icv=0xc0d7a0ca02f0b13e356625b2b95eeda3): 51566 > 8000: Flags [S], seq 1630719703, win 64240, options [mss 1460,sackOK,TS val 2457612908 ecr 0,nop,wscale 10], length 0
+18:18:41.539431 eth1  In  IP 10.77.0.20 > 10.77.0.10: AH(spi=0xc0f9ecba,seq=0x2f,icv=0xbca920d7a245cef4c001c4a03e04f329): 8000 > 51566: Flags [R.], seq 0, ack 1630719704, win 0, length 0
+18:18:42.154038 eth1  Out IP 10.77.0.10 > 10.77.0.20: AH(spi=0xcd5d5cea,seq=0x30,icv=0x51247e46be5f2ed6ebbba266614e4361): 51576 > 8000: Flags [S], seq 302302271, win 64240, options [mss 1460,sackOK,TS val 2236099604 ecr 0,nop,wscale 10], length 0
+18:18:42.154091 eth1  In  IP 10.77.0.20 > 10.77.0.10: AH(spi=0xc0f9ecba,seq=0x30,icv=0xd3cbc04e6e4e35b8a788079d27d3953f): 8000 > 51576: Flags [R.], seq 0, ack 302302272, win 0, length 0

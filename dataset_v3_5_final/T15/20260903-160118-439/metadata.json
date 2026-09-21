@@ -1,0 +1,101 @@
+﻿{
+    "run":  {
+                "timestamp":  "2026-09-03T16:01:34.5240283+05:30",
+                "run_id":  "20260903-160118-439",
+                "pcap":  "capture.pcap",
+                "status":  "PASS",
+                "scenario_id":  "T15"
+            },
+    "observations":  {
+                         "swanctl_after":  "site-to-site: #185, ESTABLISHED, IKEv2, 6305d12f81d2b08a_i* cc0060055cd181fa_r |   local  \u0027gateway-a\u0027 @ 10.77.0.10[4500] |   remote \u0027gateway-b\u0027 @ 10.77.0.20[4500] |   AES_CBC-256/HMAC_SHA2_256_128/PRF_HMAC_SHA2_256/MODP_3072 |   established 259s ago, rekeying in 3185s |   net-v4v6: #223, reqid 1, INSTALLED, TUNNEL, ESP:AES_CBC-256/HMAC_SHA2_256_128",
+                         "xfrm_state_lines":  "\tproto esp spi 0xc69c6881 reqid 1 mode tunnel | \tproto esp spi 0xcc7588b2 reqid 1 mode tunnel",
+                         "tcpdump_head":  "reading from file /dataset-final/T15/20260903-160118-439/capture.pcap, link-type LINUX_SLL2 (Linux cooked v2), snapshot length 262144 | Warning: interface names might be incorrect",
+                         "swanctl_before":  "site-to-site: #185, ESTABLISHED, IKEv2, 6305d12f81d2b08a_i* cc0060055cd181fa_r |   local  \u0027gateway-a\u0027 @ 10.77.0.10[4500] |   remote \u0027gateway-b\u0027 @ 10.77.0.20[4500] |   AES_CBC-256/HMAC_SHA2_256_128/PRF_HMAC_SHA2_256/MODP_3072 |   established 243s ago, rekeying in 3201s |   net-v4v6: #223, reqid 1, INSTALLED, TUNNEL, ESP:AES_CBC-256/HMAC_SHA2_256_128"
+                     },
+    "evidence_classification":  {
+                                    "ml_inferred":  [
+
+                                                    ],
+                                    "deterministically_derived":  [
+                                                                      "mode from XFRM",
+                                                                      "PFS from scenario",
+                                                                      "rekey from SPI change"
+                                                                  ],
+                                    "directly_observed":  [
+                                                              "ESP packet present if tcpdump shows ESP",
+                                                              "AH packet present if AH",
+                                                              "IPv4/IPv6 outer",
+                                                              "SPI",
+                                                              "packet lengths"
+                                                          ],
+                                    "unknown":  [
+                                                    "AES key length from ciphertext",
+                                                    "exact DH group from ciphertext"
+                                                ]
+                                },
+    "vpn_ground_truth":  {
+                             "ike_transport_ip_version":  "IPv4",
+                             "protected_ip_version":  "IPv6",
+                             "remote_ts":  "fd77:77:24::/64",
+                             "ike_version":  2,
+                             "encryption_key_length":  192,
+                             "dh_group":  15,
+                             "integrity_algorithm":  "HMAC-SHA256",
+                             "ipsec_protocol":  "ESP",
+                             "encryption_algorithm":  "AES-CBC",
+                             "pfs":  false,
+                             "rekey_enabled":  false,
+                             "mode":  "tunnel",
+                             "local_ts":  "fd77:77:23::/64",
+                             "rekey_time":  "0",
+                             "dh_group_name":  "modp3072"
+                         },
+    "scenario":  {
+                     "scenario_id":  "T15",
+                     "family":  "Mixed-edge",
+                     "description":  "Mixed edge: ESP tunnel CBC AES192 SHA256 MODP3072 PFS disabled IPv6 protected",
+                     "ike_version":  2,
+                     "ike_transport_ip_version":  "IPv4",
+                     "ipsec_protocol":  "ESP",
+                     "mode":  "tunnel",
+                     "encryption_algorithm":  "AES-CBC",
+                     "encryption_key_length":  192,
+                     "integrity_algorithm":  "HMAC-SHA256",
+                     "dh_group":  15,
+                     "dh_group_name":  "modp3072",
+                     "pfs":  false,
+                     "protected_ip_version":  "IPv6",
+                     "local_ts":  "fd77:77:23::/64",
+                     "remote_ts":  "fd77:77:24::/64",
+                     "ike_endpoints":  "10.77.0.10 \u003c-\u003e 10.77.0.20",
+                     "rekey_enabled":  false,
+                     "rekey_time":  "0",
+                     "traffic_profiles":  [
+                                              "icmp",
+                                              "dns",
+                                              "bulk-transfer"
+                                          ],
+                     "expected_protocols":  [
+                                                "ESP IPv6"
+                                            ],
+                     "expected_observations":  [
+                                                   "IPv6 TS over IPv4 IKE, no PFS"
+                                               ]
+                 },
+    "traffic_ground_truth":  {
+                                 "traffic_class":  "video-like",
+                                 "generator_output":  "[generator] UDP small: 86 pps, size 1087, jitter 0.010, dur 8s to fd77:77:24::10:5002\n[generator] UDP small sent 0 packets\n{\"profile\": \"video-like\", \"duration\": 8, \"seed\": 7373, \"peer\": \"fd77:77:24::10\", \"result\": {\"packets\": 0, \"bytes\": 0, \"protocol\": \"udp\", \"packet_size\": 1087, \"pps\": 86, \"jitter\": 0.01, \"actual_duration\": 8, \"seed\": 7373, \"profile_version\": \"3.5-v1\"}, \"profile_version\": \"3.5-v1\"}",
+                                 "peer":  "fd77:77:24::10",
+                                 "profile_version":  "3.5-v1",
+                                 "duration":  8,
+                                 "generator":  "generator.py",
+                                 "src":  "fd77:77:23::10",
+                                 "seed":  7373
+                             },
+    "validation":  {
+                       "expected_protocols":  [
+                                                  "ESP IPv6"
+                                              ],
+                       "mode_verified":  true
+                   }
+}

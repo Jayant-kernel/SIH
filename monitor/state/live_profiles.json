@@ -1,0 +1,2887 @@
+{
+  "monitor": "monitor-v1",
+  "sensor": {
+    "started_at": 1789995207.8068142,
+    "status": "LIVE",
+    "link": "UNKNOWN",
+    "last_packet_ts": 1789995902.809282,
+    "stats": {
+      "packets": 16856,
+      "esp": 16746,
+      "ah": 0,
+      "ike": 110,
+      "other": 0,
+      "malformed": 22
+    }
+  },
+  "generated_at": 1789995919.089475,
+  "profiles": [
+    {
+      "profile_id": "10.77.0.10<->10.77.0.20",
+      "gateway_a": "10.77.0.10",
+      "gateway_b": "10.77.0.20",
+      "first_seen": 1789995014.934504,
+      "last_seen": 1789995902.809282,
+      "last_evidence_update": 1789995902.809282,
+      "packets": 16834,
+      "observations": 101,
+      "protocols": [
+        "ESP"
+      ],
+      "ip_versions": [
+        4
+      ],
+      "natt": true,
+      "ike": {
+        "version": 2,
+        "exchanges": [
+          "IKE_SA_INIT",
+          "EXCH(166)"
+        ],
+        "offered": [
+          "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+        ],
+        "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+        "ke_groups": [
+          "MODP3072"
+        ],
+        "sessions": {
+          "d53a6f0dd7951eea": {
+            "first": 1789995014.934504,
+            "last": 1789995014.936358,
+            "messages": 2
+          },
+          "71a90ac8f06b9720": {
+            "first": 1789995015.107447,
+            "last": 1789995015.110022,
+            "messages": 2
+          },
+          "7dfeae508f1b013b": {
+            "first": 1789995138.612357,
+            "last": 1789995138.614671,
+            "messages": 2
+          },
+          "0dca5307f484ab1e": {
+            "first": 1789995138.825919,
+            "last": 1789995138.82772,
+            "messages": 2
+          },
+          "000000000dca5307": {
+            "first": 1789995138.835301,
+            "last": 1789995902.809282,
+            "messages": 80
+          }
+        },
+        "fingerprint_versions": [
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": null,
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995014.934504
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995014.936358
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995015.107447
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995015.110022
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995138.612357
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995138.614671
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995138.825919
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995138.82772
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995138.835301
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995138.843323
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995200.83991
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995200.840248
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995230.838303
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995230.838525
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995260.837711
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995260.838019
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995290.835385
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995290.835987
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995320.835791
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995320.836992
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995320.837423
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995320.838121
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995350.832852
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995350.833329
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995380.833283
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995380.834649
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995380.83499
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995380.835469
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995410.830793
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995410.831264
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995440.831162
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995440.832157
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995440.832419
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995440.832862
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995470.828241
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995470.828632
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995500.827381
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995500.828018
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995500.828105
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995500.828485
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995530.82587
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995530.826234
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995530.826363
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995530.826501
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995560.825458
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995560.825687
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995560.825807
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995560.82628
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995590.823968
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995590.82407
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995590.824249
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995590.824486
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995662.818951
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995662.819309
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995662.819539
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995662.819769
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995692.818367
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995692.818546
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995692.819122
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995692.819226
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995722.816882
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995722.817206
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995722.817609
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995722.817958
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995752.815447
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995752.815458
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995752.816083
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995752.816117
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995782.814155
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995782.814266
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995782.814608
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995782.814775
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995812.812384
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995812.812429
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995812.812746
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995812.812776
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995842.811327
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995842.811524
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995842.812096
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995842.812366
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995872.810091
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995872.810347
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995872.811711
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995872.812084
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995902.808378
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995902.808431
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995902.809035
+          },
+          {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ],
+            "ts": 1789995902.809282
+          }
+        ]
+      },
+      "esp_sas": {
+        "c3be553a": {
+          "first": 1789995038.906924,
+          "last": 1789995068.904515,
+          "packets": 2830,
+          "bytes": 4194060,
+          "retired": true
+        },
+        "c95928f3": {
+          "first": 1789995038.907254,
+          "last": 1789995068.904841,
+          "packets": 2830,
+          "bytes": 4194060,
+          "retired": true
+        },
+        "c45fce6f": {
+          "first": 1789995145.36572,
+          "last": 1789995632.845337,
+          "packets": 5543,
+          "bytes": 7190966,
+          "retired": true
+        },
+        "cea90668": {
+          "first": 1789995145.36583,
+          "last": 1789995632.845421,
+          "packets": 5543,
+          "bytes": 7190966,
+          "retired": true
+        }
+      },
+      "ah_sas": {},
+      "rekey_status": "rekey_observed",
+      "rekey_evidence": [
+        "SPI transition: c45fce6f first seen 1789995145.366 after predecessors stopped"
+      ],
+      "traffic": {
+        "window_packets": 1554,
+        "window_seconds": 8.974,
+        "label": "video-like",
+        "confidence": 0.975,
+        "probabilities": {
+          "icmp": 0.0,
+          "web": 0.0,
+          "voip-like": 0.025,
+          "video-like": 0.975
+        },
+        "model_version": "phase4-v1",
+        "reason": "ok",
+        "explanation": "Model produced a prediction above the confidence threshold. "
+      },
+      "security": {
+        "findings": [
+          {
+            "id": "IPSEC-PROTO-001",
+            "title": "IPsec protocol present",
+            "category": "protocol",
+            "severity": "info",
+            "status": "pass",
+            "description": "ESP",
+            "evidence": [
+              {
+                "field": "protocol",
+                "value": "ESP",
+                "evidence_type": "directly_observed",
+                "confidence": 1.0,
+                "source": "ESP packet",
+                "detail": "passively observed on the wire"
+              }
+            ],
+            "recommendation": "",
+            "confidence": 1.0
+          },
+          {
+            "id": "IPSEC-IKE-001",
+            "title": "IKEv2 negotiated",
+            "category": "key_management",
+            "severity": "info",
+            "status": "pass",
+            "description": "2",
+            "evidence": [
+              {
+                "field": "ike_version",
+                "value": 2,
+                "evidence_type": "directly_observed",
+                "confidence": 1.0,
+                "source": "IKE packet",
+                "detail": "negotiation was captured"
+              }
+            ],
+            "recommendation": "",
+            "confidence": 1.0
+          },
+          {
+            "id": "IPSEC-ENC-001",
+            "title": "Encryption present",
+            "category": "confidentiality",
+            "severity": "high",
+            "status": "unknown",
+            "description": "Insufficient evidence",
+            "evidence": [],
+            "recommendation": "Use ESP with an approved encryption algorithm.",
+            "confidence": 0.0
+          },
+          {
+            "id": "IPSEC-KEY-001",
+            "title": "Encryption key size",
+            "category": "confidentiality",
+            "severity": "medium",
+            "status": "unknown",
+            "description": "Insufficient evidence",
+            "evidence": [],
+            "recommendation": "",
+            "confidence": 0.0
+          },
+          {
+            "id": "IPSEC-AUTH-001",
+            "title": "Integrity/authentication",
+            "category": "integrity",
+            "severity": "high",
+            "status": "unknown",
+            "description": "Insufficient evidence",
+            "evidence": [],
+            "recommendation": "",
+            "confidence": 0.0
+          },
+          {
+            "id": "IPSEC-DH-001",
+            "title": "DH group strength",
+            "category": "key_management",
+            "severity": "high",
+            "status": "unknown",
+            "description": "Insufficient evidence",
+            "evidence": [],
+            "recommendation": "Upgrade the Diffie-Hellman group to MODP3072 or an approved elliptic-curve group.",
+            "confidence": 0.0
+          },
+          {
+            "id": "IPSEC-PFS-001",
+            "title": "Perfect Forward Secrecy",
+            "category": "key_management",
+            "severity": "medium",
+            "status": "unknown",
+            "description": "Insufficient evidence",
+            "evidence": [],
+            "recommendation": "Enable a Child-SA DH group to provide Perfect Forward Secrecy.",
+            "confidence": 0.0
+          },
+          {
+            "id": "IPSEC-MODE-001",
+            "title": "Tunnel or transport mode",
+            "category": "protocol",
+            "severity": "medium",
+            "status": "unknown",
+            "description": "Insufficient evidence",
+            "evidence": [],
+            "recommendation": "",
+            "confidence": 0.0
+          },
+          {
+            "id": "IPSEC-REPLAY-001",
+            "title": "Replay protection",
+            "category": "lifecycle",
+            "severity": "medium",
+            "status": "unknown",
+            "description": "Insufficient evidence",
+            "evidence": [],
+            "recommendation": "",
+            "confidence": 0.0
+          },
+          {
+            "id": "IPSEC-REKEY-001",
+            "title": "SA lifecycle",
+            "category": "lifecycle",
+            "severity": "info",
+            "status": "pass",
+            "description": "rekey_observed",
+            "evidence": [
+              {
+                "field": "rekey_status",
+                "value": "rekey_observed",
+                "evidence_type": "deterministically_derived",
+                "confidence": 1.0,
+                "source": "SPI timeline",
+                "detail": "SPI transition: c45fce6f first seen 1789995145.366 after predecessors stopped"
+              }
+            ],
+            "recommendation": "",
+            "confidence": 1.0
+          },
+          {
+            "id": "IPSEC-META-001",
+            "title": "Traffic metadata exposure",
+            "category": "metadata_exposure",
+            "severity": "low",
+            "status": "warning",
+            "description": "Outer endpoints, ESP/AH, sizes, timing, directionality, and rate may remain visible.",
+            "evidence": [],
+            "recommendation": "Consider traffic shaping or padding where metadata resistance is required.",
+            "confidence": 1.0
+          }
+        ],
+        "verified_configuration_risk": {
+          "score": 0,
+          "level": "low",
+          "penalty_points": 0,
+          "formula": "sum(rule penalties for proven failures); unknown adds no penalty",
+          "transparent": true
+        },
+        "risk": {
+          "score": 0,
+          "level": "low",
+          "evidence_completeness": 0.222,
+          "penalty_points": 0,
+          "formula": "sum(rule penalties for proven failures); unknown adds no penalty",
+          "transparent": true
+        },
+        "residual_threats": [
+          {
+            "threat": "passive traffic analysis",
+            "condition": "outer metadata visible (endpoints, sizes, timing, direction)",
+            "risk": "moderate",
+            "recommendation": "Consider traffic shaping or padding only if metadata resistance is a requirement.",
+            "evidence_type": "directly_observed"
+          }
+        ],
+        "evidence_completeness": 0.222,
+        "low_evidence_warning": "Insufficient evidence for a complete VPN security assessment.",
+        "unknown_fields": [
+          "IPSEC-ENC-001",
+          "IPSEC-KEY-001",
+          "IPSEC-AUTH-001",
+          "IPSEC-DH-001",
+          "IPSEC-PFS-001",
+          "IPSEC-MODE-001",
+          "IPSEC-REPLAY-001"
+        ]
+      },
+      "evidence_history": [
+        {
+          "ts": 1789995014.934504,
+          "field": "outer_ip_version",
+          "value": "IPv4",
+          "provenance": "directly_observed",
+          "source": "IP header"
+        },
+        {
+          "ts": 1789995014.934504,
+          "field": "ike_version",
+          "value": "IKEv2",
+          "provenance": "directly_observed",
+          "source": "IKE packet"
+        },
+        {
+          "ts": 1789995014.934504,
+          "field": "ike_exchange",
+          "value": "IKE_SA_INIT",
+          "provenance": "directly_observed",
+          "source": "IKE packet"
+        },
+        {
+          "ts": 1789995014.934504,
+          "field": "ike_offered_proposal",
+          "value": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+          "provenance": "directly_observed",
+          "source": "IKE_SA_INIT request"
+        },
+        {
+          "ts": 1789995014.934504,
+          "field": "ike_dh_group",
+          "value": "MODP3072",
+          "provenance": "directly_observed",
+          "source": "KE payload"
+        },
+        {
+          "ts": 1789995014.934504,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": null,
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995014.936358,
+          "field": "ike_selected_proposal",
+          "value": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+          "provenance": "directly_observed",
+          "source": "IKE_SA_INIT response"
+        },
+        {
+          "ts": 1789995014.936358,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995015.107447,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995015.110022,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995038.906924,
+          "field": "protocol",
+          "value": "ESP",
+          "provenance": "directly_observed",
+          "source": "ESP packet"
+        },
+        {
+          "ts": 1789995038.906924,
+          "field": "spi",
+          "value": "c3be553a",
+          "provenance": "directly_observed",
+          "source": "ESP packet"
+        },
+        {
+          "ts": 1789995038.907254,
+          "field": "spi",
+          "value": "c95928f3",
+          "provenance": "directly_observed",
+          "source": "ESP packet"
+        },
+        {
+          "ts": 1789995138.612357,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995138.614671,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995138.825919,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995138.82772,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995138.835301,
+          "field": "natt",
+          "value": true,
+          "provenance": "directly_observed",
+          "source": "UDP 4500"
+        },
+        {
+          "ts": 1789995138.835301,
+          "field": "ike_exchange",
+          "value": "EXCH(166)",
+          "provenance": "directly_observed",
+          "source": "IKE packet"
+        },
+        {
+          "ts": 1789995138.835301,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995138.843323,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995145.36572,
+          "field": "spi",
+          "value": "c45fce6f",
+          "provenance": "directly_observed",
+          "source": "ESP packet"
+        },
+        {
+          "ts": 1789995145.36583,
+          "field": "spi",
+          "value": "cea90668",
+          "provenance": "directly_observed",
+          "source": "ESP packet"
+        },
+        {
+          "ts": 1789995200.83991,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995200.840248,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995230.838303,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995230.838525,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995260.837711,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995260.838019,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995290.835385,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995290.835987,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995320.835791,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995320.836992,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995320.837423,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995320.838121,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995350.832852,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995350.833329,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995380.833283,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995380.834649,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995380.83499,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995380.835469,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995410.830793,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995410.831264,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995440.831162,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995440.832157,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995440.832419,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995440.832862,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995470.828241,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995470.828632,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995500.827381,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995500.828018,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995500.828105,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995500.828485,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995530.82587,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995530.826234,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995530.826363,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995530.826501,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995560.825458,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995560.825687,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995560.825807,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995560.82628,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995590.823968,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995590.82407,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995590.824249,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995590.824486,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995662.818951,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995662.819309,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995662.819539,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995662.819769,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995692.818367,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995692.818546,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995692.819122,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995692.819226,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995722.816882,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995722.817206,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995722.817609,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995722.817958,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995752.815447,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995752.815458,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995752.816083,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995752.816117,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995782.814155,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995782.814266,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995782.814608,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995782.814775,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995812.812384,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995812.812429,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995812.812746,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995812.812776,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995842.811327,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995842.811524,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995842.812096,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995842.812366,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995872.810091,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995872.810347,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995872.811711,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995872.812084,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995902.808378,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995902.808431,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995902.809035,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        },
+        {
+          "ts": 1789995902.809282,
+          "field": "ike_fingerprint",
+          "value": {
+            "version": 2,
+            "offered": [
+              "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)"
+            ],
+            "selected": "IKE:ENCR(AES-CTR-256)/INTEG(HMAC-SHA2-256-128)/PRF(HMAC-SHA2-256)/DH(MODP3072)",
+            "ke": [
+              "MODP3072"
+            ]
+          },
+          "provenance": "deterministically_derived",
+          "source": "accumulated IKE observations"
+        }
+      ],
+      "change_history": [
+        {
+          "ts": 1789995014.934504,
+          "type": "profile_created",
+          "detail": "new gateway pair 10.77.0.10<->10.77.0.20",
+          "previous": null,
+          "new": "10.77.0.10<->10.77.0.20",
+          "provenance": "directly_observed",
+          "source": "packet"
+        },
+        {
+          "ts": 1789995038.906924,
+          "type": "new_spi",
+          "detail": "new ESP SPI c3be553a on 10.77.0.10<->10.77.0.20",
+          "previous": null,
+          "new": "c3be553a",
+          "provenance": "directly_observed",
+          "source": "ESP packet"
+        },
+        {
+          "ts": 1789995038.907254,
+          "type": "new_spi",
+          "detail": "new ESP SPI c95928f3 on 10.77.0.10<->10.77.0.20",
+          "previous": null,
+          "new": "c95928f3",
+          "provenance": "directly_observed",
+          "source": "ESP packet"
+        },
+        {
+          "ts": 1789995208.8162158,
+          "type": "spi_retired",
+          "detail": "SPI c3be553a unseen for 30s",
+          "previous": "c3be553a",
+          "new": null,
+          "provenance": "deterministically_derived",
+          "source": "SPI timeline"
+        },
+        {
+          "ts": 1789995208.8162158,
+          "type": "spi_retired",
+          "detail": "SPI c95928f3 unseen for 30s",
+          "previous": "c95928f3",
+          "new": null,
+          "provenance": "deterministically_derived",
+          "source": "SPI timeline"
+        },
+        {
+          "ts": 1789995138.835301,
+          "type": "natt_changed",
+          "detail": "NAT-T observed",
+          "previous": null,
+          "new": true,
+          "provenance": "directly_observed",
+          "source": "UDP 4500"
+        },
+        {
+          "ts": 1789995145.36572,
+          "type": "new_spi",
+          "detail": "new ESP SPI c45fce6f on 10.77.0.10<->10.77.0.20",
+          "previous": null,
+          "new": "c45fce6f",
+          "provenance": "directly_observed",
+          "source": "ESP packet"
+        },
+        {
+          "ts": 1789995145.36572,
+          "type": "rekey_lifecycle",
+          "detail": "temporal SPI transition consistent with rekey",
+          "previous": "no_rekey",
+          "new": "rekey_observed",
+          "provenance": "deterministically_derived",
+          "source": "SPI timeline"
+        },
+        {
+          "ts": 1789995145.36583,
+          "type": "new_spi",
+          "detail": "new ESP SPI cea90668 on 10.77.0.10<->10.77.0.20",
+          "previous": null,
+          "new": "cea90668",
+          "provenance": "directly_observed",
+          "source": "ESP packet"
+        },
+        {
+          "ts": 1789995226.1821094,
+          "type": "spi_retired",
+          "detail": "SPI c45fce6f unseen for 30s",
+          "previous": "c45fce6f",
+          "new": null,
+          "provenance": "deterministically_derived",
+          "source": "SPI timeline"
+        },
+        {
+          "ts": 1789995226.1821094,
+          "type": "spi_retired",
+          "detail": "SPI cea90668 unseen for 30s",
+          "previous": "cea90668",
+          "new": null,
+          "provenance": "deterministically_derived",
+          "source": "SPI timeline"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+﻿src 10.77.0.10 dst 10.77.0.20
+	proto esp spi 0xc102d894 reqid 2 mode transport
+	replay-window 0 
+	aead rfc4106(gcm(aes)) 0xcd6017f633b27d9a6bf7ca5fee17f83766634db1 128
+	lastused 2026-09-03 08:48:47
+	anti-replay context: seq 0x0, oseq 0x5dc, bitmap 0x00000000
+	sel src 10.77.0.10/32 dst 10.77.0.20/32 
+src 10.77.0.20 dst 10.77.0.10
+	proto esp spi 0xc6ac37f6 reqid 2 mode transport
+	replay-window 32 
+	aead rfc4106(gcm(aes)) 0x7dc5e8672c7ab8e440d5c87dd2446f460f723f4e 128
+	lastused 2026-09-03 08:48:47
+	anti-replay context: seq 0x47, oseq 0x0, bitmap 0xffffffff
+	sel src 10.77.0.20/32 dst 10.77.0.10/32 
+src 10.77.0.10 dst 10.77.0.20
+	proto esp spi 0xc805e894 reqid 1 mode tunnel
+	replay-window 0 flag af-unspec
+	auth-trunc hmac(sha256) 0x233a16db98f5e9320ab5f79f15cc781ca2ce97ce48b5565c4925c266612ec6df 128
+	enc cbc(aes) 0x47a05c3c4e6aa212e4d8779fe527f526eb11e323acfb5a4026f63104a77f8995
+	anti-replay context: seq 0x0, oseq 0x0, bitmap 0x00000000
+src 10.77.0.20 dst 10.77.0.10
+	proto esp spi 0xc7d21507 reqid 1 mode tunnel
+	replay-window 32 flag af-unspec
+	auth-trunc hmac(sha256) 0x5619fc6d27fc9d5a27850ea9dd37e4132160575c07a9dbec524c76c3a8791de2 128
+	enc cbc(aes) 0x783abf3cda1e83f326627a9dc63cc73096b32154ca6c1eabae584e8507ce9b5c
+	anti-replay context: seq 0x0, oseq 0x0, bitmap 0x00000000

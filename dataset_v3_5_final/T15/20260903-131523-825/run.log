@@ -1,0 +1,6 @@
+﻿Run 20260903-131523-825 Scenario T15 Traffic web Duration 11 Seed 1348
+initiate failed: establishing CHILD_SA 't15-child' failed
+[IKE] not establishing CHILD_SA t15-child{56} due to existing duplicate {53} with SPIs c1cce765_i cf896a7a_o and TS fd77:77:23::/64 === fd77:77:24::/64
+[generator] HTTP: 18 requests to http://fd77:77:24::10:8000/ interval 0.653 req 358 resp 1875
+[generator] HTTP done 18 requests
+{"profile": "web", "duration": 11, "seed": 1348, "peer": "fd77:77:24::10", "result": {"packets": 72, "bytes": 40194, "requests": 18, "interval": 0.653008671415579, "request_size": 358, "response_size": 1875, "actual_duration": 11, "seed": 1348, "profile_version": "3.5-v1"}, "profile_version": "3.5-v1"}

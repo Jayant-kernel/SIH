@@ -1,0 +1,4 @@
+﻿Run 20260903-144152-047 Scenario T04 Traffic voip-like Duration 10 Seed 3444
+[generator] UDP small: 60 pps, size 60, jitter 0.009, dur 10s to 10.77.12.10:5001
+[generator] UDP small sent 614 packets
+{"profile": "voip-like", "duration": 10, "seed": 3444, "peer": "10.77.12.10", "result": {"packets": 614, "bytes": 36840, "protocol": "udp", "packet_size": 60, "pps": 60, "jitter": 0.009139974684833126, "actual_duration": 10, "seed": 3444, "profile_version": "3.5-v1"}, "profile_version": "3.5-v1"}

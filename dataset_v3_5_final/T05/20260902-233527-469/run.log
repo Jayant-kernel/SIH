@@ -1,0 +1,6 @@
+﻿Run 20260902-233527-469 Scenario T05 Traffic web Duration 8 Seed 5682
+initiate failed: establishing CHILD_SA 't05-child' failed
+[IKE] not establishing CHILD_SA t05-child{109} due to existing duplicate {100} with SPIs c0a22cc9_i c1d121a9_o and TS 10.77.13.0/24 === 10.77.14.0/24
+[generator] HTTP: 19 requests to http://10.77.14.10:8000/ interval 0.779 req 294 resp 2762
+[generator] HTTP done 19 requests
+{"profile": "web", "duration": 8, "seed": 5682, "peer": "10.77.14.10", "result": {"packets": 76, "bytes": 58064, "requests": 19, "interval": 0.778848763435435, "request_size": 294, "response_size": 2762, "actual_duration": 8, "seed": 5682, "profile_version": "3.5-v1"}, "profile_version": "3.5-v1"}

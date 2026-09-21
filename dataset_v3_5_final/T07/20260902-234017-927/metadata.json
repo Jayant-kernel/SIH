@@ -1,0 +1,101 @@
+﻿{
+    "run":  {
+                "timestamp":  "2026-09-02T23:40:45.9971476+05:30",
+                "run_id":  "20260902-234017-927",
+                "pcap":  "capture.pcap",
+                "status":  "PASS",
+                "scenario_id":  "T07"
+            },
+    "observations":  {
+                         "swanctl_after":  "site-to-site: #94, ESTABLISHED, IKEv2, 4124df5bcc88faa8_i* a39a587b75407b43_r |   local  \u0027gateway-a\u0027 @ 10.77.0.10[4500] |   remote \u0027gateway-b\u0027 @ 10.77.0.20[4500] |   AES_CBC-256/HMAC_SHA2_256_128/PRF_HMAC_SHA2_256/MODP_3072 |   established 28s ago, rekeying in 3362s |   net-v4v6: #135, reqid 2, INSTALLED, TUNNEL, ESP:AES_CBC-256/HMAC_SHA2_256_128",
+                         "xfrm_state_lines":  "\tproto esp spi 0xcc6c331c reqid 2 mode tunnel | \tproto esp spi 0xcf720218 reqid 2 mode tunnel",
+                         "tcpdump_head":  "reading from file /dataset/T07/20260902-234017-927/capture.pcap, link-type LINUX_SLL2 (Linux cooked v2), snapshot length 262144 | Warning: interface names might be incorrect | 18:10:31.332800 eth1  Out IP 10.77.0.10 \u003e 10.77.0.20: ESP(spi=0xca8f9e97,seq=0x183), length 124 | 18:10:31.332964 eth1  In  IP 10.77.0.20 \u003e 10.77.0.10: ESP(spi=0xcde131a2,seq=0x29), length 152",
+                         "swanctl_before":  "site-to-site: #94, ESTABLISHED, IKEv2, 4124df5bcc88faa8_i* a39a587b75407b43_r |   local  \u0027gateway-a\u0027 @ 10.77.0.10[4500] |   remote \u0027gateway-b\u0027 @ 10.77.0.20[4500] |   AES_CBC-256/HMAC_SHA2_256_128/PRF_HMAC_SHA2_256/MODP_3072 |   established 12s ago, rekeying in 3378s |   net-v4v6: #135, reqid 2, INSTALLED, TUNNEL, ESP:AES_CBC-256/HMAC_SHA2_256_128"
+                     },
+    "evidence_classification":  {
+                                    "ml_inferred":  [
+
+                                                    ],
+                                    "deterministically_derived":  [
+                                                                      "mode from XFRM",
+                                                                      "PFS from scenario",
+                                                                      "rekey from SPI change"
+                                                                  ],
+                                    "directly_observed":  [
+                                                              "ESP packet present if tcpdump shows ESP",
+                                                              "AH packet present if AH",
+                                                              "IPv4/IPv6 outer",
+                                                              "SPI",
+                                                              "packet lengths"
+                                                          ],
+                                    "unknown":  [
+                                                    "AES key length from ciphertext",
+                                                    "exact DH group from ciphertext"
+                                                ]
+                                },
+    "vpn_ground_truth":  {
+                             "ike_transport_ip_version":  "IPv4",
+                             "protected_ip_version":  "IPv4",
+                             "remote_ts":  "10.77.0.20/32",
+                             "ike_version":  2,
+                             "encryption_key_length":  128,
+                             "dh_group":  15,
+                             "integrity_algorithm":  "AEAD-GCM",
+                             "ipsec_protocol":  "ESP",
+                             "encryption_algorithm":  "AES-GCM",
+                             "pfs":  true,
+                             "rekey_enabled":  true,
+                             "mode":  "transport",
+                             "local_ts":  "10.77.0.10/32",
+                             "rekey_time":  "3600s",
+                             "dh_group_name":  "modp3072"
+                         },
+    "scenario":  {
+                     "scenario_id":  "T07",
+                     "family":  "ESP-transport",
+                     "description":  "ESP transport GCM AES128 GCM16 MODP3072 host-to-host",
+                     "ike_version":  2,
+                     "ike_transport_ip_version":  "IPv4",
+                     "ipsec_protocol":  "ESP",
+                     "mode":  "transport",
+                     "encryption_algorithm":  "AES-GCM",
+                     "encryption_key_length":  128,
+                     "integrity_algorithm":  "AEAD-GCM",
+                     "dh_group":  15,
+                     "dh_group_name":  "modp3072",
+                     "pfs":  true,
+                     "protected_ip_version":  "IPv4",
+                     "local_ts":  "10.77.0.10/32",
+                     "remote_ts":  "10.77.0.20/32",
+                     "ike_endpoints":  "10.77.0.10 \u003c-\u003e 10.77.0.20",
+                     "rekey_enabled":  true,
+                     "rekey_time":  "3600s",
+                     "traffic_profiles":  [
+                                              "voip-like",
+                                              "video-like",
+                                              "messaging-like"
+                                          ],
+                     "expected_protocols":  [
+                                                "ESP"
+                                            ],
+                     "expected_observations":  [
+                                                   "XFRM transport + gcm"
+                                               ]
+                 },
+    "traffic_ground_truth":  {
+                                 "traffic_class":  "voip-like",
+                                 "generator_output":  "[generator] UDP small: 51 pps, size 81, jitter 0.017, dur 8s to 10.77.0.20:5001\n[generator] UDP small sent 390 packets\n{\"profile\": \"voip-like\", \"duration\": 8, \"seed\": 1111, \"peer\": \"10.77.0.20\", \"result\": {\"packets\": 390, \"bytes\": 31590, \"protocol\": \"udp\", \"packet_size\": 81, \"pps\": 51, \"jitter\": 0.017377375498974865, \"actual_duration\": 8, \"seed\": 1111, \"profile_version\": \"3.5-v1\"}, \"profile_version\": \"3.5-v1\"}",
+                                 "peer":  "10.77.0.20",
+                                 "profile_version":  "3.5-v1",
+                                 "duration":  8,
+                                 "generator":  "generator.py",
+                                 "src":  "10.77.0.10",
+                                 "seed":  1111
+                             },
+    "validation":  {
+                       "expected_protocols":  [
+                                                  "ESP"
+                                              ],
+                       "mode_verified":  true
+                   }
+}

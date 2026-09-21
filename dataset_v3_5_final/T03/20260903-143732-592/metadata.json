@@ -1,0 +1,104 @@
+﻿{
+    "run":  {
+                "timestamp":  "2026-09-03T14:37:48.5419768+05:30",
+                "run_id":  "20260903-143732-592",
+                "pcap":  "capture.pcap",
+                "status":  "PASS",
+                "scenario_id":  "T03"
+            },
+    "observations":  {
+                         "swanctl_after":  "T03: #133, ESTABLISHED, IKEv2, 9922a9ccb5ea4bee_i* 1367c54dc8c78433_r |   local  \u0027gateway-a\u0027 @ 10.77.0.10[4500] |   remote \u0027gateway-b\u0027 @ 10.77.0.20[4500] |   AES_CBC-256/HMAC_SHA2_256_128/PRF_HMAC_SHA2_256/MODP_2048 |   established 152s ago, rekeying in 14190s |   t03-child: #162, reqid 2, INSTALLED, TUNNEL, ESP:AES_CBC-256/HMAC_SHA2_256_128",
+                         "xfrm_state_lines":  "\tproto esp spi 0xc2437e16 reqid 2 mode tunnel | \tproto esp spi 0xc1e0f2ce reqid 2 mode tunnel",
+                         "tcpdump_head":  "reading from file /dataset-final/T03/20260903-143732-592/capture.pcap, link-type LINUX_SLL2 (Linux cooked v2), snapshot length 262144 | Warning: interface names might be incorrect | 09:07:34.018578 eth1  Out IP 10.77.0.10 \u003e 10.77.0.20: ESP(spi=0xc2437e16,seq=0x63f), length 168 | 09:07:34.018628 eth1  In  IP 10.77.0.20 \u003e 10.77.0.10: ESP(spi=0xc1e0f2ce,seq=0x7e), length 200",
+                         "swanctl_before":  "T03: #133, ESTABLISHED, IKEv2, 9922a9ccb5ea4bee_i* 1367c54dc8c78433_r |   local  \u0027gateway-a\u0027 @ 10.77.0.10[4500] |   remote \u0027gateway-b\u0027 @ 10.77.0.20[4500] |   AES_CBC-256/HMAC_SHA2_256_128/PRF_HMAC_SHA2_256/MODP_2048 |   established 136s ago, rekeying in 14206s |   t03-child: #162, reqid 2, INSTALLED, TUNNEL, ESP:AES_CBC-256/HMAC_SHA2_256_128"
+                     },
+    "evidence_classification":  {
+                                    "ml_inferred":  [
+
+                                                    ],
+                                    "deterministically_derived":  [
+                                                                      "mode from XFRM",
+                                                                      "PFS from scenario",
+                                                                      "rekey from SPI change"
+                                                                  ],
+                                    "directly_observed":  [
+                                                              "ESP packet present if tcpdump shows ESP",
+                                                              "AH packet present if AH",
+                                                              "IPv4/IPv6 outer",
+                                                              "SPI",
+                                                              "packet lengths"
+                                                          ],
+                                    "unknown":  [
+                                                    "AES key length from ciphertext",
+                                                    "exact DH group from ciphertext"
+                                                ]
+                                },
+    "vpn_ground_truth":  {
+                             "ike_transport_ip_version":  "IPv4",
+                             "protected_ip_version":  "IPv4",
+                             "remote_ts":  "10.77.2.0/24",
+                             "ike_version":  2,
+                             "encryption_key_length":  256,
+                             "dh_group":  14,
+                             "integrity_algorithm":  "HMAC-SHA256",
+                             "ipsec_protocol":  "ESP",
+                             "encryption_algorithm":  "AES-CBC",
+                             "pfs":  false,
+                             "rekey_enabled":  true,
+                             "mode":  "tunnel",
+                             "local_ts":  "10.77.1.0/24",
+                             "rekey_time":  "3600s",
+                             "dh_group_name":  "modp2048"
+                         },
+    "scenario":  {
+                     "scenario_id":  "T03",
+                     "family":  "ESP-tunnel-CBC",
+                     "description":  "ESP tunnel CBC AES256 SHA256 MODP2048 PFS disabled (no DH in CHILD)",
+                     "ike_version":  2,
+                     "ike_transport_ip_version":  "IPv4",
+                     "ipsec_protocol":  "ESP",
+                     "mode":  "tunnel",
+                     "encryption_algorithm":  "AES-CBC",
+                     "encryption_key_length":  256,
+                     "integrity_algorithm":  "HMAC-SHA256",
+                     "dh_group":  14,
+                     "dh_group_name":  "modp2048",
+                     "pfs":  false,
+                     "pfs_group":  null,
+                     "protected_ip_version":  "IPv4",
+                     "local_ts":  "10.77.1.0/24",
+                     "remote_ts":  "10.77.2.0/24",
+                     "ike_endpoints":  "10.77.0.10 \u003c-\u003e 10.77.0.20",
+                     "rekey_enabled":  true,
+                     "rekey_time":  "3600s",
+                     "traffic_profiles":  [
+                                              "icmp",
+                                              "web",
+                                              "voip-like",
+                                              "video-like"
+                                          ],
+                     "expected_protocols":  [
+                                                "ESP"
+                                            ],
+                     "expected_observations":  [
+                                                   "ESP without PFS",
+                                                   "no DH in esp_proposals"
+                                               ]
+                 },
+    "traffic_ground_truth":  {
+                                 "traffic_class":  "voip-like",
+                                 "generator_output":  "[generator] UDP small: 51 pps, size 88, jitter 0.014, dur 8s to 10.77.24.10:5001\n[generator] UDP small sent 412 packets\n{\"profile\": \"voip-like\", \"duration\": 8, \"seed\": 3096, \"peer\": \"10.77.24.10\", \"result\": {\"packets\": 412, \"bytes\": 36256, \"protocol\": \"udp\", \"packet_size\": 88, \"pps\": 51, \"jitter\": 0.013852525889556967, \"actual_duration\": 8, \"seed\": 3096, \"profile_version\": \"3.5-v1\"}, \"profile_version\": \"3.5-v1\"}",
+                                 "peer":  "10.77.24.10",
+                                 "profile_version":  "3.5-v1",
+                                 "duration":  8,
+                                 "generator":  "generator.py",
+                                 "src":  "10.77.23.10",
+                                 "seed":  3096
+                             },
+    "validation":  {
+                       "expected_protocols":  [
+                                                  "ESP"
+                                              ],
+                       "mode_verified":  true
+                   }
+}

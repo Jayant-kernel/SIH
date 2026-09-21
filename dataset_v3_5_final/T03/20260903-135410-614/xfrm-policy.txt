@@ -1,0 +1,52 @@
+﻿src 10.77.23.0/24 dst 10.77.24.0/24 
+	dir out priority 375423 ptype main 
+	tmpl src 10.77.0.10 dst 10.77.0.20
+		proto esp spi 0xca842302 reqid 2 mode tunnel
+src 10.77.24.0/24 dst 10.77.23.0/24 
+	dir fwd priority 375423 ptype main 
+	tmpl src 10.77.0.20 dst 10.77.0.10
+		proto esp reqid 2 mode tunnel
+src 10.77.24.0/24 dst 10.77.23.0/24 
+	dir in priority 375423 ptype main 
+	tmpl src 10.77.0.20 dst 10.77.0.10
+		proto esp reqid 2 mode tunnel
+src fd77:77:1::/64 dst fd77:77:2::/64 
+	dir out priority 334463 ptype main 
+	tmpl src 10.77.0.10 dst 10.77.0.20
+		proto esp spi 0xc15382f2 reqid 1 mode tunnel
+src fd77:77:2::/64 dst fd77:77:1::/64 
+	dir fwd priority 334463 ptype main 
+	tmpl src 10.77.0.20 dst 10.77.0.10
+		proto esp reqid 1 mode tunnel
+src fd77:77:2::/64 dst fd77:77:1::/64 
+	dir in priority 334463 ptype main 
+	tmpl src 10.77.0.20 dst 10.77.0.10
+		proto esp reqid 1 mode tunnel
+src 10.77.1.0/24 dst 10.77.2.0/24 
+	dir out priority 375423 ptype main 
+	tmpl src 10.77.0.10 dst 10.77.0.20
+		proto esp spi 0xc15382f2 reqid 1 mode tunnel
+src 10.77.2.0/24 dst 10.77.1.0/24 
+	dir fwd priority 375423 ptype main 
+	tmpl src 10.77.0.20 dst 10.77.0.10
+		proto esp reqid 1 mode tunnel
+src 10.77.2.0/24 dst 10.77.1.0/24 
+	dir in priority 375423 ptype main 
+	tmpl src 10.77.0.20 dst 10.77.0.10
+		proto esp reqid 1 mode tunnel
+src 0.0.0.0/0 dst 0.0.0.0/0 
+	socket in priority 0 ptype main 
+src 0.0.0.0/0 dst 0.0.0.0/0 
+	socket out priority 0 ptype main 
+src 0.0.0.0/0 dst 0.0.0.0/0 
+	socket in priority 0 ptype main 
+src 0.0.0.0/0 dst 0.0.0.0/0 
+	socket out priority 0 ptype main 
+src ::/0 dst ::/0 
+	socket in priority 0 ptype main 
+src ::/0 dst ::/0 
+	socket out priority 0 ptype main 
+src ::/0 dst ::/0 
+	socket in priority 0 ptype main 
+src ::/0 dst ::/0 
+	socket out priority 0 ptype main 

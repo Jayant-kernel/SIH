@@ -1,0 +1,11 @@
+﻿T15: #2, ESTABLISHED, IKEv2, 70f5a9cbe4c7619c_i* 2a3e2c55f42d4c64_r
+  local  'gateway-a' @ 10.77.0.10[4500]
+  remote 'gateway-b' @ 10.77.0.20[4500]
+  AES_CBC-192/HMAC_SHA2_256_128/PRF_HMAC_SHA2_256/MODP_3072
+  established 5s ago, rekeying in 13215s
+  t15-child: #2, reqid 1, INSTALLED, TUNNEL, ESP:AES_CBC-192/HMAC_SHA2_256_128
+    installed 5s ago, rekeying in 3272s, expires in 3955s
+    in  c48bcbfb,    208 bytes,     2 packets,     0s ago
+    out c3264bdb,    208 bytes,     2 packets,     0s ago
+    local  fd77:77:23::/64
+    remote fd77:77:24::/64

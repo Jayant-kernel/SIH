@@ -1,0 +1,100 @@
+﻿{
+    "run":  {
+                "timestamp":  "2026-09-02T22:59:22.8148343+05:30",
+                "run_id":  "20260902-225854-321",
+                "pcap":  "capture.pcap",
+                "status":  "PASS",
+                "scenario_id":  "T08"
+            },
+    "observations":  {
+                         "swanctl_after":  "ah-test: #21, ESTABLISHED, IKEv2, de8cddb4c5573497_i* 3a267a4af0ad6c47_r |   local  \u0027gateway-a\u0027 @ 10.77.0.10[4500] |   remote \u0027gateway-b\u0027 @ 10.77.0.20[4500] |   AES_CBC-192/HMAC_SHA2_256_128/PRF_HMAC_SHA2_256/MODP_2048 |   established 44s ago, rekeying in 13786s |   ah-child: #27, reqid 3, INSTALLED, TUNNEL, AH:HMAC_SHA2_256_128",
+                         "xfrm_state_lines":  "\tproto ah spi 0xc1b630bf reqid 3 mode tunnel | \tproto ah spi 0xc0693504 reqid 3 mode tunnel",
+                         "tcpdump_head":  "reading from file /dataset/T08/20260902-225854-321/capture.pcap, link-type LINUX_SLL2 (Linux cooked v2), snapshot length 262144 | Warning: interface names might be incorrect | 17:29:07.281046 eth1  Out IP 10.77.0.10 \u003e 10.77.0.20: AH(spi=0xc1b630bf,seq=0x1,icv=0x6e94eefa7afb0981021af04a06c372bd): IP 10.77.8.10.59474 \u003e 10.77.9.10.8000: Flags [S], seq 599622918, win 64240, options [mss 1460,sackOK,TS val 3898182049 ecr 0,nop,wscale 10], length 0 | 17:29:07.281105 eth1  In  IP 10.77.0.20 \u003e 10.77.0.10: AH(spi=0xc0693504,seq=0x1,icv=0xc6ff47bf974ec7f997811a87be81e4c0): IP 10.77.9.10.8000 \u003e 10.77.8.10.59474: Flags [R.], seq 0, ack 599622919, win 0, length 0",
+                         "swanctl_before":  "ah-test: #21, ESTABLISHED, IKEv2, de8cddb4c5573497_i* 3a267a4af0ad6c47_r |   local  \u0027gateway-a\u0027 @ 10.77.0.10[4500] |   remote \u0027gateway-b\u0027 @ 10.77.0.20[4500] |   AES_CBC-192/HMAC_SHA2_256_128/PRF_HMAC_SHA2_256/MODP_2048 |   established 27s ago, rekeying in 13803s |   ah-child: #27, reqid 3, INSTALLED, TUNNEL, AH:HMAC_SHA2_256_128"
+                     },
+    "evidence_classification":  {
+                                    "ml_inferred":  [
+
+                                                    ],
+                                    "deterministically_derived":  [
+                                                                      "mode from XFRM",
+                                                                      "PFS from scenario",
+                                                                      "rekey from SPI change"
+                                                                  ],
+                                    "directly_observed":  [
+                                                              "ESP packet present if tcpdump shows ESP",
+                                                              "AH packet present if AH",
+                                                              "IPv4/IPv6 outer",
+                                                              "SPI",
+                                                              "packet lengths"
+                                                          ],
+                                    "unknown":  [
+                                                    "AES key length from ciphertext",
+                                                    "exact DH group from ciphertext"
+                                                ]
+                                },
+    "vpn_ground_truth":  {
+                             "ike_transport_ip_version":  "IPv4",
+                             "protected_ip_version":  "IPv4",
+                             "remote_ts":  "10.77.9.0/24",
+                             "ike_version":  2,
+                             "encryption_key_length":  0,
+                             "dh_group":  14,
+                             "integrity_algorithm":  "HMAC-SHA256",
+                             "ipsec_protocol":  "AH",
+                             "encryption_algorithm":  "none",
+                             "pfs":  false,
+                             "rekey_enabled":  true,
+                             "mode":  "tunnel",
+                             "local_ts":  "10.77.8.0/24",
+                             "rekey_time":  "3600s",
+                             "dh_group_name":  "modp2048"
+                         },
+    "scenario":  {
+                     "scenario_id":  "T08",
+                     "family":  "AH",
+                     "description":  "AH tunnel SHA256 MODP2048 IPv4",
+                     "ike_version":  2,
+                     "ike_transport_ip_version":  "IPv4",
+                     "ipsec_protocol":  "AH",
+                     "mode":  "tunnel",
+                     "encryption_algorithm":  "none",
+                     "encryption_key_length":  0,
+                     "integrity_algorithm":  "HMAC-SHA256",
+                     "dh_group":  14,
+                     "dh_group_name":  "modp2048",
+                     "pfs":  false,
+                     "protected_ip_version":  "IPv4",
+                     "local_ts":  "10.77.8.0/24",
+                     "remote_ts":  "10.77.9.0/24",
+                     "ike_endpoints":  "10.77.0.10 \u003c-\u003e 10.77.0.20",
+                     "rekey_enabled":  true,
+                     "rekey_time":  "3600s",
+                     "traffic_profiles":  [
+                                              "icmp",
+                                              "web",
+                                              "email-like"
+                                          ],
+                     "expected_protocols":  [
+                                                "AH"
+                                            ],
+                     "expected_observations":  [
+                                                   "XFRM proto ah",
+                                                   "tcpdump AH(spi=)"
+                                               ]
+                 },
+    "traffic_ground_truth":  {
+                                 "seed":  42,
+                                 "src":  "10.77.8.10",
+                                 "duration":  8,
+                                 "traffic_class":  "web",
+                                 "peer":  "10.77.9.10",
+                                 "generator":  "generator.py"
+                             },
+    "validation":  {
+                       "expected_protocols":  [
+                                                  "AH"
+                                              ],
+                       "mode_verified":  true
+                   }
+}

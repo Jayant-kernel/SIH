@@ -1,0 +1,6 @@
+﻿Run 20260902-235833-630 Scenario T12 Traffic web Duration 8 Seed 8964
+initiate failed: establishing CHILD_SA 't12-child' failed
+[IKE] not establishing CHILD_SA t12-child{237} due to existing duplicate {228} with SPIs c04b094e_i c9d2969f_o and TS 10.77.17.0/24 === 10.77.18.0/24
+[generator] HTTP: 19 requests to http://10.77.18.10:8000/ interval 0.678 req 431 resp 1893
+[generator] HTTP done 19 requests
+{"profile": "web", "duration": 8, "seed": 8964, "peer": "10.77.18.10", "result": {"packets": 76, "bytes": 44156, "requests": 19, "interval": 0.6784592504724588, "request_size": 431, "response_size": 1893, "actual_duration": 8, "seed": 8964, "profile_version": "3.5-v1"}, "profile_version": "3.5-v1"}

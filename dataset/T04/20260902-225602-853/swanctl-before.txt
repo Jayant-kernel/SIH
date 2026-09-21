@@ -1,0 +1,11 @@
+﻿gcm-test: #16, ESTABLISHED, IKEv2, 6c47faf5646ad660_i* ae64ec6c5bf70b33_r
+  local  'gateway-a' @ 10.77.0.10[4500]
+  remote 'gateway-b' @ 10.77.0.20[4500]
+  AES_GCM_16-128/PRF_HMAC_SHA2_256/MODP_3072
+  established 26s ago, rekeying in 13130s
+  gcm-child: #19, reqid 2, INSTALLED, TUNNEL, ESP:AES_GCM_16-128
+    installed 26s ago, rekeying in 3350s, expires in 3934s
+    in  c61e02aa,      0 bytes,     0 packets
+    out c214d118,      0 bytes,     0 packets
+    local  10.77.11.0/24
+    remote 10.77.12.0/24

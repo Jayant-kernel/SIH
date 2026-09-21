@@ -1,0 +1,16 @@
+﻿Run 20260902-230318-896 Scenario T06 Traffic icmp Duration 8
+[CFG] selected proposal: IKE:AES_CBC_128/HMAC_SHA2_256_128/PRF_HMAC_SHA2_256/MODP_3072
+[IKE] authentication of 'gateway-a' (myself) with pre-shared key
+[IKE] establishing CHILD_SA host-host{33}
+[ENC] generating IKE_AUTH request 1 [ IDi N(INIT_CONTACT) IDr AUTH N(USE_TRANSP) SA TSi TSr N(MOBIKE_SUP) N(ADD_4_ADDR) N(ADD_6_ADDR) N(ADD_6_ADDR) N(MULT_AUTH) N(EAP_ONLY) N(MSG_ID_SYN_SUP) ]
+[NET] sending packet: from 10.77.0.10[4500] to 10.77.0.20[4500] (352 bytes)
+[NET] received packet: from 10.77.0.20[4500] to 10.77.0.10[4500] (304 bytes)
+[ENC] parsed IKE_AUTH response 1 [ IDr AUTH N(USE_TRANSP) SA TSi TSr N(MOBIKE_SUP) N(ADD_4_ADDR) N(ADD_6_ADDR) N(ADD_6_ADDR) ]
+[IKE] authentication of 'gateway-b' with pre-shared key successful
+[IKE] peer supports MOBIKE
+[IKE] IKE_SA transport[24] established between 10.77.0.10[gateway-a]...10.77.0.20[gateway-b]
+[IKE] scheduling rekeying in 13851s
+[IKE] maximum IKE_SA lifetime 15291s
+[CFG] selected proposal: ESP:AES_CBC_128/HMAC_SHA2_256_128/NO_EXT_SEQ
+[IKE] CHILD_SA host-host{33} established with SPIs c9ad4d1d_i cf742d83_o and TS 10.77.0.10/32 === 10.77.0.20/32
+initiate completed successfully

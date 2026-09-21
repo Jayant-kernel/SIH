@@ -1,0 +1,8 @@
+﻿Run 20260903-131152-733 Scenario T14 Traffic icmp Duration 15 Seed 323
+initiate failed: establishing CHILD_SA 't14-child' failed
+[IKE] not establishing CHILD_SA t14-child{37} due to existing duplicate {34} with SPIs cb40fa1e_i ca2f3754_o and TS 10.77.25.0/24 === 10.77.26.0/24
+--- 10.77.26.10 ping statistics ---
+22 packets transmitted, 22 received, 0% packet loss, time 14765ms
+rtt min/avg/max/mdev = 0.079/0.139/0.200/0.036 ms
+
+{"profile": "icmp", "duration": 15, "seed": 323, "peer": "10.77.26.10", "result": {"packets": 22, "bytes": 1188, "protocol": "icmp", "packet_size": 54, "interval": 0.6749458668711766, "count": 22, "actual_duration": 15, "seed": 323, "profile_version": "3.5-v1"}, "profile_version": "3.5-v1"}

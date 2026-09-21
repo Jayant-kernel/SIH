@@ -1,0 +1,6 @@
+﻿Run 20260903-131631-831 Scenario T15 Traffic video-like Duration 9 Seed 9608
+initiate failed: establishing CHILD_SA 't15-child' failed
+[IKE] not establishing CHILD_SA t15-child{62} due to existing duplicate {53} with SPIs c1cce765_i cf896a7a_o and TS fd77:77:23::/64 === fd77:77:24::/64
+[generator] UDP small: 110 pps, size 1309, jitter 0.010, dur 9s to fd77:77:24::10:5002
+[generator] UDP small sent 0 packets
+{"profile": "video-like", "duration": 9, "seed": 9608, "peer": "fd77:77:24::10", "result": {"packets": 0, "bytes": 0, "protocol": "udp", "packet_size": 1309, "pps": 110, "jitter": 0.01, "actual_duration": 9, "seed": 9608, "profile_version": "3.5-v1"}, "profile_version": "3.5-v1"}

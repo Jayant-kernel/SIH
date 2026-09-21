@@ -1,0 +1,20 @@
+﻿reading from file /dataset-final/T09/20260903-150916-752/capture.pcap, link-type LINUX_SLL2 (Linux cooked v2), snapshot length 262144
+Warning: interface names might be incorrect
+09:39:18.242833 eth1  Out IP 10.77.0.10 > 10.77.0.20: AH(spi=0xc62f4387,seq=0x6bc,icv=0x60278deeb481064b57c615315aa041bf): ICMP echo request, id 40940, seq 1, length 64
+09:39:18.243277 eth1  In  IP 10.77.0.20 > 10.77.0.10: AH(spi=0xc950c0b0,seq=0x4d,icv=0x838da99e4afd31f87129c96be320e596): ICMP echo reply, id 40940, seq 1, length 64
+09:39:19.244836 eth1  Out IP 10.77.0.10 > 10.77.0.20: AH(spi=0xc62f4387,seq=0x6bd,icv=0xce6ec430324fe9949a9de7c272956868): ICMP echo request, id 40940, seq 2, length 64
+09:39:19.244925 eth1  In  IP 10.77.0.20 > 10.77.0.10: AH(spi=0xc950c0b0,seq=0x4e,icv=0x26b28a4e2d533289f8d3a4bb6a6ce8df): ICMP echo reply, id 40940, seq 2, length 64
+09:39:20.268905 eth1  Out IP 10.77.0.10 > 10.77.0.20: AH(spi=0xc62f4387,seq=0x6be,icv=0x02a07b187739716e5078bffb7ca3372d): ICMP echo request, id 40940, seq 3, length 64
+09:39:20.269005 eth1  In  IP 10.77.0.20 > 10.77.0.10: AH(spi=0xc950c0b0,seq=0x4f,icv=0xc9e97240aa390346d4e28125e3ea64c1): ICMP echo reply, id 40940, seq 3, length 64
+09:39:21.292668 eth1  Out IP 10.77.0.10 > 10.77.0.20: AH(spi=0xc62f4387,seq=0x6bf,icv=0x9debdc2143d644bd43ee4b1df6d97947): ICMP echo request, id 40940, seq 4, length 64
+09:39:21.292727 eth1  In  IP 10.77.0.20 > 10.77.0.10: AH(spi=0xc950c0b0,seq=0x50,icv=0x723cf72c16abd0f5bd676c0e46e28df1): ICMP echo reply, id 40940, seq 4, length 64
+09:39:22.316730 eth1  Out IP 10.77.0.10 > 10.77.0.20: AH(spi=0xc62f4387,seq=0x6c0,icv=0x6085f422b231354e0a943a19a1bb4d95): ICMP echo request, id 40940, seq 5, length 64
+09:39:22.316798 eth1  In  IP 10.77.0.20 > 10.77.0.10: AH(spi=0xc950c0b0,seq=0x51,icv=0x0da918c4d2abc8e7a69f313708e0b943): ICMP echo reply, id 40940, seq 5, length 64
+09:39:22.481092 eth1  Out IP 10.77.0.10 > 10.77.0.20: AH(spi=0xc62f4387,seq=0x6c1,icv=0x15477b7b7cee17d5313df4b1378c1a9e): ICMP echo request, id 40941, seq 1, length 38
+09:39:22.481791 eth1  In  IP 10.77.0.20 > 10.77.0.10: AH(spi=0xc950c0b0,seq=0x52,icv=0x533dcfd59e8735c5291df2e1c63f3e06): ICMP echo reply, id 40941, seq 1, length 38
+09:39:23.020743 eth1  Out IP 10.77.0.10 > 10.77.0.20: AH(spi=0xc62f4387,seq=0x6c2,icv=0xb63b6fe9e5c191fbd446b0137509ead0): ICMP echo request, id 40941, seq 2, length 38
+09:39:23.020836 eth1  In  IP 10.77.0.20 > 10.77.0.10: AH(spi=0xc950c0b0,seq=0x53,icv=0x51503bb7938b8f84302eb47db318acae): ICMP echo reply, id 40941, seq 2, length 38
+09:39:23.564888 eth1  Out IP 10.77.0.10 > 10.77.0.20: AH(spi=0xc62f4387,seq=0x6c3,icv=0xa0d3c95de203f8c093c53860f2a5a4e3): ICMP echo request, id 40941, seq 3, length 38
+09:39:23.564944 eth1  In  IP 10.77.0.20 > 10.77.0.10: AH(spi=0xc950c0b0,seq=0x54,icv=0xfc41fd1d75730b7d7a61040cf25d8f83): ICMP echo reply, id 40941, seq 3, length 38
+09:39:24.108897 eth1  Out IP 10.77.0.10 > 10.77.0.20: AH(spi=0xc62f4387,seq=0x6c4,icv=0xc784651c6ee02bcbabc889bd81f6f58f): ICMP echo request, id 40941, seq 4, length 38
+09:39:24.108990 eth1  In  IP 10.77.0.20 > 10.77.0.10: AH(spi=0xc950c0b0,seq=0x55,icv=0x4c140188bc1263ec9e70ca9c4edf32ca): ICMP echo reply, id 40941, seq 4, length 38

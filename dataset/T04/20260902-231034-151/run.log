@@ -1,0 +1,16 @@
+﻿Run 20260902-231034-151 Scenario T04 Traffic icmp Duration 8
+[CFG] selected proposal: IKE:AES_GCM_16_128/PRF_HMAC_SHA2_256/MODP_3072
+[IKE] authentication of 'gateway-a' (myself) with pre-shared key
+[IKE] establishing CHILD_SA gcm-child{43}
+[ENC] generating IKE_AUTH request 1 [ IDi N(INIT_CONTACT) IDr AUTH SA TSi TSr N(MOBIKE_SUP) N(ADD_4_ADDR) N(ADD_6_ADDR) N(ADD_6_ADDR) N(MULT_AUTH) N(EAP_ONLY) N(MSG_ID_SYN_SUP) ]
+[NET] sending packet: from 10.77.0.10[4500] to 10.77.0.20[4500] (315 bytes)
+[NET] received packet: from 10.77.0.20[4500] to 10.77.0.10[4500] (266 bytes)
+[ENC] parsed IKE_AUTH response 1 [ IDr AUTH SA TSi TSr N(MOBIKE_SUP) N(ADD_4_ADDR) N(ADD_6_ADDR) N(ADD_6_ADDR) ]
+[IKE] authentication of 'gateway-b' with pre-shared key successful
+[IKE] peer supports MOBIKE
+[IKE] IKE_SA gcm-test[27] established between 10.77.0.10[gateway-a]...10.77.0.20[gateway-b]
+[IKE] scheduling rekeying in 14192s
+[IKE] maximum IKE_SA lifetime 15632s
+[CFG] selected proposal: ESP:AES_GCM_16_128/NO_EXT_SEQ
+[IKE] CHILD_SA gcm-child{43} established with SPIs c91e24eb_i c293ea4c_o and TS 10.77.11.0/24 === 10.77.12.0/24
+initiate completed successfully

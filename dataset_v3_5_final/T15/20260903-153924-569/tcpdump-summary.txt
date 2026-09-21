@@ -1,0 +1,26 @@
+﻿reading from file /dataset-final/T15/20260903-153924-569/capture.pcap, link-type LINUX_SLL2 (Linux cooked v2), snapshot length 262144
+Warning: interface names might be incorrect
+10:09:36.614314 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc40692f8,seq=0x1), length 152
+10:09:36.614555 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc737f1e7,seq=0x1), length 152
+10:09:36.614560 eth1  In  IP6 fd77:77:24::10 > fd77:77:23::10: ICMP6, echo reply, id 40968, seq 1, length 64
+10:09:37.614726 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc40692f8,seq=0x2), length 152
+10:09:37.614776 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc737f1e7,seq=0x2), length 152
+10:09:37.614776 eth1  In  IP6 fd77:77:24::10 > fd77:77:23::10: ICMP6, echo reply, id 40968, seq 2, length 64
+10:09:38.642833 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc40692f8,seq=0x3), length 152
+10:09:38.642871 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc737f1e7,seq=0x3), length 152
+10:09:38.642871 eth1  In  IP6 fd77:77:24::10 > fd77:77:23::10: ICMP6, echo reply, id 40968, seq 3, length 64
+10:09:39.662952 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc40692f8,seq=0x4), length 152
+10:09:39.663001 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc737f1e7,seq=0x4), length 152
+10:09:39.663001 eth1  In  IP6 fd77:77:24::10 > fd77:77:23::10: ICMP6, echo reply, id 40968, seq 4, length 64
+10:09:40.686915 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc40692f8,seq=0x5), length 152
+10:09:40.686985 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc737f1e7,seq=0x5), length 152
+10:09:40.686985 eth1  In  IP6 fd77:77:24::10 > fd77:77:23::10: ICMP6, echo reply, id 40968, seq 5, length 64
+10:09:40.821943 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc40692f8,seq=0x6), length 136
+10:09:40.822272 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc737f1e7,seq=0x6), length 136
+10:09:40.822284 eth1  In  IP6 fd77:77:24::10 > fd77:77:23::10: ICMP6, echo reply, id 40969, seq 1, length 50
+10:09:41.454923 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc40692f8,seq=0x7), length 136
+10:09:41.455002 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc737f1e7,seq=0x7), length 136
+10:09:41.455002 eth1  In  IP6 fd77:77:24::10 > fd77:77:23::10: ICMP6, echo reply, id 40969, seq 2, length 50
+10:09:42.094917 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc40692f8,seq=0x8), length 136
+10:09:42.094997 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc737f1e7,seq=0x8), length 136
+10:09:42.094997 eth1  In  IP6 fd77:77:24::10 > fd77:77:23::10: ICMP6, echo reply, id 40969, seq 3, length 50

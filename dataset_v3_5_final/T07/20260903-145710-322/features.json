@@ -1,0 +1,76 @@
+{
+  "capture": {
+    "total_packets": 719,
+    "duration": 12.772,
+    "total_bytes": 121296,
+    "ipv4_count": 719,
+    "ipv6_count": 0,
+    "ike_packets": 0,
+    "udp500": 0,
+    "udp4500": 0,
+    "esp_packets": 719,
+    "ah_packets": 0,
+    "pps": 56.3,
+    "bps": 9497.21,
+    "pcap": "capture.pcap"
+  },
+  "size": {
+    "mean": 168.7,
+    "median": 168,
+    "min": 168,
+    "max": 196,
+    "std": 4.38,
+    "cv": 0.0259,
+    "small_lt200": 719,
+    "medium_200_1000": 0,
+    "large_ge1000": 0
+  },
+  "direction": {
+    "a_to_b_packets": 701,
+    "b_to_a_packets": 18,
+    "a_to_b_bytes": 117768,
+    "b_to_a_bytes": 3528,
+    "ratio_a2b_b2a": 38.944,
+    "byte_ratio_a2b_b2a": 33.381
+  },
+  "timing": {
+    "mean_iat": 0.01779,
+    "median_iat": 0.0173,
+    "std_iat": 0.01088,
+    "cv_iat": 0.6114
+  },
+  "burstiness": {
+    "burst_threshold": 0.1,
+    "idle_threshold": 0.5,
+    "burst_count": 1,
+    "avg_burst_size": 719,
+    "avg_burst_duration": 12.7717,
+    "burst_sizes": [
+      719
+    ],
+    "idle_gap_count": 0
+  },
+  "esp_ah": {
+    "esp_spis": [
+      "0xc76c850e",
+      "0xc83edab3"
+    ],
+    "esp_spi_count": 2,
+    "ah_spis": [],
+    "ah_spi_count": 0,
+    "unique_spi_total": 2
+  },
+  "rekey": {
+    "unique_esp_spis": 2,
+    "unique_ah_spis": 0,
+    "rekey_observed": false,
+    "rekey_status": "no_rekey",
+    "rekey_evidence": [
+      "<=2 directional SPIs and no lifecycle evidence"
+    ]
+  },
+  "meta": {
+    "parser": "scapy",
+    "pcap": "cooked linux v2"
+  }
+}

@@ -1,0 +1,18 @@
+﻿reading from file /dataset-final/T06/20260903-133745-921/capture.pcap, link-type LINUX_SLL2 (Linux cooked v2), snapshot length 262144
+Warning: interface names might be incorrect
+08:07:47.824659 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc4cdf3cf,seq=0x819), length 88
+08:07:47.824727 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xcca2b273,seq=0x72), length 72
+08:07:48.847140 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc4cdf3cf,seq=0x81a), length 88
+08:07:48.847218 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xcca2b273,seq=0x73), length 72
+08:07:49.565623 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc4cdf3cf,seq=0x81b), length 88
+08:07:49.565729 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xcca2b273,seq=0x74), length 72
+08:07:50.413815 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc4cdf3cf,seq=0x81c), length 88
+08:07:50.413896 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xcca2b273,seq=0x75), length 72
+08:07:50.435386 eth0  M   IP6 fe80::f075:eaff:fee3:1317 > ff02::2: ICMP6, router solicitation, length 16
+08:07:51.345881 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc4cdf3cf,seq=0x81d), length 88
+08:07:51.345949 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xcca2b273,seq=0x76), length 72
+08:07:51.988208 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc4cdf3cf,seq=0x81e), length 88
+08:07:51.988324 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xcca2b273,seq=0x77), length 72
+08:07:52.950254 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc4cdf3cf,seq=0x81f), length 88
+08:07:52.950302 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xcca2b273,seq=0x78), length 72
+08:07:54.019334 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc4cdf3cf,seq=0x820), length 88

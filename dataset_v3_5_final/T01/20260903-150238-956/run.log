@@ -1,0 +1,4 @@
+﻿Run 20260903-150238-956 Scenario T01 Traffic video-like Duration 11 Seed 7056
+[generator] UDP small: 96 pps, size 1210, jitter 0.010, dur 11s to 10.77.2.10:5002
+[generator] UDP small sent 1032 packets
+{"profile": "video-like", "duration": 11, "seed": 7056, "peer": "10.77.2.10", "result": {"packets": 1032, "bytes": 1248720, "protocol": "udp", "packet_size": 1210, "pps": 96, "jitter": 0.01, "actual_duration": 11, "seed": 7056, "profile_version": "3.5-v1"}, "profile_version": "3.5-v1"}

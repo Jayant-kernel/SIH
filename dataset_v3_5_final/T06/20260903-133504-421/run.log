@@ -1,0 +1,21 @@
+﻿Run 20260903-133504-421 Scenario T06 Traffic icmp Duration 12 Seed 7629
+[CFG] selected proposal: IKE:AES_CBC_128/HMAC_SHA2_256_128/PRF_HMAC_SHA2_256/MODP_3072
+[IKE] authentication of 'gateway-a' (myself) with pre-shared key
+[IKE] establishing CHILD_SA host-host{93}
+[ENC] generating IKE_AUTH request 1 [ IDi IDr AUTH N(USE_TRANSP) SA TSi TSr N(MOBIKE_SUP) N(ADD_4_ADDR) N(ADD_6_ADDR) N(ADD_6_ADDR) N(MULT_AUTH) N(EAP_ONLY) N(MSG_ID_SYN_SUP) ]
+[NET] sending packet: from 10.77.0.10[4500] to 10.77.0.20[4500] (336 bytes)
+[NET] received packet: from 10.77.0.20[4500] to 10.77.0.10[4500] (304 bytes)
+[ENC] parsed IKE_AUTH response 1 [ IDr AUTH N(USE_TRANSP) SA TSi TSr N(MOBIKE_SUP) N(ADD_4_ADDR) N(ADD_6_ADDR) N(ADD_6_ADDR) ]
+[IKE] authentication of 'gateway-b' with pre-shared key successful
+[IKE] peer supports MOBIKE
+[IKE] IKE_SA transport[66] established between 10.77.0.10[gateway-a]...10.77.0.20[gateway-b]
+[IKE] scheduling rekeying in 13572s
+[IKE] maximum IKE_SA lifetime 15012s
+[CFG] selected proposal: ESP:AES_CBC_128/HMAC_SHA2_256_128/NO_EXT_SEQ
+[IKE] CHILD_SA host-host{93} established with SPIs cca2b273_i c4cdf3cf_o and TS 10.77.0.10/32 === 10.77.0.20/32
+initiate completed successfully
+--- 10.77.0.20 ping statistics ---
+20 packets transmitted, 20 received, 0% packet loss, time 11532ms
+rtt min/avg/max/mdev = 0.084/0.207/1.147/0.219 ms
+
+{"profile": "icmp", "duration": 12, "seed": 7629, "peer": "10.77.0.20", "result": {"packets": 20, "bytes": 1220, "protocol": "icmp", "packet_size": 61, "interval": 0.5861867541435005, "count": 20, "actual_duration": 12, "seed": 7629, "profile_version": "3.5-v1"}, "profile_version": "3.5-v1"}

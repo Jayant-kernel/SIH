@@ -1,0 +1,11 @@
+﻿transport: #24, ESTABLISHED, IKEv2, 0175a2a23cc2b9a5_i* 069c866ea6088ff4_r
+  local  'gateway-a' @ 10.77.0.10[4500]
+  remote 'gateway-b' @ 10.77.0.20[4500]
+  AES_CBC-128/HMAC_SHA2_256_128/PRF_HMAC_SHA2_256/MODP_3072
+  established 15s ago, rekeying in 13836s
+  host-host: #33, reqid 6, INSTALLED, TRANSPORT, ESP:AES_CBC-128/HMAC_SHA2_256_128
+    installed 15s ago, rekeying in 3380s, expires in 3945s
+    in  c9ad4d1d,    320 bytes,     5 packets,     6s ago
+    out cf742d83,    320 bytes,     5 packets,     6s ago
+    local  10.77.0.10/32
+    remote 10.77.0.20/32

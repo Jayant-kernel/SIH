@@ -1,0 +1,14 @@
+{
+  "status": "LIVE",
+  "last_packet_ts": 1789995902.809282,
+  "profiles": 1,
+  "stats": {
+    "packets": 16856,
+    "esp": 16746,
+    "ah": 0,
+    "ike": 110,
+    "other": 0,
+    "malformed": 22
+  },
+  "ts": 1789995919.106045
+}

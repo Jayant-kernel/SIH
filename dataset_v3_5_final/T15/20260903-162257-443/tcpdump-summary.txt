@@ -1,0 +1,30 @@
+﻿reading from file /dataset-final/T15/20260903-162257-443/capture.pcap, link-type LINUX_SLL2 (Linux cooked v2), snapshot length 262144
+Warning: interface names might be incorrect
+10:52:58.625152 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc72e0fb2,seq=0x610), length 1080
+10:52:58.625229 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc8a79478,seq=0x9d), length 1128
+10:52:58.625234 eth1  In  IP6 fd77:77:24::10 > fd77:77:23::10: ICMP6, destination unreachable, unreachable port, fd77:77:24::10 udp port 5002, length 1045
+10:52:58.643771 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc72e0fb2,seq=0x611), length 1080
+10:52:58.643882 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc8a79478,seq=0x9e), length 1128
+10:52:58.643888 eth1  In  IP6 fd77:77:24::10 > fd77:77:23::10: ICMP6, destination unreachable, unreachable port, fd77:77:24::10 udp port 5002, length 1045
+10:52:58.647790 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc72e0fb2,seq=0x612), length 1080
+10:52:58.647842 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc8a79478,seq=0x9f), length 1128
+10:52:58.647847 eth1  In  IP6 fd77:77:24::10 > fd77:77:23::10: ICMP6, destination unreachable, unreachable port, fd77:77:24::10 udp port 5002, length 1045
+10:52:58.654193 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc72e0fb2,seq=0x613), length 1080
+10:52:58.654242 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc8a79478,seq=0xa0), length 1128
+10:52:58.654246 eth1  In  IP6 fd77:77:24::10 > fd77:77:23::10: ICMP6, destination unreachable, unreachable port, fd77:77:24::10 udp port 5002, length 1045
+10:52:58.661054 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc72e0fb2,seq=0x614), length 1080
+10:52:58.661104 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc8a79478,seq=0xa1), length 1128
+10:52:58.661109 eth1  In  IP6 fd77:77:24::10 > fd77:77:23::10: ICMP6, destination unreachable, unreachable port, fd77:77:24::10 udp port 5002, length 1045
+10:52:58.673885 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc72e0fb2,seq=0x615), length 1080
+10:52:58.673938 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc8a79478,seq=0xa2), length 1128
+10:52:58.673943 eth1  In  IP6 fd77:77:24::10 > fd77:77:23::10: ICMP6, destination unreachable, unreachable port, fd77:77:24::10 udp port 5002, length 1045
+10:52:58.675396 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc72e0fb2,seq=0x616), length 1080
+10:52:58.685602 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc72e0fb2,seq=0x617), length 1080
+10:52:58.705543 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc72e0fb2,seq=0x618), length 1080
+10:52:58.708807 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc72e0fb2,seq=0x619), length 1080
+10:52:58.721360 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc72e0fb2,seq=0x61a), length 1080
+10:52:58.722567 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc72e0fb2,seq=0x61b), length 1080
+10:52:58.730865 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc72e0fb2,seq=0x61c), length 1080
+10:52:58.730918 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc8a79478,seq=0xa3), length 1128
+10:52:58.730923 eth1  In  IP6 fd77:77:24::10 > fd77:77:23::10: ICMP6, destination unreachable, unreachable port, fd77:77:24::10 udp port 5002, length 1045
+10:52:58.734641 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc72e0fb2,seq=0x61d), length 1080

@@ -1,0 +1,18 @@
+﻿reading from file /dataset/T01/20260902-225216-682/capture.pcap, link-type LINUX_SLL2 (Linux cooked v2), snapshot length 262144
+Warning: interface names might be incorrect
+17:22:29.284762 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc151692a,seq=0x19), length 136
+17:22:29.284825 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xcd8db761,seq=0x19), length 136
+17:22:30.287645 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc151692a,seq=0x1a), length 136
+17:22:30.287696 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xcd8db761,seq=0x1a), length 136
+17:22:30.447478 eth1  Out IP6 fe80::f41e:cff:fe67:cb7a > fe80::985c:74ff:fea8:41a4: ICMP6, neighbor solicitation, who has fe80::985c:74ff:fea8:41a4, length 32
+17:22:30.447537 eth1  In  IP6 fe80::985c:74ff:fea8:41a4 > fe80::f41e:cff:fe67:cb7a: ICMP6, neighbor solicitation, who has fe80::f41e:cff:fe67:cb7a, length 32
+17:22:30.447561 eth1  Out IP6 fe80::f41e:cff:fe67:cb7a > fe80::985c:74ff:fea8:41a4: ICMP6, neighbor advertisement, tgt is fe80::f41e:cff:fe67:cb7a, length 24
+17:22:30.447565 eth1  In  IP6 fe80::985c:74ff:fea8:41a4 > fe80::f41e:cff:fe67:cb7a: ICMP6, neighbor advertisement, tgt is fe80::985c:74ff:fea8:41a4, length 24
+17:22:31.311560 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc151692a,seq=0x1b), length 136
+17:22:31.311639 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xcd8db761,seq=0x1b), length 136
+17:22:32.335464 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc151692a,seq=0x1c), length 136
+17:22:32.335520 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xcd8db761,seq=0x1c), length 136
+17:22:33.359707 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc151692a,seq=0x1d), length 136
+17:22:33.359800 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xcd8db761,seq=0x1d), length 136
+17:22:34.383749 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc151692a,seq=0x1e), length 136
+17:22:34.383796 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xcd8db761,seq=0x1e), length 136

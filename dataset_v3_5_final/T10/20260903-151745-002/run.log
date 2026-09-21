@@ -1,0 +1,4 @@
+﻿Run 20260903-151745-002 Scenario T10 Traffic web Duration 8 Seed 2187
+[generator] HTTP: 19 requests to http://10.77.2.10:8000/ interval 0.679 req 255 resp 2348
+[generator] HTTP done 19 requests
+{"profile": "web", "duration": 8, "seed": 2187, "peer": "10.77.2.10", "result": {"packets": 76, "bytes": 49457, "requests": 19, "interval": 0.6786868986973199, "request_size": 255, "response_size": 2348, "actual_duration": 8, "seed": 2187, "profile_version": "3.5-v1"}, "profile_version": "3.5-v1"}

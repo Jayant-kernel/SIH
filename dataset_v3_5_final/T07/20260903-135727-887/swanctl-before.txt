@@ -1,0 +1,22 @@
+﻿T07: #86, ESTABLISHED, IKEv2, 0e4680c6cd7a28e9_i* 1ee5b7df38c14337_r
+  local  'gateway-a' @ 10.77.0.10[4500]
+  remote 'gateway-b' @ 10.77.0.20[4500]
+  AES_GCM_16-128/PRF_HMAC_SHA2_256/ECP_256
+  established 45s ago, rekeying in 13172s
+  t07-child: #114, reqid 2, INSTALLED, TRANSPORT, ESP:AES_GCM_16-128
+    installed 45s ago, rekeying in 3270s, expires in 3915s
+    in  c5a2a81b,   1980 bytes,    42 packets,     8s ago
+    out c06704c9,   2260 bytes,    42 packets,     8s ago
+    local  10.77.0.10/32
+    remote 10.77.0.20/32
+site-to-site: #85, ESTABLISHED, IKEv2, 39f83a009ab177fc_i* 57fc4db90fb93d2b_r
+  local  'gateway-a' @ 10.77.0.10[4500]
+  remote 'gateway-b' @ 10.77.0.20[4500]
+  AES_CBC-256/HMAC_SHA2_256_128/PRF_HMAC_SHA2_256/MODP_3072
+  established 52s ago, rekeying in 3448s
+  net-v4v6: #113, reqid 1, INSTALLED, TUNNEL, ESP:AES_CBC-256/HMAC_SHA2_256_128
+    installed 52s ago, rekeying in 3508s, expires in 3608s
+    in  c60a64ac,      0 bytes,     0 packets
+    out c3016a92,      0 bytes,     0 packets
+    local  10.77.1.0/24 fd77:77:1::/64
+    remote 10.77.2.0/24 fd77:77:2::/64

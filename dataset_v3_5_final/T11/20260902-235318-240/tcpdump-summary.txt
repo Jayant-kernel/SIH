@@ -1,0 +1,20 @@
+﻿reading from file /dataset/T11/20260902-235318-240/capture.pcap, link-type LINUX_SLL2 (Linux cooked v2), snapshot length 262144
+Warning: interface names might be incorrect
+18:23:32.067946 eth1  Out IP6 fd77:77::10 > fd77:77::20: ESP(spi=0xcd79f8af,seq=0x36), length 96
+18:23:32.068042 eth1  In  IP6 fd77:77::20 > fd77:77::10: ESP(spi=0xcb19e051,seq=0x36), length 76
+18:23:33.150176 eth1  Out IP6 fd77:77::10 > fd77:77::20: ESP(spi=0xcd79f8af,seq=0x37), length 96
+18:23:33.150251 eth1  In  IP6 fd77:77::20 > fd77:77::10: ESP(spi=0xcb19e051,seq=0x37), length 76
+18:23:33.875592 eth1  Out IP6 fd77:77::10 > fd77:77::20: ESP(spi=0xcd79f8af,seq=0x38), length 96
+18:23:33.875640 eth1  In  IP6 fd77:77::20 > fd77:77::10: ESP(spi=0xcb19e051,seq=0x38), length 76
+18:23:34.807351 eth1  Out IP6 fd77:77::10 > fd77:77::20: ESP(spi=0xcd79f8af,seq=0x39), length 96
+18:23:34.807396 eth1  In  IP6 fd77:77::20 > fd77:77::10: ESP(spi=0xcb19e051,seq=0x39), length 76
+18:23:35.551069 eth1  Out IP6 fd77:77::10 > fd77:77::20: ESP(spi=0xcd79f8af,seq=0x3a), length 96
+18:23:35.551122 eth1  In  IP6 fd77:77::20 > fd77:77::10: ESP(spi=0xcb19e051,seq=0x3a), length 76
+18:23:36.265843 eth1  Out IP6 fd77:77::10 > fd77:77::20: ESP(spi=0xcd79f8af,seq=0x3b), length 96
+18:23:36.265890 eth1  In  IP6 fd77:77::20 > fd77:77::10: ESP(spi=0xcb19e051,seq=0x3b), length 76
+18:23:37.055860 eth1  Out IP6 fd77:77::10 > fd77:77::20: ESP(spi=0xcd79f8af,seq=0x3c), length 96
+18:23:37.055915 eth1  In  IP6 fd77:77::20 > fd77:77::10: ESP(spi=0xcb19e051,seq=0x3c), length 76
+18:23:37.301517 eth1  Out IP6 fe80::f41e:cff:fe67:cb7a > fd77:77::20: ICMP6, neighbor solicitation, who has fd77:77::20, length 32
+18:23:37.301569 eth1  In  IP6 fe80::985c:74ff:fea8:41a4 > fd77:77::10: ICMP6, neighbor solicitation, who has fd77:77::10, length 32
+18:23:37.301640 eth1  Out IP6 fd77:77::10 > fe80::985c:74ff:fea8:41a4: ICMP6, neighbor advertisement, tgt is fd77:77::10, length 24
+18:23:37.301665 eth1  In  IP6 fd77:77::20 > fe80::f41e:cff:fe67:cb7a: ICMP6, neighbor advertisement, tgt is fd77:77::20, length 24

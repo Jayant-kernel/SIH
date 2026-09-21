@@ -1,0 +1,30 @@
+﻿reading from file /dataset-final/T15/20260903-161656-189/capture.pcap, link-type LINUX_SLL2 (Linux cooked v2), snapshot length 262144
+Warning: interface names might be incorrect
+10:46:58.217190 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc1050f1b,seq=0x62), length 136
+10:46:58.217311 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xcdd64b02,seq=0x61), length 136
+10:46:58.217317 eth1  In  IP6 fd77:77:24::10.8000 > fd77:77:23::10.41562: Flags [S.], seq 1531393530, ack 1161587220, win 65160, options [mss 1460,sackOK,TS val 3211380502 ecr 2755040157,nop,wscale 10], length 0
+10:46:58.217328 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc1050f1b,seq=0x63), length 120
+10:46:58.217406 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc1050f1b,seq=0x64), length 200
+10:46:58.217416 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xcdd64b02,seq=0x62), length 120
+10:46:58.217417 eth1  In  IP6 fd77:77:24::10.8000 > fd77:77:23::10.41562: Flags [.], ack 86, win 64, options [nop,nop,TS val 3211380502 ecr 2755040157], length 0
+10:46:58.222116 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xcdd64b02,seq=0x63), length 280
+10:46:58.222136 eth1  In  IP6 fd77:77:24::10.8000 > fd77:77:23::10.41562: Flags [P.], seq 1:157, ack 86, win 64, options [nop,nop,TS val 3211380507 ecr 2755040157], length 156
+10:46:58.222253 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc1050f1b,seq=0x65), length 120
+10:46:58.222295 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xcdd64b02,seq=0x64), length 1224
+10:46:58.222297 eth1  In  IP6 fd77:77:24::10.8000 > fd77:77:23::10.41562: Flags [P.], seq 157:1255, ack 86, win 64, options [nop,nop,TS val 3211380507 ecr 2755040162], length 1098
+10:46:58.222309 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc1050f1b,seq=0x66), length 120
+10:46:58.222341 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xcdd64b02,seq=0x65), length 120
+10:46:58.222342 eth1  In  IP6 fd77:77:24::10.8000 > fd77:77:23::10.41562: Flags [F.], seq 1255, ack 86, win 64, options [nop,nop,TS val 3211380507 ecr 2755040162], length 0
+10:46:58.222370 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc1050f1b,seq=0x67), length 120
+10:46:58.222415 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xcdd64b02,seq=0x66), length 120
+10:46:58.222419 eth1  In  IP6 fd77:77:24::10.8000 > fd77:77:23::10.41562: Flags [.], ack 87, win 64, options [nop,nop,TS val 3211380507 ecr 2755040162], length 0
+10:46:59.001964 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc1050f1b,seq=0x68), length 136
+10:46:59.002017 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xcdd64b02,seq=0x67), length 136
+10:46:59.002022 eth1  In  IP6 fd77:77:24::10.8000 > fd77:77:23::10.41568: Flags [S.], seq 896207956, ack 2550483197, win 65160, options [mss 1460,sackOK,TS val 3688239516 ecr 356005769,nop,wscale 10], length 0
+10:46:59.002031 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc1050f1b,seq=0x69), length 120
+10:46:59.002090 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc1050f1b,seq=0x6a), length 200
+10:46:59.002099 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xcdd64b02,seq=0x68), length 120
+10:46:59.002101 eth1  In  IP6 fd77:77:24::10.8000 > fd77:77:23::10.41568: Flags [.], ack 86, win 64, options [nop,nop,TS val 3688239516 ecr 356005769], length 0
+10:46:59.005438 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xcdd64b02,seq=0x69), length 280
+10:46:59.005467 eth1  In  IP6 fd77:77:24::10.8000 > fd77:77:23::10.41568: Flags [P.], seq 1:157, ack 86, win 64, options [nop,nop,TS val 3688239519 ecr 356005769], length 156
+10:46:59.005506 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc1050f1b,seq=0x6b), length 120

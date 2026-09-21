@@ -1,0 +1,22 @@
+﻿site-to-site: #179, ESTABLISHED, IKEv2, 65f6742a5c31b859_i* 400e47464c22c74c_r
+  local  'gateway-a' @ 10.77.0.10[4500]
+  remote 'gateway-b' @ 10.77.0.20[4500]
+  AES_CBC-256/HMAC_SHA2_256_128/PRF_HMAC_SHA2_256/MODP_3072
+  established 12s ago, rekeying in 3427s
+  net-v4v6: #245, reqid 5, INSTALLED, TUNNEL, ESP:AES_CBC-256/HMAC_SHA2_256_128
+    installed 12s ago, rekeying in 3542s, expires in 3648s
+    in  c8578e3c,      0 bytes,     0 packets
+    out c892a139,      0 bytes,     0 packets
+    local  10.77.1.0/24 fd77:77:1::/64
+    remote 10.77.2.0/24 fd77:77:2::/64
+T12: #167, ESTABLISHED, IKEv2, e845690e274d4bd7_i* 231574f6d36ab795_r
+  local  'gateway-a' @ 10.77.0.10[4500]
+  remote 'gateway-b' @ 10.77.0.20[4500]
+  AES_CBC-128/HMAC_SHA2_256_128/PRF_HMAC_SHA2_256/ECP_256
+  established 253s ago, rekeying in 13810s
+  t12-child: #228, reqid 3, INSTALLED, TUNNEL, ESP:AES_CBC-128/HMAC_SHA2_256_128
+    installed 253s ago, rekeying in 3041s, expires in 3707s
+    in  c04b094e,   6835 bytes,   106 packets,    23s ago
+    out c9d2969f,  54921 bytes,   511 packets,    22s ago
+    local  10.77.17.0/24
+    remote 10.77.18.0/24

@@ -1,0 +1,6 @@
+﻿Run 20260903-131354-306 Scenario T14 Traffic video-like Duration 8 Seed 8272
+initiate failed: establishing CHILD_SA 't14-child' failed
+[IKE] not establishing CHILD_SA t14-child{49} due to existing duplicate {46} with SPIs cadd4b31_i cb19bcff_o and TS 10.77.25.0/24 === 10.77.26.0/24
+[generator] UDP small: 88 pps, size 976, jitter 0.010, dur 8s to 10.77.26.10:5002
+[generator] UDP small sent 678 packets
+{"profile": "video-like", "duration": 8, "seed": 8272, "peer": "10.77.26.10", "result": {"packets": 678, "bytes": 661728, "protocol": "udp", "packet_size": 976, "pps": 88, "jitter": 0.01, "actual_duration": 8, "seed": 8272, "profile_version": "3.5-v1"}, "profile_version": "3.5-v1"}

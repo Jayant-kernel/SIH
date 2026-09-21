@@ -1,0 +1,30 @@
+﻿reading from file /dataset/T03/20260902-233304-169/capture.pcap, link-type LINUX_SLL2 (Linux cooked v2), snapshot length 262144
+Warning: interface names might be incorrect
+18:03:17.182424 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc1805b49,seq=0x611), length 1224
+18:03:17.182475 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc902230e,seq=0x6d), length 632
+18:03:17.191138 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc1805b49,seq=0x612), length 1224
+18:03:17.191200 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc902230e,seq=0x6e), length 632
+18:03:17.192542 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc1805b49,seq=0x613), length 1224
+18:03:17.192567 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc902230e,seq=0x6f), length 632
+18:03:17.202063 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc1805b49,seq=0x614), length 1224
+18:03:17.202116 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc902230e,seq=0x70), length 632
+18:03:17.206972 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc1805b49,seq=0x615), length 1224
+18:03:17.207015 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc902230e,seq=0x71), length 632
+18:03:17.213240 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc1805b49,seq=0x616), length 1224
+18:03:17.213291 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc902230e,seq=0x72), length 632
+18:03:17.228096 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc1805b49,seq=0x617), length 1224
+18:03:17.232840 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc1805b49,seq=0x618), length 1224
+18:03:17.234256 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc1805b49,seq=0x619), length 1224
+18:03:17.238876 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc1805b49,seq=0x61a), length 1224
+18:03:17.242512 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc1805b49,seq=0x61b), length 1224
+18:03:17.251652 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc1805b49,seq=0x61c), length 1224
+18:03:17.262166 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc1805b49,seq=0x61d), length 1224
+18:03:17.265910 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc1805b49,seq=0x61e), length 1224
+18:03:17.276464 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc1805b49,seq=0x61f), length 1224
+18:03:17.295942 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc1805b49,seq=0x620), length 1224
+18:03:17.314896 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc1805b49,seq=0x621), length 1224
+18:03:17.334832 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc1805b49,seq=0x622), length 1224
+18:03:17.344822 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc1805b49,seq=0x623), length 1224
+18:03:17.347027 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc1805b49,seq=0x624), length 1224
+18:03:17.357489 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc1805b49,seq=0x625), length 1224
+18:03:17.359221 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc1805b49,seq=0x626), length 1224

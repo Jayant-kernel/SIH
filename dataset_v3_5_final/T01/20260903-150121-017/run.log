@@ -1,0 +1,8 @@
+﻿Run 20260903-150121-017 Scenario T01 Traffic icmp Duration 14 Seed 450
+initiate failed: establishing CHILD_SA 'net-v4v6' failed
+[IKE] not establishing CHILD_SA net-v4v6{178} due to existing duplicate {176} with SPIs cf47eabd_i c525f0f9_o and TS 10.77.1.0/24 fd77:77:1::/64 === 10.77.2.0/24 fd77:77:2::/64
+--- 10.77.2.10 ping statistics ---
+23 packets transmitted, 23 received, 0% packet loss, time 13385ms
+rtt min/avg/max/mdev = 0.105/0.153/0.247/0.041 ms
+
+{"profile": "icmp", "duration": 14, "seed": 450, "peer": "10.77.2.10", "result": {"packets": 23, "bytes": 1679, "protocol": "icmp", "packet_size": 73, "interval": 0.5969453203662424, "count": 23, "actual_duration": 14, "seed": 450, "profile_version": "3.5-v1"}, "profile_version": "3.5-v1"}

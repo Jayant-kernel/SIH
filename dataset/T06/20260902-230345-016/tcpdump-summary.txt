@@ -1,0 +1,22 @@
+﻿reading from file /dataset/T06/20260902-230345-016/capture.pcap, link-type LINUX_SLL2 (Linux cooked v2), snapshot length 262144
+Warning: interface names might be incorrect
+17:33:58.350882 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xcf742d83,seq=0x6), length 88
+17:33:58.350949 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc9ad4d1d,seq=0x6), length 72
+17:33:58.956261 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xcf742d83,seq=0x7), length 88
+17:33:58.956342 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc9ad4d1d,seq=0x7), length 72
+17:33:59.565426 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xcf742d83,seq=0x8), length 88
+17:33:59.565506 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc9ad4d1d,seq=0x8), length 72
+17:34:00.171095 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xcf742d83,seq=0x9), length 88
+17:34:00.171146 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc9ad4d1d,seq=0x9), length 72
+17:34:00.781087 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xcf742d83,seq=0xa), length 88
+17:34:00.781167 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc9ad4d1d,seq=0xa), length 72
+17:34:01.387813 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xcf742d83,seq=0xb), length 88
+17:34:01.387869 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc9ad4d1d,seq=0xb), length 72
+17:34:01.996122 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xcf742d83,seq=0xc), length 88
+17:34:01.996183 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc9ad4d1d,seq=0xc), length 72
+17:34:02.605094 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xcf742d83,seq=0xd), length 88
+17:34:02.605159 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc9ad4d1d,seq=0xd), length 72
+17:34:03.214990 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xcf742d83,seq=0xe), length 88
+17:34:03.215051 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc9ad4d1d,seq=0xe), length 72
+17:34:03.826610 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xcf742d83,seq=0xf), length 88
+17:34:03.826684 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc9ad4d1d,seq=0xf), length 72

@@ -1,0 +1,8 @@
+﻿Run 20260903-134409-365 Scenario T08 Traffic icmp Duration 9 Seed 6718
+initiate failed: establishing CHILD_SA 'ah-child' failed
+[IKE] not establishing CHILD_SA ah-child{99} due to existing duplicate {96} with SPIs c63bb5a1_i cdd39429_o and TS 10.77.8.0/24 === 10.77.9.0/24
+--- 10.77.9.10 ping statistics ---
+21 packets transmitted, 21 received, 0% packet loss, time 8938ms
+rtt min/avg/max/mdev = 0.064/0.120/0.196/0.037 ms
+
+{"profile": "icmp", "duration": 9, "seed": 6718, "peer": "10.77.9.10", "result": {"packets": 21, "bytes": 1764, "protocol": "icmp", "packet_size": 84, "interval": 0.4156067945242008, "count": 21, "actual_duration": 9, "seed": 6718, "profile_version": "3.5-v1"}, "profile_version": "3.5-v1"}

@@ -1,0 +1,24 @@
+﻿src 10.77.0.10/32 dst 10.77.0.20/32 
+	dir out priority 367231 ptype main 
+	tmpl src 0.0.0.0 dst 0.0.0.0
+		proto esp spi 0xcf742d83 reqid 6 mode transport
+src 10.77.0.20/32 dst 10.77.0.10/32 
+	dir in priority 367231 ptype main 
+	tmpl src 0.0.0.0 dst 0.0.0.0
+		proto esp reqid 6 mode transport
+src 0.0.0.0/0 dst 0.0.0.0/0 
+	socket in priority 0 ptype main 
+src 0.0.0.0/0 dst 0.0.0.0/0 
+	socket out priority 0 ptype main 
+src 0.0.0.0/0 dst 0.0.0.0/0 
+	socket in priority 0 ptype main 
+src 0.0.0.0/0 dst 0.0.0.0/0 
+	socket out priority 0 ptype main 
+src ::/0 dst ::/0 
+	socket in priority 0 ptype main 
+src ::/0 dst ::/0 
+	socket out priority 0 ptype main 
+src ::/0 dst ::/0 
+	socket in priority 0 ptype main 
+src ::/0 dst ::/0 
+	socket out priority 0 ptype main 

@@ -1,0 +1,30 @@
+﻿reading from file /dataset/T14/20260903-125945-383/capture.pcap, link-type LINUX_SLL2 (Linux cooked v2), snapshot length 262144
+Warning: interface names might be incorrect
+07:29:56.964060 eth1  Out IP6 fe80::f41e:cff:fe67:cb7a > fd77:77::20: ICMP6, neighbor solicitation, who has fd77:77::20, length 32
+07:29:56.964094 eth1  In  IP6 fe80::985c:74ff:fea8:41a4 > fd77:77::10: ICMP6, neighbor solicitation, who has fd77:77::10, length 32
+07:29:56.964142 eth1  Out IP6 fd77:77::10 > fe80::985c:74ff:fea8:41a4: ICMP6, neighbor advertisement, tgt is fd77:77::10, length 24
+07:29:56.964173 eth1  In  IP6 fd77:77::20 > fe80::f41e:cff:fe67:cb7a: ICMP6, neighbor advertisement, tgt is fd77:77::20, length 24
+07:29:57.412143 eth1  Out IP6 fd77:77::10 > fd77:77:24::10: ICMP6, echo request, id 54422, seq 10, length 68
+07:29:57.412196 eth1  In  IP6 fd77:77:24::10 > fd77:77::10: ICMP6, echo reply, id 54422, seq 10, length 68
+07:29:58.023883 eth1  Out IP6 fd77:77::10 > fd77:77:24::10: ICMP6, echo request, id 54422, seq 11, length 68
+07:29:58.023936 eth1  In  IP6 fd77:77:24::10 > fd77:77::10: ICMP6, echo reply, id 54422, seq 11, length 68
+07:29:58.036843 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc8a69e0b,seq=0x1), length 136
+07:29:58.036963 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc8e663fa,seq=0x1), length 136
+07:29:58.628059 eth1  Out IP6 fd77:77::10 > fd77:77:24::10: ICMP6, echo request, id 54422, seq 12, length 68
+07:29:58.628118 eth1  In  IP6 fd77:77:24::10 > fd77:77::10: ICMP6, echo reply, id 54422, seq 12, length 68
+07:29:59.044108 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc8a69e0b,seq=0x2), length 136
+07:29:59.044210 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc8e663fa,seq=0x2), length 136
+07:29:59.236183 eth1  Out IP6 fd77:77::10 > fd77:77:24::10: ICMP6, echo request, id 54422, seq 13, length 68
+07:29:59.236233 eth1  In  IP6 fd77:77:24::10 > fd77:77::10: ICMP6, echo reply, id 54422, seq 13, length 68
+07:29:59.844053 eth1  Out IP6 fd77:77::10 > fd77:77:24::10: ICMP6, echo request, id 54422, seq 14, length 68
+07:29:59.844111 eth1  In  IP6 fd77:77:24::10 > fd77:77::10: ICMP6, echo reply, id 54422, seq 14, length 68
+07:30:00.067874 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc8a69e0b,seq=0x3), length 136
+07:30:00.067929 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc8e663fa,seq=0x3), length 136
+07:30:00.452029 eth1  Out IP6 fd77:77::10 > fd77:77:24::10: ICMP6, echo request, id 54422, seq 15, length 68
+07:30:00.452109 eth1  In  IP6 fd77:77:24::10 > fd77:77::10: ICMP6, echo reply, id 54422, seq 15, length 68
+07:30:01.091983 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc8a69e0b,seq=0x4), length 136
+07:30:01.092069 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc8e663fa,seq=0x4), length 136
+07:30:02.084178 eth1  Out IP6 fe80::f41e:cff:fe67:cb7a > fe80::985c:74ff:fea8:41a4: ICMP6, neighbor solicitation, who has fe80::985c:74ff:fea8:41a4, length 32
+07:30:02.084260 eth1  In  IP6 fe80::985c:74ff:fea8:41a4 > fe80::f41e:cff:fe67:cb7a: ICMP6, neighbor solicitation, who has fe80::f41e:cff:fe67:cb7a, length 32
+07:30:02.084282 eth1  Out IP6 fe80::f41e:cff:fe67:cb7a > fe80::985c:74ff:fea8:41a4: ICMP6, neighbor advertisement, tgt is fe80::f41e:cff:fe67:cb7a, length 24
+07:30:02.084312 eth1  In  IP6 fe80::985c:74ff:fea8:41a4 > fe80::f41e:cff:fe67:cb7a: ICMP6, neighbor advertisement, tgt is fe80::985c:74ff:fea8:41a4, length 24

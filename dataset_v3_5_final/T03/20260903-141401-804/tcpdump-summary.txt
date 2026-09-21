@@ -1,0 +1,22 @@
+﻿reading from file /dataset-final/T03/20260903-141401-804/capture.pcap, link-type LINUX_SLL2 (Linux cooked v2), snapshot length 262144
+Warning: interface names might be incorrect
+08:44:15.671962 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc3e98a9f,seq=0x1), length 136
+08:44:15.672012 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc1b50caf,seq=0x1), length 136
+08:44:16.695968 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc3e98a9f,seq=0x2), length 136
+08:44:16.696018 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc1b50caf,seq=0x2), length 136
+08:44:17.720098 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc3e98a9f,seq=0x3), length 136
+08:44:17.720177 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc1b50caf,seq=0x3), length 136
+08:44:18.744122 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc3e98a9f,seq=0x4), length 136
+08:44:18.744207 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc1b50caf,seq=0x4), length 136
+08:44:19.768048 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc3e98a9f,seq=0x5), length 136
+08:44:19.768095 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc1b50caf,seq=0x5), length 136
+08:44:19.920949 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc3e98a9f,seq=0x6), length 136
+08:44:19.920990 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc1b50caf,seq=0x6), length 136
+08:44:20.440003 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc3e98a9f,seq=0x7), length 136
+08:44:20.440061 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc1b50caf,seq=0x7), length 136
+08:44:20.983985 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc3e98a9f,seq=0x8), length 136
+08:44:20.984038 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc1b50caf,seq=0x8), length 136
+08:44:21.528144 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc3e98a9f,seq=0x9), length 136
+08:44:21.528204 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc1b50caf,seq=0x9), length 136
+08:44:22.072057 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc3e98a9f,seq=0xa), length 136
+08:44:22.072126 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc1b50caf,seq=0xa), length 136

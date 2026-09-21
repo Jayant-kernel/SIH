@@ -1,0 +1,100 @@
+﻿{
+    "run":  {
+                "timestamp":  "2026-09-03T14:20:24.1999932+05:30",
+                "run_id":  "20260903-142002-579",
+                "pcap":  "capture.pcap",
+                "status":  "PASS",
+                "scenario_id":  "T09"
+            },
+    "observations":  {
+                         "swanctl_after":  "T09: #118, ESTABLISHED, IKEv2, 02d3f77af6eb4cbb_i* aa8c599a1b5aac32_r |   local  \u0027gateway-a\u0027 @ 10.77.0.10[4500] |   remote \u0027gateway-b\u0027 @ 10.77.0.20[4500] |   AES_CBC-256/HMAC_SHA2_384_192/PRF_HMAC_SHA2_384/MODP_2048 |   established 69s ago, rekeying in 12963s |   t09-child: #146, reqid 2, INSTALLED, TRANSPORT, AH:HMAC_SHA2_256_128",
+                         "xfrm_state_lines":  "\tproto ah spi 0xc573d48d reqid 2 mode transport | \tproto ah spi 0xc549f759 reqid 2 mode transport",
+                         "tcpdump_head":  "reading from file /dataset-final/T09/20260903-142002-579/capture.pcap, link-type LINUX_SLL2 (Linux cooked v2), snapshot length 262144 | Warning: interface names might be incorrect | 08:50:03.719740 eth1  Out IP 10.77.0.10 \u003e 10.77.0.20: AH(spi=0xc573d48d,seq=0x2b,icv=0xb48939d57de8548668110e6df6d43664): 37349 \u003e 5001: UDP, length 85 | 08:50:03.719800 eth1  In  IP 10.77.0.20 \u003e 10.77.0.10: AH(spi=0xc549f759,seq=0x2b,icv=0x0542f928464a9a918b6c0df73ab424da): ICMP 10.77.0.20 udp port 5001 unreachable, length 121",
+                         "swanctl_before":  "T09: #118, ESTABLISHED, IKEv2, 02d3f77af6eb4cbb_i* aa8c599a1b5aac32_r |   local  \u0027gateway-a\u0027 @ 10.77.0.10[4500] |   remote \u0027gateway-b\u0027 @ 10.77.0.20[4500] |   AES_CBC-256/HMAC_SHA2_384_192/PRF_HMAC_SHA2_384/MODP_2048 |   established 48s ago, rekeying in 12984s |   t09-child: #146, reqid 2, INSTALLED, TRANSPORT, AH:HMAC_SHA2_256_128"
+                     },
+    "evidence_classification":  {
+                                    "ml_inferred":  [
+
+                                                    ],
+                                    "deterministically_derived":  [
+                                                                      "mode from XFRM",
+                                                                      "PFS from scenario",
+                                                                      "rekey from SPI change"
+                                                                  ],
+                                    "directly_observed":  [
+                                                              "ESP packet present if tcpdump shows ESP",
+                                                              "AH packet present if AH",
+                                                              "IPv4/IPv6 outer",
+                                                              "SPI",
+                                                              "packet lengths"
+                                                          ],
+                                    "unknown":  [
+                                                    "AES key length from ciphertext",
+                                                    "exact DH group from ciphertext"
+                                                ]
+                                },
+    "vpn_ground_truth":  {
+                             "ike_transport_ip_version":  "IPv4",
+                             "protected_ip_version":  "IPv4",
+                             "remote_ts":  "10.77.0.20/32",
+                             "ike_version":  2,
+                             "encryption_key_length":  0,
+                             "dh_group":  14,
+                             "integrity_algorithm":  "HMAC-SHA256",
+                             "ipsec_protocol":  "AH",
+                             "encryption_algorithm":  "none",
+                             "pfs":  false,
+                             "rekey_enabled":  true,
+                             "mode":  "transport",
+                             "local_ts":  "10.77.0.10/32",
+                             "rekey_time":  "3600s",
+                             "dh_group_name":  "modp2048"
+                         },
+    "scenario":  {
+                     "scenario_id":  "T09",
+                     "family":  "AH",
+                     "description":  "AH transport SHA256 MODP2048 host-to-host",
+                     "ike_version":  2,
+                     "ike_transport_ip_version":  "IPv4",
+                     "ipsec_protocol":  "AH",
+                     "mode":  "transport",
+                     "encryption_algorithm":  "none",
+                     "encryption_key_length":  0,
+                     "integrity_algorithm":  "HMAC-SHA256",
+                     "dh_group":  14,
+                     "dh_group_name":  "modp2048",
+                     "pfs":  false,
+                     "protected_ip_version":  "IPv4",
+                     "local_ts":  "10.77.0.10/32",
+                     "remote_ts":  "10.77.0.20/32",
+                     "ike_endpoints":  "10.77.0.10 \u003c-\u003e 10.77.0.20",
+                     "rekey_enabled":  true,
+                     "rekey_time":  "3600s",
+                     "traffic_profiles":  [
+                                              "icmp",
+                                              "messaging-like"
+                                          ],
+                     "expected_protocols":  [
+                                                "AH"
+                                            ],
+                     "expected_observations":  [
+                                                   "XFRM ah mode transport"
+                                               ]
+                 },
+    "traffic_ground_truth":  {
+                                 "traffic_class":  "voip-like",
+                                 "generator_output":  "[generator] UDP small: 59 pps, size 85, jitter 0.018, dur 14s to 10.77.0.20:5001\n[generator] UDP small sent 848 packets\n{\"profile\": \"voip-like\", \"duration\": 14, \"seed\": 9985, \"peer\": \"10.77.0.20\", \"result\": {\"packets\": 848, \"bytes\": 72080, \"protocol\": \"udp\", \"packet_size\": 85, \"pps\": 59, \"jitter\": 0.018038331870396867, \"actual_duration\": 14, \"seed\": 9985, \"profile_version\": \"3.5-v1\"}, \"profile_version\": \"3.5-v1\"}",
+                                 "peer":  "10.77.0.20",
+                                 "profile_version":  "3.5-v1",
+                                 "duration":  14,
+                                 "generator":  "generator.py",
+                                 "src":  "10.77.0.10",
+                                 "seed":  9985
+                             },
+    "validation":  {
+                       "expected_protocols":  [
+                                                  "AH"
+                                              ],
+                       "mode_verified":  true
+                   }
+}

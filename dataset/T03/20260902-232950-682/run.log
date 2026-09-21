@@ -1,0 +1,8 @@
+﻿Run 20260902-232950-682 Scenario T03 Traffic icmp Duration 8 Seed 9998
+initiate failed: establishing CHILD_SA 't03-child' failed
+[IKE] not establishing CHILD_SA t03-child{79} due to existing duplicate {76} with SPIs c902230e_i c1805b49_o and TS 10.77.23.0/24 === 10.77.24.0/24
+--- 10.77.24.10 ping statistics ---
+18 packets transmitted, 18 received, 0% packet loss, time 7618ms
+rtt min/avg/max/mdev = 0.070/0.116/0.174/0.031 ms
+
+{"profile": "icmp", "duration": 8, "seed": 9998, "peer": "10.77.24.10", "result": {"packets": 18, "bytes": 1620, "protocol": "icmp", "packet_size": 90, "interval": 0.43872384140615395, "count": 18, "actual_duration": 8, "seed": 9998, "profile_version": "3.5-v1"}, "profile_version": "3.5-v1"}

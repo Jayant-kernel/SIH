@@ -1,0 +1,4 @@
+﻿Run 20260903-153954-826 Scenario T15 Traffic web Duration 15 Seed 5009
+[generator] HTTP: 19 requests to http://fd77:77:24::10:8000/ interval 0.447 req 308 resp 2873
+[generator] HTTP done 19 requests
+{"profile": "web", "duration": 15, "seed": 5009, "peer": "fd77:77:24::10", "result": {"packets": 76, "bytes": 60439, "requests": 19, "interval": 0.44737729455664377, "request_size": 308, "response_size": 2873, "actual_duration": 15, "seed": 5009, "profile_version": "3.5-v1"}, "profile_version": "3.5-v1"}

@@ -1,0 +1,30 @@
+﻿reading from file /dataset/T15/20260903-130008-224/capture.pcap, link-type LINUX_SLL2 (Linux cooked v2), snapshot length 262144
+Warning: interface names might be incorrect
+07:30:21.102745 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xcf4b68ac,seq=0x1), length 152
+07:30:21.102879 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc688f5b0,seq=0x1), length 152
+07:30:21.102884 eth1  In  IP6 fd77:77:24::10 > fd77:77:23::10: ICMP6, echo reply, id 54425, seq 1, length 64
+07:30:22.113506 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xcf4b68ac,seq=0x2), length 152
+07:30:22.113559 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc688f5b0,seq=0x2), length 152
+07:30:22.113559 eth1  In  IP6 fd77:77:24::10 > fd77:77:23::10: ICMP6, echo reply, id 54425, seq 2, length 64
+07:30:23.137392 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xcf4b68ac,seq=0x3), length 152
+07:30:23.137464 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc688f5b0,seq=0x3), length 152
+07:30:23.137464 eth1  In  IP6 fd77:77:24::10 > fd77:77:23::10: ICMP6, echo reply, id 54425, seq 3, length 64
+07:30:24.161494 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xcf4b68ac,seq=0x4), length 152
+07:30:24.161554 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc688f5b0,seq=0x4), length 152
+07:30:24.161554 eth1  In  IP6 fd77:77:24::10 > fd77:77:23::10: ICMP6, echo reply, id 54425, seq 4, length 64
+07:30:25.185704 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xcf4b68ac,seq=0x5), length 152
+07:30:25.185764 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc688f5b0,seq=0x5), length 152
+07:30:25.185764 eth1  In  IP6 fd77:77:24::10 > fd77:77:23::10: ICMP6, echo reply, id 54425, seq 5, length 64
+07:30:25.382426 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xcf4b68ac,seq=0x6), length 120
+07:30:25.382531 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc688f5b0,seq=0x6), length 120
+07:30:25.382535 eth1  In  IP6 fd77:77:24::10 > fd77:77:23::10: ICMP6, echo reply, id 54426, seq 1, length 37
+07:30:25.632388 eth1  Out IP 10.77.0.10.4500 > 10.77.0.20.4500: NONESP-encap: isakmp: child_sa  inf2[I]
+07:30:25.633496 eth1  In  IP 10.77.0.20.500 > 10.77.0.10.500: isakmp: parent_sa ikev2_init[I]
+07:30:25.633528 eth1  In  IP 10.77.0.20.4500 > 10.77.0.10.4500: NONESP-encap: isakmp: child_sa  inf2[R]
+07:30:25.635763 eth1  Out IP 10.77.0.10.500 > 10.77.0.20.500: isakmp: parent_sa ikev2_init[R]
+07:30:25.642807 eth1  In  IP 10.77.0.20.4500 > 10.77.0.10.4500: NONESP-encap: isakmp: child_sa  ikev2_auth[I]
+07:30:25.648838 eth1  Out IP 10.77.0.10.4500 > 10.77.0.20.4500: NONESP-encap: isakmp: child_sa  ikev2_auth[R]
+07:30:25.867193 eth1  In  IP 10.77.0.20.4500 > 10.77.0.10.4500: NONESP-encap: isakmp: child_sa  inf2[I]
+07:30:25.868237 eth1  Out IP 10.77.0.10.500 > 10.77.0.20.500: isakmp: parent_sa ikev2_init[I]
+07:30:25.868280 eth1  Out IP 10.77.0.10.4500 > 10.77.0.20.4500: NONESP-encap: isakmp: child_sa  inf2[R]
+07:30:25.870233 eth1  In  IP 10.77.0.20.500 > 10.77.0.10.500: isakmp: parent_sa ikev2_init[R]

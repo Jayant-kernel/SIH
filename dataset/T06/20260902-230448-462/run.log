@@ -1,0 +1,3 @@
+﻿Run 20260902-230448-462 Scenario T06 Traffic video-like Duration 8
+initiate failed: establishing CHILD_SA 'host-host' failed
+[IKE] not establishing CHILD_SA host-host{36} due to existing duplicate {33} with SPIs c9ad4d1d_i cf742d83_o and TS 10.77.0.10/32 === 10.77.0.20/32

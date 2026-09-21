@@ -1,0 +1,11 @@
+﻿ah-test: #25, ESTABLISHED, IKEv2, a29f67b13d90e9af_i* ae9ddf9515cce4e6_r
+  local  'gateway-a' @ 10.77.0.10[4500]
+  remote 'gateway-b' @ 10.77.0.20[4500]
+  AES_CBC-192/HMAC_SHA2_256_128/PRF_HMAC_SHA2_256/MODP_2048
+  established 26s ago, rekeying in 13599s
+  ah-child: #37, reqid 7, INSTALLED, TUNNEL, AH:HMAC_SHA2_256_128
+    installed 26s ago, rekeying in 3253s, expires in 3934s
+    in  c024d364,      0 bytes,     0 packets
+    out c95e0cc6,      0 bytes,     0 packets
+    local  10.77.8.0/24
+    remote 10.77.9.0/24

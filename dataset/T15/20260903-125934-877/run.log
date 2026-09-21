@@ -1,0 +1,8 @@
+﻿Run 20260903-125934-877 Scenario T15 Traffic icmp Duration 9 Seed 7256
+initiate failed: establishing CHILD_SA 't15-child' failed
+[IKE] not establishing CHILD_SA t15-child{317} due to existing duplicate {313} with SPIs c5a89109_i c355628d_o and TS fd77:77:23::/64 === fd77:77:24::/64
+--- fd77:77:24::10 ping statistics ---
+15 packets transmitted, 15 received, 0% packet loss, time 8495ms
+rtt min/avg/max/mdev = 0.064/0.098/0.158/0.026 ms
+
+{"profile": "icmp", "duration": 9, "seed": 7256, "peer": "fd77:77:24::10", "result": {"packets": 15, "bytes": 1320, "protocol": "icmp", "packet_size": 88, "interval": 0.5799561475119729, "count": 15, "actual_duration": 9, "seed": 7256, "profile_version": "3.5-v1"}, "profile_version": "3.5-v1"}

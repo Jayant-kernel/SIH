@@ -1,0 +1,102 @@
+﻿{
+    "run":  {
+                "timestamp":  "2026-09-03T17:37:28.6464727+05:30",
+                "run_id":  "20260903-173651-525",
+                "pcap":  "capture.pcap",
+                "status":  "PASS",
+                "scenario_id":  "T15"
+            },
+    "observations":  {
+                         "swanctl_after":  "T15: #1, ESTABLISHED, IKEv2, 1222f78db3b3bb4e_i* 662d75efb4cfcaa5_r |   local  \u0027gateway-a\u0027 @ 10.77.0.10[4500] |   remote \u0027gateway-b\u0027 @ 10.77.0.20[4500] |   AES_CBC-192/HMAC_SHA2_256_128/PRF_HMAC_SHA2_256/MODP_3072 |   established 29s ago, rekeying in 14290s |   t15-child: #1, reqid 1, INSTALLED, TUNNEL, ESP:AES_CBC-192/HMAC_SHA2_256_128",
+                         "xfrm_state_lines":  "\tproto esp spi 0xcbad5fe0 reqid 1 mode tunnel | \tproto esp spi 0xc4e3a102 reqid 1 mode tunnel",
+                         "tcpdump_head":  "reading from file /dataset-v2-final/T15/20260903-173651-525/capture.pcap, link-type EN10MB (Ethernet), snapshot length 262144 | 12:07:06.437657 IP 10.77.0.10 \u003e 10.77.0.20: ESP(spi=0xcbad5fe0,seq=0x3), length 152 | 12:07:06.437735 IP 10.77.0.20 \u003e 10.77.0.10: ESP(spi=0xc4e3a102,seq=0x3), length 152 | 12:07:07.451717 IP 10.77.0.10 \u003e 10.77.0.20: ESP(spi=0xcbad5fe0,seq=0x4), length 152",
+                         "swanctl_before":  "T15: #1, ESTABLISHED, IKEv2, 1222f78db3b3bb4e_i* 662d75efb4cfcaa5_r |   local  \u0027gateway-a\u0027 @ 10.77.0.10[4500] |   remote \u0027gateway-b\u0027 @ 10.77.0.20[4500] |   AES_CBC-192/HMAC_SHA2_256_128/PRF_HMAC_SHA2_256/MODP_3072 |   established 5s ago, rekeying in 14314s |   t15-child: #1, reqid 1, INSTALLED, TUNNEL, ESP:AES_CBC-192/HMAC_SHA2_256_128"
+                     },
+    "evidence_classification":  {
+                                    "ml_inferred":  [
+
+                                                    ],
+                                    "deterministically_derived":  [
+                                                                      "mode from XFRM",
+                                                                      "PFS from scenario",
+                                                                      "rekey from SPI change"
+                                                                  ],
+                                    "directly_observed":  [
+                                                              "ESP packet present if tcpdump shows ESP",
+                                                              "AH packet present if AH",
+                                                              "IPv4/IPv6 outer",
+                                                              "SPI",
+                                                              "packet lengths"
+                                                          ],
+                                    "unknown":  [
+                                                    "AES key length from ciphertext",
+                                                    "exact DH group from ciphertext"
+                                                ]
+                                },
+    "vpn_ground_truth":  {
+                             "ike_transport_ip_version":  "IPv4",
+                             "protected_ip_version":  "IPv6",
+                             "remote_ts":  "fd77:77:24::/64",
+                             "ike_version":  2,
+                             "encryption_key_length":  192,
+                             "dh_group":  15,
+                             "integrity_algorithm":  "HMAC-SHA256",
+                             "ipsec_protocol":  "ESP",
+                             "encryption_algorithm":  "AES-CBC",
+                             "pfs":  false,
+                             "rekey_enabled":  false,
+                             "mode":  "tunnel",
+                             "local_ts":  "fd77:77:23::/64",
+                             "rekey_time":  "0",
+                             "dh_group_name":  "modp3072"
+                         },
+    "scenario":  {
+                     "scenario_id":  "T15",
+                     "family":  "Mixed-edge",
+                     "description":  "Mixed edge: ESP tunnel CBC AES192 SHA256 MODP3072 PFS disabled IPv6 protected",
+                     "ike_version":  2,
+                     "ike_transport_ip_version":  "IPv4",
+                     "ipsec_protocol":  "ESP",
+                     "mode":  "tunnel",
+                     "encryption_algorithm":  "AES-CBC",
+                     "encryption_key_length":  192,
+                     "integrity_algorithm":  "HMAC-SHA256",
+                     "dh_group":  15,
+                     "dh_group_name":  "modp3072",
+                     "pfs":  false,
+                     "protected_ip_version":  "IPv6",
+                     "local_ts":  "fd77:77:23::/64",
+                     "remote_ts":  "fd77:77:24::/64",
+                     "ike_endpoints":  "10.77.0.10 \u003c-\u003e 10.77.0.20",
+                     "rekey_enabled":  false,
+                     "rekey_time":  "0",
+                     "traffic_profiles":  [
+                                              "icmp",
+                                              "dns",
+                                              "bulk-transfer"
+                                          ],
+                     "expected_protocols":  [
+                                                "ESP IPv6"
+                                            ],
+                     "expected_observations":  [
+                                                   "IPv6 TS over IPv4 IKE, no PFS"
+                                               ]
+                 },
+    "traffic_ground_truth":  {
+                                 "traffic_class":  "icmp",
+                                 "generator_output":  "--- fd77:77:24::10 ping statistics ---\n20 packets transmitted, 20 received, 0% packet loss, time 11552ms\nrtt min/avg/max/mdev = 0.069/0.128/0.177/0.027 ms\n\n{\"profile\": \"icmp\", \"duration\": 12, \"seed\": 1173, \"peer\": \"fd77:77:24::10\", \"result\": {\"packets\": 20, \"bytes\": 1600, \"protocol\": \"icmp\", \"packet_size\": 80, \"interval\": 0.598706296740213, \"count\": 20, \"actual_duration\": 12, \"seed\": 1173, \"profile_version\": \"3.5-v1\"}, \"profile_version\": \"3.5-v1\"}",
+                                 "peer":  "fd77:77:24::10",
+                                 "profile_version":  "3.5-v2",
+                                 "duration":  12,
+                                 "generator":  "generator.py",
+                                 "src":  "fd77:77:23::10",
+                                 "seed":  1173
+                             },
+    "validation":  {
+                       "expected_protocols":  [
+                                                  "ESP IPv6"
+                                              ],
+                       "mode_verified":  true,
+                       "pass_criteria":  "PASS"
+                   }
+}

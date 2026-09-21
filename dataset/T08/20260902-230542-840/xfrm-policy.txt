@@ -1,0 +1,28 @@
+﻿src 10.77.8.0/24 dst 10.77.9.0/24 
+	dir out priority 375423 ptype main 
+	tmpl src 10.77.0.10 dst 10.77.0.20
+		proto ah spi 0xc95e0cc6 reqid 7 mode tunnel
+src 10.77.9.0/24 dst 10.77.8.0/24 
+	dir fwd priority 375423 ptype main 
+	tmpl src 10.77.0.20 dst 10.77.0.10
+		proto ah reqid 7 mode tunnel
+src 10.77.9.0/24 dst 10.77.8.0/24 
+	dir in priority 375423 ptype main 
+	tmpl src 10.77.0.20 dst 10.77.0.10
+		proto ah reqid 7 mode tunnel
+src 0.0.0.0/0 dst 0.0.0.0/0 
+	socket in priority 0 ptype main 
+src 0.0.0.0/0 dst 0.0.0.0/0 
+	socket out priority 0 ptype main 
+src 0.0.0.0/0 dst 0.0.0.0/0 
+	socket in priority 0 ptype main 
+src 0.0.0.0/0 dst 0.0.0.0/0 
+	socket out priority 0 ptype main 
+src ::/0 dst ::/0 
+	socket in priority 0 ptype main 
+src ::/0 dst ::/0 
+	socket out priority 0 ptype main 
+src ::/0 dst ::/0 
+	socket in priority 0 ptype main 
+src ::/0 dst ::/0 
+	socket out priority 0 ptype main 

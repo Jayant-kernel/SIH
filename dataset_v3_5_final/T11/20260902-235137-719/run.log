@@ -1,0 +1,21 @@
+﻿Run 20260902-235137-719 Scenario T11 Traffic icmp Duration 8 Seed 1605
+[CFG] selected proposal: IKE:AES_GCM_16_128/PRF_HMAC_SHA2_256/MODP_3072
+[IKE] authentication of 'gateway-a' (myself) with pre-shared key
+[IKE] establishing CHILD_SA t11-child{204}
+[ENC] generating IKE_AUTH request 1 [ IDi N(INIT_CONTACT) IDr AUTH SA TSi TSr N(MOBIKE_SUP) N(ADD_4_ADDR) N(ADD_4_ADDR) N(ADD_6_ADDR) N(MULT_AUTH) N(EAP_ONLY) N(MSG_ID_SYN_SUP) ]
+[NET] sending packet: from fd77:77::10[4500] to fd77:77::20[4500] (303 bytes)
+[NET] received packet: from fd77:77::20[4500] to fd77:77::10[4500] (254 bytes)
+[ENC] parsed IKE_AUTH response 1 [ IDr AUTH SA TSi TSr N(MOBIKE_SUP) N(ADD_4_ADDR) N(ADD_4_ADDR) N(ADD_6_ADDR) ]
+[IKE] authentication of 'gateway-b' with pre-shared key successful
+[IKE] peer supports MOBIKE
+[IKE] IKE_SA T11[150] established between fd77:77::10[gateway-a]...fd77:77::20[gateway-b]
+[IKE] scheduling rekeying in 14074s
+[IKE] maximum IKE_SA lifetime 15514s
+[CFG] selected proposal: ESP:AES_GCM_16_128/NO_EXT_SEQ
+[IKE] CHILD_SA t11-child{204} established with SPIs cb19e051_i cd79f8af_o and TS 10.77.15.0/24 === 10.77.16.0/24
+initiate completed successfully
+--- 10.77.16.10 ping statistics ---
+13 packets transmitted, 13 received, 0% packet loss, time 7295ms
+rtt min/avg/max/mdev = 0.085/0.119/0.163/0.027 ms
+
+{"profile": "icmp", "duration": 8, "seed": 1605, "peer": "10.77.16.10", "result": {"packets": 13, "bytes": 1014, "protocol": "icmp", "packet_size": 78, "interval": 0.5753186804462302, "count": 13, "actual_duration": 8, "seed": 1605, "profile_version": "3.5-v1"}, "profile_version": "3.5-v1"}

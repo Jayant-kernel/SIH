@@ -1,0 +1,20 @@
+﻿Run 20260903-174157-046 Scenario T15 Traffic web Duration 8 Seed 8170
+[CFG] selected proposal: IKE:AES_CBC_192/HMAC_SHA2_256_128/PRF_HMAC_SHA2_256/MODP_3072
+[IKE] authentication of 'gateway-a' (myself) with pre-shared key
+[IKE] establishing CHILD_SA t15-child{10}
+[ENC] generating IKE_AUTH request 1 [ IDi N(INIT_CONTACT) IDr AUTH SA TSi TSr N(MOBIKE_SUP) N(ADD_4_ADDR) N(ADD_6_ADDR) N(ADD_6_ADDR) N(MULT_AUTH) N(EAP_ONLY) N(MSG_ID_SYN_SUP) ]
+[NET] sending packet: from 10.77.0.10[4500] to 10.77.0.20[4500] (384 bytes)
+[NET] received packet: from 10.77.0.20[4500] to 10.77.0.10[4500] (336 bytes)
+[ENC] parsed IKE_AUTH response 1 [ IDr AUTH SA TSi TSr N(MOBIKE_SUP) N(ADD_4_ADDR) N(ADD_6_ADDR) N(ADD_6_ADDR) ]
+[IKE] authentication of 'gateway-b' with pre-shared key successful
+[IKE] peer supports MOBIKE
+[IKE] IKE_SA T15[10] established between 10.77.0.10[gateway-a]...10.77.0.20[gateway-b]
+[IKE] scheduling rekeying in 13156s
+[IKE] maximum IKE_SA lifetime 14596s
+[CFG] selected proposal: ESP:AES_CBC_192/HMAC_SHA2_256_128/NO_EXT_SEQ
+[IKE] CHILD_SA t15-child{10} established with SPIs cb322fde_i cce83f01_o and TS fd77:77:23::/64 === fd77:77:24::/64
+initiate completed successfully
+200
+[generator] HTTP: 13 requests to http://[fd77:77:24::10]:8000/ interval 0.805 req 395 resp 2618
+[generator] HTTP done 13 requests
+{"profile": "web", "duration": 8, "seed": 8170, "peer": "fd77:77:24::10", "result": {"packets": 52, "bytes": 39169, "requests": 13, "interval": 0.8054699360133148, "request_size": 395, "response_size": 2618, "actual_duration": 8, "seed": 8170, "profile_version": "3.5-v1"}, "profile_version": "3.5-v1"}

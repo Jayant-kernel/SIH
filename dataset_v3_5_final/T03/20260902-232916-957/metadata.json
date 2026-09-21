@@ -1,0 +1,104 @@
+﻿{
+    "run":  {
+                "timestamp":  "2026-09-02T23:29:47.4234132+05:30",
+                "run_id":  "20260902-232916-957",
+                "pcap":  "capture.pcap",
+                "status":  "PASS",
+                "scenario_id":  "T03"
+            },
+    "observations":  {
+                         "swanctl_after":  "T03: #52, ESTABLISHED, IKEv2, c4a4434d4841af32_i* e55d317a45434862_r |   local  \u0027gateway-a\u0027 @ 10.77.0.10[4500] |   remote \u0027gateway-b\u0027 @ 10.77.0.20[4500] |   AES_CBC-256/HMAC_SHA2_256_128/PRF_HMAC_SHA2_256/MODP_2048 |   established 23s ago, rekeying in 14244s |   t03-child: #76, reqid 1, INSTALLED, TUNNEL, ESP:AES_CBC-256/HMAC_SHA2_256_128",
+                         "xfrm_state_lines":  "\tproto esp spi 0xc1805b49 reqid 1 mode tunnel | \tproto esp spi 0xc902230e reqid 1 mode tunnel",
+                         "tcpdump_head":  "reading from file /dataset/T03/20260902-232916-957/capture.pcap, link-type LINUX_SLL2 (Linux cooked v2), snapshot length 262144 | Warning: interface names might be incorrect | 17:59:29.633171 eth1  Out IP 10.77.0.10 \u003e 10.77.0.20: ESP(spi=0xc1805b49,seq=0x1), length 136 | 17:59:29.633253 eth1  In  IP 10.77.0.20 \u003e 10.77.0.10: ESP(spi=0xc902230e,seq=0x1), length 136",
+                         "swanctl_before":  "T03: #52, ESTABLISHED, IKEv2, c4a4434d4841af32_i* e55d317a45434862_r |   local  \u0027gateway-a\u0027 @ 10.77.0.10[4500] |   remote \u0027gateway-b\u0027 @ 10.77.0.20[4500] |   AES_CBC-256/HMAC_SHA2_256_128/PRF_HMAC_SHA2_256/MODP_2048 |   established 4s ago, rekeying in 14263s |   t03-child: #76, reqid 1, INSTALLED, TUNNEL, ESP:AES_CBC-256/HMAC_SHA2_256_128"
+                     },
+    "evidence_classification":  {
+                                    "ml_inferred":  [
+
+                                                    ],
+                                    "deterministically_derived":  [
+                                                                      "mode from XFRM",
+                                                                      "PFS from scenario",
+                                                                      "rekey from SPI change"
+                                                                  ],
+                                    "directly_observed":  [
+                                                              "ESP packet present if tcpdump shows ESP",
+                                                              "AH packet present if AH",
+                                                              "IPv4/IPv6 outer",
+                                                              "SPI",
+                                                              "packet lengths"
+                                                          ],
+                                    "unknown":  [
+                                                    "AES key length from ciphertext",
+                                                    "exact DH group from ciphertext"
+                                                ]
+                                },
+    "vpn_ground_truth":  {
+                             "ike_transport_ip_version":  "IPv4",
+                             "protected_ip_version":  "IPv4",
+                             "remote_ts":  "10.77.2.0/24",
+                             "ike_version":  2,
+                             "encryption_key_length":  256,
+                             "dh_group":  14,
+                             "integrity_algorithm":  "HMAC-SHA256",
+                             "ipsec_protocol":  "ESP",
+                             "encryption_algorithm":  "AES-CBC",
+                             "pfs":  false,
+                             "rekey_enabled":  true,
+                             "mode":  "tunnel",
+                             "local_ts":  "10.77.1.0/24",
+                             "rekey_time":  "3600s",
+                             "dh_group_name":  "modp2048"
+                         },
+    "scenario":  {
+                     "scenario_id":  "T03",
+                     "family":  "ESP-tunnel-CBC",
+                     "description":  "ESP tunnel CBC AES256 SHA256 MODP2048 PFS disabled (no DH in CHILD)",
+                     "ike_version":  2,
+                     "ike_transport_ip_version":  "IPv4",
+                     "ipsec_protocol":  "ESP",
+                     "mode":  "tunnel",
+                     "encryption_algorithm":  "AES-CBC",
+                     "encryption_key_length":  256,
+                     "integrity_algorithm":  "HMAC-SHA256",
+                     "dh_group":  14,
+                     "dh_group_name":  "modp2048",
+                     "pfs":  false,
+                     "pfs_group":  null,
+                     "protected_ip_version":  "IPv4",
+                     "local_ts":  "10.77.1.0/24",
+                     "remote_ts":  "10.77.2.0/24",
+                     "ike_endpoints":  "10.77.0.10 \u003c-\u003e 10.77.0.20",
+                     "rekey_enabled":  true,
+                     "rekey_time":  "3600s",
+                     "traffic_profiles":  [
+                                              "icmp",
+                                              "web",
+                                              "voip-like",
+                                              "video-like"
+                                          ],
+                     "expected_protocols":  [
+                                                "ESP"
+                                            ],
+                     "expected_observations":  [
+                                                   "ESP without PFS",
+                                                   "no DH in esp_proposals"
+                                               ]
+                 },
+    "traffic_ground_truth":  {
+                                 "traffic_class":  "icmp",
+                                 "generator_output":  "--- 10.77.24.10 ping statistics ---\n11 packets transmitted, 11 received, 0% packet loss, time 7033ms\nrtt min/avg/max/mdev = 0.088/0.130/0.183/0.032 ms\n\n{\"profile\": \"icmp\", \"duration\": 8, \"seed\": 3832, \"peer\": \"10.77.24.10\", \"result\": {\"packets\": 11, \"bytes\": 528, \"protocol\": \"icmp\", \"packet_size\": 48, \"interval\": 0.6726389090884517, \"count\": 11, \"actual_duration\": 8, \"seed\": 3832, \"profile_version\": \"3.5-v1\"}, \"profile_version\": \"3.5-v1\"}",
+                                 "peer":  "10.77.24.10",
+                                 "profile_version":  "3.5-v1",
+                                 "duration":  8,
+                                 "generator":  "generator.py",
+                                 "src":  "10.77.23.10",
+                                 "seed":  3832
+                             },
+    "validation":  {
+                       "expected_protocols":  [
+                                                  "ESP"
+                                              ],
+                       "mode_verified":  true
+                   }
+}

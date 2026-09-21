@@ -1,0 +1,26 @@
+﻿reading from file /dataset-final/T14/20260903-153258-782/capture.pcap, link-type LINUX_SLL2 (Linux cooked v2), snapshot length 262144
+Warning: interface names might be incorrect
+10:03:00.191885 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc61e3f06,seq=0x1), length 104
+10:03:00.191942 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc59309f6,seq=0x1), length 88
+10:03:00.728078 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc61e3f06,seq=0x2), length 104
+10:03:00.728125 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc59309f6,seq=0x2), length 88
+10:03:01.226853 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc61e3f06,seq=0x3), length 104
+10:03:01.226899 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc59309f6,seq=0x3), length 88
+10:03:01.661821 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc61e3f06,seq=0x4), length 104
+10:03:01.661869 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc59309f6,seq=0x4), length 88
+10:03:02.376797 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc61e3f06,seq=0x5), length 104
+10:03:02.376843 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc59309f6,seq=0x5), length 88
+10:03:02.831191 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc61e3f06,seq=0x6), length 104
+10:03:02.831235 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc59309f6,seq=0x6), length 88
+10:03:03.542844 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc61e3f06,seq=0x7), length 104
+10:03:03.542901 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc59309f6,seq=0x7), length 88
+10:03:04.167310 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc61e3f06,seq=0x8), length 104
+10:03:04.167354 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc59309f6,seq=0x8), length 88
+10:03:04.659266 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc61e3f06,seq=0x9), length 104
+10:03:04.659311 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc59309f6,seq=0x9), length 88
+10:03:05.204021 eth1  Out IP 10.77.0.10 > 10.77.0.20: ESP(spi=0xc61e3f06,seq=0xa), length 104
+10:03:05.204065 eth1  In  IP 10.77.0.20 > 10.77.0.10: ESP(spi=0xc59309f6,seq=0xa), length 88
+10:03:07.998031 eth1  Out IP 10.77.0.10.4500 > 10.77.0.20.4500: NONESP-encap: isakmp: child_sa  child_sa[I]
+10:03:08.003863 eth1  In  IP 10.77.0.20.4500 > 10.77.0.10.4500: NONESP-encap: isakmp: child_sa  child_sa[R]
+10:03:08.009111 eth1  Out IP 10.77.0.10.4500 > 10.77.0.20.4500: NONESP-encap: isakmp: child_sa  inf2[I]
+10:03:08.009536 eth1  In  IP 10.77.0.20.4500 > 10.77.0.10.4500: NONESP-encap: isakmp: child_sa  inf2[R]

@@ -1,0 +1,6 @@
+﻿Run 20260903-144548-859 Scenario T05 Traffic icmp Duration 13 Seed 493
+--- 10.77.14.10 ping statistics ---
+20 packets transmitted, 20 received, 0% packet loss, time 12171ms
+rtt min/avg/max/mdev = 0.061/0.118/0.177/0.027 ms
+
+{"profile": "icmp", "duration": 13, "seed": 493, "peer": "10.77.14.10", "result": {"packets": 20, "bytes": 1000, "protocol": "icmp", "packet_size": 50, "interval": 0.6249977406313316, "count": 20, "actual_duration": 13, "seed": 493, "profile_version": "3.5-v1"}, "profile_version": "3.5-v1"}

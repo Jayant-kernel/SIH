@@ -1,0 +1,6 @@
+﻿Run 20260902-234928-920 Scenario T09 Traffic voip-like Duration 8 Seed 6997
+initiate failed: establishing CHILD_SA 't09-child' failed
+[IKE] not establishing CHILD_SA t09-child{192} due to existing duplicate {177} with SPIs c0f9ecba_i cd5d5cea_o and TS 10.77.0.10/32 === 10.77.0.20/32
+[generator] UDP small: 50 pps, size 95, jitter 0.010, dur 8s to 10.77.0.20:5001
+[generator] UDP small sent 402 packets
+{"profile": "voip-like", "duration": 8, "seed": 6997, "peer": "10.77.0.20", "result": {"packets": 402, "bytes": 38190, "protocol": "udp", "packet_size": 95, "pps": 50, "jitter": 0.009819233887069605, "actual_duration": 8, "seed": 6997, "profile_version": "3.5-v1"}, "profile_version": "3.5-v1"}

@@ -1,0 +1,28 @@
+﻿src 10.77.11.0/24 dst 10.77.12.0/24 
+	dir out priority 375423 ptype main 
+	tmpl src 10.77.0.10 dst 10.77.0.20
+		proto esp spi 0xc214d118 reqid 2 mode tunnel
+src 10.77.12.0/24 dst 10.77.11.0/24 
+	dir fwd priority 375423 ptype main 
+	tmpl src 10.77.0.20 dst 10.77.0.10
+		proto esp reqid 2 mode tunnel
+src 10.77.12.0/24 dst 10.77.11.0/24 
+	dir in priority 375423 ptype main 
+	tmpl src 10.77.0.20 dst 10.77.0.10
+		proto esp reqid 2 mode tunnel
+src 0.0.0.0/0 dst 0.0.0.0/0 
+	socket in priority 0 ptype main 
+src 0.0.0.0/0 dst 0.0.0.0/0 
+	socket out priority 0 ptype main 
+src 0.0.0.0/0 dst 0.0.0.0/0 
+	socket in priority 0 ptype main 
+src 0.0.0.0/0 dst 0.0.0.0/0 
+	socket out priority 0 ptype main 
+src ::/0 dst ::/0 
+	socket in priority 0 ptype main 
+src ::/0 dst ::/0 
+	socket out priority 0 ptype main 
+src ::/0 dst ::/0 
+	socket in priority 0 ptype main 
+src ::/0 dst ::/0 
+	socket out priority 0 ptype main 
